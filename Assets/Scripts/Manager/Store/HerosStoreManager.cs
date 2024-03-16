@@ -21,6 +21,8 @@ namespace Manager.Store
         private Text _priceText;
         private TextMeshProUGUI _characterNameText;
 
+        #region Awake, Set, Get Functions
+
         private void Awake()
         {
             GetReferences();
@@ -42,6 +44,9 @@ namespace Manager.Store
             InitalizeList();
         }
 
+        #endregion
+        
+
         private void InitalizeList()
         {
             for (int i = 0; i < Heros.Count; i++)
@@ -50,42 +55,17 @@ namespace Manager.Store
                 string[] parts = Heros[i].name.Split(' ');
                 herosInfos[i] = new StoreInformations(0, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
                     _equippedButton);
-                UpdateButtonStatus();
-                UpdateInformation();
+                StoreManager.Instance.UpdateButtonStatus(herosInfos, CurrentIndex);
+                UpdatePriceName();
             }
             _characterNameText.text = herosInfos[CurrentIndex].Name;
             Heros[CurrentIndex].SetActive(true);
         }
 
-        public void UpdateInformation()
+        public void UpdatePriceName()
         {
             _characterNameText.text = herosInfos[CurrentIndex].Name;
             _priceText.text = herosInfos[CurrentIndex].Price;
-        }
-
-        public void UpdateButtonStatus()
-        {
-            bool boughtStatus = herosInfos[CurrentIndex].IsBought;
-            herosInfos[CurrentIndex].PurchasseButton.gameObject.SetActive(!boughtStatus);
-            herosInfos[CurrentIndex].EquippedButton.gameObject.SetActive(herosInfos[CurrentIndex].IsEquipped);
-            herosInfos[CurrentIndex].EquipButton.gameObject.SetActive(boughtStatus);
-        }
-
-        public void EquipButtonStatus()
-        {
-            for (int i = 0; i < Heros.Count; i++)
-            {
-                herosInfos[i].IsEquipped = false;
-            }
-
-            herosInfos[CurrentIndex].IsEquipped = true;
-            UpdateButtonStatus();
-        }
-
-        public void SetBought(bool check)
-        {
-            herosInfos[CurrentIndex].IsBought = check;
-            UpdateButtonStatus();
         }
     }
 }

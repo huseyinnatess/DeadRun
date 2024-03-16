@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MonoSingleton;
 using UnityEngine;
-using Utilities.Store;
+using UnityEngine.UI;
 using Utilities.Store.Skin;
 
 namespace Manager.Store
@@ -14,12 +14,14 @@ namespace Manager.Store
 
         [HideInInspector] public static int ActiveGroup;
         [HideInInspector] public static int ActiveIndex;
+        
+        private Text _priceText;
         private void Awake()
         {
             InitializeSkinInfos.Instance.SkinInfoList(SkinInfoMatrix, SkinObjectsMatrix);
+            _priceText = GameObject.FindWithTag("PriceText").GetComponent<Text>();
         }
-
-
+        
         public void ActivateGroupItems()
         {
             List<GameObject> tempList = SkinObjectsMatrix[ActiveGroup];
@@ -28,6 +30,13 @@ namespace Manager.Store
                 tempList[i].SetActive(false);
             }
             tempList[ActiveIndex].SetActive(true);
+            UpdatePrice();
+            StoreManager.Instance.UpdateButtonStatus(SkinInfoMatrix[ActiveGroup], ActiveIndex);
+        }
+
+        public void UpdatePrice()
+        {
+           _priceText.text = SkinInfoMatrix[ActiveGroup][ActiveIndex].Price;
         }
     }
 }

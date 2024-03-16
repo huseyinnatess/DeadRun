@@ -2,6 +2,7 @@
 using Manager;
 using Manager.Store;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Utilities.Store
 {
@@ -9,49 +10,46 @@ namespace Utilities.Store
     {
         public void NextButton()
         {
-            if (++HerosStoreManager.Instance.CurrentIndex < HerosStoreManager.Instance.Heros.Count)
-            {
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex - 1].SetActive(false);
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex].SetActive(true);
-            }
-            else
-            {
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex - 1].SetActive(false);
-                HerosStoreManager.Instance.CurrentIndex = 0;
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex].SetActive(true);
-            }
-            HerosStoreManager.Instance.UpdateInformation();
-            HerosStoreManager.Instance.UpdateButtonStatus();
+            HerosStoreManager storeManager = HerosStoreManager.Instance;
+            int currentIndex = storeManager.CurrentIndex;
+            int maxIndex = storeManager.Heros.Count - 1;
+            
+            storeManager.Heros[currentIndex].SetActive(false);
+
+            currentIndex = (currentIndex + 1) % (maxIndex + 1);
+            storeManager.CurrentIndex = currentIndex;
+
+            storeManager.Heros[currentIndex].SetActive(true);
+            storeManager.UpdatePriceName();
+            StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.herosInfos, HerosStoreManager.Instance.CurrentIndex);
         }
 
         public void BackButton()
         {
-            if (--HerosStoreManager.Instance.CurrentIndex >= 0)
-            {
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex + 1].SetActive(false);
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex].SetActive(true);
-            }
-            else
-            {
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex + 1].SetActive(false);
-                HerosStoreManager.Instance.CurrentIndex = HerosStoreManager.Instance.Heros.Count - 1;
-                HerosStoreManager.Instance.Heros[HerosStoreManager.Instance.CurrentIndex].SetActive(true);
-            }
-            HerosStoreManager.Instance.UpdateInformation();
-            HerosStoreManager.Instance.UpdateButtonStatus();
+            HerosStoreManager storeManager = HerosStoreManager.Instance;
+            int currentIndex = storeManager.CurrentIndex;
+            int maxIndex = storeManager.Heros.Count - 1;
+
+            storeManager.Heros[currentIndex].SetActive(false);
+
+            currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
+            storeManager.CurrentIndex = currentIndex;
+
+            storeManager.Heros[currentIndex].SetActive(true);
+            storeManager.UpdatePriceName();
+            StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.herosInfos, HerosStoreManager.Instance.CurrentIndex);
         }
 
-        public void PurchaseButton()
+        public void PurchaseButton(Text priceText)
         {
-            int index = HerosStoreManager.Instance.CurrentIndex;
-            int price = Convert.ToInt32(HerosStoreManager.Instance.herosInfos[index].Price);
+            int price = Convert.ToInt32(priceText.text);
             bool stat = CoinManager.Instance.ProcessPurchase(price);
-           HerosStoreManager.Instance.SetBought(stat); 
+           StoreManager.Instance.SetIsBought(HerosStoreManager.Instance.herosInfos, HerosStoreManager.Instance.CurrentIndex, stat); 
         }
 
         public void EquipButton()
         {
-            HerosStoreManager.Instance.EquipButtonStatus();
+            StoreManager.Instance.EquipButtonStatus(HerosStoreManager.Instance.herosInfos, HerosStoreManager.Instance.CurrentIndex);
         }
     }
 }

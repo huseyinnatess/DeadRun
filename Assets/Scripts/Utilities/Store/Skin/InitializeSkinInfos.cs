@@ -34,7 +34,7 @@ namespace Utilities.Store.Skin
             for (int i = 0; i < skinObjects.Count; i++)
             {
                 string[] parts = skinObjects[i].name.Split(' ');
-                skinInfolist.Add(new StoreInformations(_groupIndex, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
+                skinInfolist.Add(new StoreInformations(_groupIndex, null, parts[1], false, false, _purchasseButton, _equipButton,
                     _equippedButton));
             }
             mainList.Add(skinInfolist);
