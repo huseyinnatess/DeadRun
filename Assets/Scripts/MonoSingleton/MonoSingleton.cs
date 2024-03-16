@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MonoSingleton
 {
     public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
-        private static volatile T instance = null;
+        private static volatile T _instance = null;
         
-        public static T Instance => instance ? instance : (instance = FindObjectOfType(typeof(T)) as T);
+        public static T Instance => _instance ? _instance : (_instance = FindFirstObjectByType(typeof(T)) as T);
     }
 }

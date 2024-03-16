@@ -1,10 +1,11 @@
 using GoogleAdmob.Interface;
 using GoogleMobileAds.Api;
+using MonoSingleton;
 using UnityEngine;
 
 namespace GoogleAdmob
 {
-    public class InterstitialAD : MonoBehaviour, IAdmob
+    public class InterstitialAD : MonoSingleton<InterstitialAD>, IAdmob
     {
 #if UNITY_EDITOR
         private const string _adUnitId = "ca-app-pub-3940256099942544/6300978111";

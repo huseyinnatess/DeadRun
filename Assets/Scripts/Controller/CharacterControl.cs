@@ -1,31 +1,39 @@
 using System;
+using MonoSingleton;
 using ObjectPools;
 using UnityEngine;
 
 namespace Controller
 {
-    public class CharacterControl : MonoBehaviour
+    public class CharacterControl : MonoSingleton<CharacterControl>
     {
         private float _inputAxis;
-
+        private Animator _animator;
+        private float _speed;
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
+            _animator = GetComponent<Animator>();
+            _speed = 1f;
         }
 
-        private void CharacterMovement()
-        {
-            transform.Translate(Vector3.forward * (1f * Time.deltaTime));
-        }
+        #region Update, FixedUpdate
+
         private void FixedUpdate()
         {
-            SetCharacterPosition();
+            if (_speed != 0f)
+                SetCharacterPosition();
         }
 
         private void Update()
         {
             CharacterMovement();
             GetInputAxis();
+        }
+
+        private void CharacterMovement()
+        {
+            transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
         }
 
         private void GetInputAxis()
@@ -48,6 +56,13 @@ namespace Controller
             transform.position = position;
         }
 
+        #endregion
+
+        public void SetVictoryAnimation()
+        {
+            _speed = 0f;
+            _animator.SetTrigger("Victory");
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("NumbersPanel"))
@@ -59,13 +74,15 @@ namespace Controller
                     AgentPools.Instance.AgentObjectPoolManager(sign, count, other.transform);
                 }
             }
+
             if (other.CompareTag("Battlefield"))
             {
                 EnemyController.Attack(true);
             }
 
             if (AgentPools.CharacterCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
-                other.CompareTag("ThornWall") || other.CompareTag("Hammer") || other.CompareTag("EnemyAgent")))
+                                                   other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
+                                                   other.CompareTag("EnemyAgent")))
             {
                 gameObject.SetActive(false);
                 AgentPools.CharacterCount--;
@@ -75,5 +92,3 @@ namespace Controller
         }
     }
 }
-
-

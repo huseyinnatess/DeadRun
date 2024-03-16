@@ -1,11 +1,9 @@
-﻿using System;
+﻿using MonoSingleton;
 using UnityEngine;
-using UnityEngine.UI;
-using Utilities;
 
 namespace Manager
 {
-    public class LevelPanelManager : MonoBehaviour
+    public class LevelPanelManager : MonoSingleton<LevelPanelManager>
     {
         private static GameObject _victoryPanel;
         private static GameObject _defeatPanel;
@@ -29,17 +27,17 @@ namespace Manager
 
         #endregion
         
-        public static void VictoryPanel(bool active)
+        public void VictoryPanel(bool active)
         {
             _victoryPanel.SetActive(active);
         }
 
-        public static void DefeatPanel(bool active)
+        public void DefeatPanel(bool active)
         {
             _defeatPanel.SetActive(active);
         }
 
-        public static void PausePanel(bool active)
+        public void PausePanel(bool active)
         {
             _pausePanel.SetActive(active);
         }

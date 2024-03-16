@@ -42,7 +42,7 @@ namespace Utilities
         public void PauseAndContinue(bool active)
         {
             Time.timeScale = Convert.ToInt32(!active);
-            LevelPanelManager.PausePanel(active);
+            LevelPanelManager.Instance.PausePanel(active);
         }
     }
 }

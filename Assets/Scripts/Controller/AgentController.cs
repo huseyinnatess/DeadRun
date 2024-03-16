@@ -22,7 +22,6 @@ namespace Controller
 
         private void LateUpdate()
         {
-            Debug.Log(_destiniation.position);
             NavMeshSetDestiniation();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Controller;
 using GoogleAdmob;
 using GoogleAdmob.Interface;
 using Manager;
@@ -15,8 +16,6 @@ namespace Utilities
         private Scene _activeScene;
         private int _rewardCoin;
         private TextMeshProUGUI _rewardCoinText;
-        private readonly CoinManager _coinManager = new();
-        private IAdmob _intersititialAd = new InterstitialAD();
 
         #region Awake
 
@@ -35,23 +34,42 @@ namespace Utilities
             else
                 Defeat();
         }
+
+        #region Victory Functions
+
         private void Victory()
         {
-            if (_activeScene.buildIndex == PlayerData.GetInt("EndLevel"))
-                PlayerData.SetInt("EndLevel", PlayerData.GetInt("EndLevel") + 1);
-            LevelPanelManager.VictoryPanel(true);
+            SetPlayerEndLevel();
+            CharacterControl.Instance.SetVictoryAnimation();
+            LevelPanelManager.Instance.VictoryPanel(true);
+            SetPlayerRewardCoin();
+        }
+
+        private void SetPlayerRewardCoin()
+        {
             _rewardCoin = (AgentPools.CharacterCount * 4) + Random.Range(0, 15);
             GameObject.FindWithTag("RewardCoin").GetComponent<TextMeshProUGUI>().text = _rewardCoin.ToString();
-            _coinManager.EarnCoin(_rewardCoin);
+            CoinManager.Instance.EarnCoin(_rewardCoin);
         }
+
+        private void SetPlayerEndLevel()
+        {
+            if (_activeScene.buildIndex == PlayerData.GetInt("EndLevel"))
+            {
+                PlayerData.SetInt("EndLevel", PlayerData.GetInt("EndLevel") + 1);
+            }
+        }
+
+        #endregion
+        
         private void Defeat()
         {
-            LevelPanelManager.DefeatPanel(true);
+            LevelPanelManager.Instance.DefeatPanel(true);
         }
         
         private void ShowIntersititalAd()
         {
-            _intersititialAd.ShowAd();
+            InterstitialAD.Instance.ShowAd();
         }
     }
 }
