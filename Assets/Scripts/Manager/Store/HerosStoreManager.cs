@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
+using MonoSingleton;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
+using Utilities.Store;
+using Utilities.Store.Skin;
 
 namespace Manager.Store
 {
-    public class HerosStoreManager : MonoBehaviour
+    public class HerosStoreManager : MonoSingleton<HerosStoreManager>
     {
         public List<GameObject> Heros;
-        public List<HerosInformations.HerosInfo> herosInfos = new List<HerosInformations.HerosInfo>();
-        public static HerosStoreManager Instance;
+        public List<StoreInformations> herosInfos = new List<StoreInformations>();
         [HideInInspector] public int CurrentIndex = 0;
 
         private Button _purchasseButton;
@@ -21,8 +23,6 @@ namespace Manager.Store
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
             GetReferences();
             SetReferences();
         }
@@ -48,7 +48,7 @@ namespace Manager.Store
             {
                 Heros[i].SetActive(false);
                 string[] parts = Heros[i].name.Split(' ');
-                herosInfos[i] = new HerosInformations.HerosInfo(parts[0], parts[1], false, false, _purchasseButton, _equipButton,
+                herosInfos[i] = new StoreInformations(0, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
                     _equippedButton);
                 UpdateButtonStatus();
                 UpdateInformation();

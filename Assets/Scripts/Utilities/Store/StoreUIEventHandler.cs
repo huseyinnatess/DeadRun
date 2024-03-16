@@ -46,7 +46,6 @@ namespace Utilities.Store
             int index = HerosStoreManager.Instance.CurrentIndex;
             int price = Convert.ToInt32(HerosStoreManager.Instance.herosInfos[index].Price);
             bool stat = CoinManager.Instance.ProcessPurchase(price);
-            Debug.Log(stat);
            HerosStoreManager.Instance.SetBought(stat); 
         }
 

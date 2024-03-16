@@ -1,47 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using MonoSingleton;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Utilities.Store.Skin
 {
-    public class InitializeSkinInfos : MonoBehaviour
+    public class InitializeSkinInfos : MonoSingleton<InitializeSkinInfos>
     {
         public List<GameObject> HatsSkin = new List<GameObject>();
         public List<GameObject> SwordsSkin = new List<GameObject>();
         public List<GameObject> ArmorsSkins = new List<GameObject>();
         public List<List<GameObject>> SkinsObjects = new List<List<GameObject>>();
 
-        public List<SkinInformations> HatsInfo = new List<SkinInformations>(3);
-        public List<SkinInformations> SwordsInfo = new List<SkinInformations>();
-        public List<SkinInformations> ArmorsInfo = new List<SkinInformations>();
-
-        public static InitializeSkinInfos Instance;
+        public List<StoreInformations> HatsInfo = new List<StoreInformations>(3);
+        public List<StoreInformations> SwordsInfo = new List<StoreInformations>();
+        public List<StoreInformations> ArmorsInfo = new List<StoreInformations>();
+        
         private int _groupIndex = 0;
+        private Button _purchasseButton;
+        private Button _equipButton;
+        private Button _equippedButton;
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
+            _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
+            _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
+            _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
         }
 
-        private void InitializeSkinInfo(List<SkinInformations> list, List<GameObject> skinObjects, List<List<SkinInformations>> mainList, List<List<GameObject>> mainObjects)
+        private void InitializeSkinInfo(List<StoreInformations> skinInfolist, List<GameObject> skinObjects, List<List<StoreInformations>> mainList, List<List<GameObject>> mainObjects)
         {
             for (int i = 0; i < skinObjects.Count; i++)
             {
-                list.Add(new SkinInformations());
-                list[i].GroupIndex = _groupIndex;
-                list[i].IsBought = false;
-                list[i].IsEquipped = false;
                 string[] parts = skinObjects[i].name.Split(' ');
-                list[i].Price = parts[1];
+                skinInfolist.Add(new StoreInformations(_groupIndex, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
+                    _equippedButton));
             }
-
-            mainList.Add(list);
+            mainList.Add(skinInfolist);
             mainObjects.Add(skinObjects);
             _groupIndex++;
         }
 
-        public void SkinInfoList( List<List<SkinInformations>> mainList, List<List<GameObject>> mainObjects)
+        public void SkinInfoList( List<List<StoreInformations>> mainList, List<List<GameObject>> mainObjects)
         {
             InitializeSkinInfo(HatsInfo, HatsSkin, mainList, mainObjects);
             InitializeSkinInfo(SwordsInfo, SwordsSkin, mainList, mainObjects);

@@ -1,13 +1,13 @@
 ﻿using UnityEngine.UI;
 
-namespace Utilities
+namespace Utilities.Store.Skin
 {
-    public class HerosInformations
+    [System.Serializable]
+    public class StoreInformations
     {
-        [System.Serializable]
-        public class HerosInfo
-        {
             public string Name { get; set; }
+            public int GroupIndex { get; set; }
+            
             public string Price;
             public bool IsBought { get; set; }
             public bool IsEquipped { get; set; }
@@ -15,7 +15,7 @@ namespace Utilities
             public Button EquipButton { get; set; }
             public Button EquippedButton { get; set; }
 
-            public HerosInfo(string name, string price, bool bought, bool equipped, Button purchasseButton, Button equipButton,
+            public StoreInformations(int groupIndex, string name, string price, bool bought, bool equipped, Button purchasseButton, Button equipButton,
                 Button equippedButton)
             {
                 Name = name;
@@ -25,7 +25,7 @@ namespace Utilities
                 PurchasseButton = purchasseButton;
                 EquipButton = equipButton;
                 EquippedButton = equippedButton;
+                GroupIndex = groupIndex;
             }
-        }
     }
 }

@@ -12,9 +12,9 @@ namespace Manager
         
         private void Awake()
         {
+            _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
             if (_coinText is not null)
             {
-                _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
                 _coinText.text = _coin.ToString();
             }
 
@@ -40,7 +40,8 @@ namespace Manager
         {
             _coin = PlayerData.GetInt("Coin");
             _coin -= amount;
-            _coinText.text = _coin.ToString();
+            if (_coinText is not null)
+                _coinText.text = _coin.ToString();
             SaveCoin();
         }
 
