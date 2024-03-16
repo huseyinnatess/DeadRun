@@ -7,7 +7,7 @@ namespace GoogleAdmob
     public class InterstitialAD : MonoBehaviour, IAdmob
     {
 #if UNITY_EDITOR
-        private string _adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        private const string _adUnitId = "ca-app-pub-3940256099942544/6300978111";
 #endif
 
         private InterstitialAd _interstitialAd;

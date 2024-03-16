@@ -8,7 +8,9 @@ namespace Obstacle
     {
         private Animator _animator;
         private BoxCollider _fanCollider;
-    
+
+        #region Awake, Start, Get Functions
+
         private void Awake()
         {
             GetReferences();
@@ -18,12 +20,15 @@ namespace Obstacle
         {
             StartCoroutine(FanAnimation());
         }
-    
+
         private void GetReferences()
         {
             _animator = GetComponentInChildren<Animator>();
             _fanCollider = GetComponent<BoxCollider>();
         }
+
+        #endregion
+
 
         private IEnumerator FanAnimation()
         {
@@ -42,7 +47,7 @@ namespace Obstacle
         {
             if (other.CompareTag("Agent") || (AgentPools.CharacterCount == 1 && other.CompareTag("Character")))
             {
-                if (other.transform.position.x > transform.position.x) 
+                if (other.transform.position.x > transform.position.x)
                     other.GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0f, 0f), ForceMode.Impulse);
                 else
                     other.GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0f, 0f), ForceMode.Impulse);

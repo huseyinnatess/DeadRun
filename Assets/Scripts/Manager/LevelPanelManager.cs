@@ -10,6 +10,9 @@ namespace Manager
         private static GameObject _victoryPanel;
         private static GameObject _defeatPanel;
         private static GameObject _pausePanel;
+
+        #region Awake Start
+
         private void Awake()
         {
             _victoryPanel = GameObject.FindWithTag("VictoryPanel");
@@ -24,6 +27,8 @@ namespace Manager
             _defeatPanel.SetActive(false);
         }
 
+        #endregion
+        
         public static void VictoryPanel(bool active)
         {
             _victoryPanel.SetActive(active);
@@ -33,6 +38,7 @@ namespace Manager
         {
             _defeatPanel.SetActive(active);
         }
+
         public static void PausePanel(bool active)
         {
             _pausePanel.SetActive(active);

@@ -7,7 +7,7 @@ namespace GoogleAdmob
     public class RewardAD : MonoBehaviour, IAdmob
     {
 #if  UNITY_EDITOR
-        private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        private const string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #endif
         private RewardedAd _rewardedAd;
         public void CreateAd()

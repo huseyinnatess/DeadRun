@@ -1,25 +1,13 @@
 using System.Collections.Generic;
+using MonoSingleton;
 using UnityEngine;
 
 namespace ObjectPools
 {
-    public class ParticleEffectPool : MonoBehaviour
+    public class ParticleEffectPool : MonoSingleton<ParticleEffectPool>
     {
         public List<ParticleSystem> spawnEffects;
         public List<ParticleSystem> deadEffects;
-        public static ParticleEffectPool Instance;
-
-        private void Awake()
-        {
-            Singleton();
-        }
-
-        private void Singleton()
-        {
-            if (!Instance)
-                Instance = this;
-        }
-
         public void SpawnEffectPool(Transform create)
         {
             foreach (var item in spawnEffects)
@@ -32,7 +20,6 @@ namespace ObjectPools
                 }
             }
         }
-    
         public void DeadEffectPool(Transform create)
         {
             foreach (var item in deadEffects)

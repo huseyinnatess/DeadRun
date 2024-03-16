@@ -1,25 +1,28 @@
 ﻿using System;
 using System.Collections;
+using MonoSingleton;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Utilities
 {
-    public class LoadingSlider : MonoBehaviour
+    public class LoadingSlider : MonoSingleton<LoadingSlider>
     {
         private GameObject _loadingPanel;
         private Slider _loadingSlider;
-        public static LoadingSlider Instance;
+
+        #region Awake
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
             _loadingPanel = GameObject.FindWithTag("LoadingPanel");
             _loadingSlider = _loadingPanel.GetComponentInChildren<Slider>();
             _loadingPanel.SetActive(false);
         }
+
+        #endregion
+        
 
         public void StartLoad(int sceneIndex)
         {

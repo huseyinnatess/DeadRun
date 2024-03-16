@@ -18,6 +18,8 @@ namespace Manager
         private GameObject _startPosition;
         private TextMeshProUGUI _levelText;
 
+        #region Awake Start Get Functions
+
         private void Awake()
         {
             Time.timeScale = 1f;
@@ -40,6 +42,8 @@ namespace Manager
             _checkWarStatus = false;
         }
 
+        #endregion
+        
         private void LateUpdate()
         {
             CheckWarResult();

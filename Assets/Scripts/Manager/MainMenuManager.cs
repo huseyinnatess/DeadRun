@@ -1,4 +1,5 @@
 using System;
+using MonoSingleton;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,15 +8,16 @@ using Utilities;
 
 namespace Manager
 {
-    public class MainMenuManager : MonoBehaviour
+    public class MainMenuManager : MonoSingleton<MainMenuManager>
     {
         private TextMeshProUGUI _levelText;
         private GameObject _settingsPanel;
-        public static MainMenuManager Instance;
+
+        #region Awake, Start, Get Functions
+
         private void Awake()
         {
             Time.timeScale = 1f;
-            Singleton();
             GetReferencesAwake();
         }
 
@@ -31,11 +33,7 @@ namespace Manager
             _settingsPanel = GameObject.FindWithTag("SettingsPanel");
         }
 
-        private void Singleton()
-        {
-            if (!Instance)
-                Instance = this;
-        }
+        #endregion
 
         public void SettingsPanel(bool active)
         {

@@ -14,11 +14,21 @@ namespace Manager
         public List<GameObject> ButtonsLock;
         public List<Button> Buttons;
         private int _currentLevel;
+
+        #region Awake
+
         private void Awake()
         {
-            _currentLevel =  PlayerData.GetInt("EndLevel") - 1;
+            _currentLevel = PlayerData.GetInt("EndLevel") - 1;
 
             ButtonConfigure();
+        }
+
+        #endregion
+        
+        public void ExitButton()
+        {
+            LoadingSlider.Instance.StartLoad(0);
         }
 
         private void ButtonConfigure()
@@ -42,11 +52,6 @@ namespace Manager
         private void SceneLoad(int index)
         {
             LoadingSlider.Instance.StartLoad(index);
-        }
-
-        public void Exit()
-        {
-            LoadingSlider.Instance.StartLoad(0);
         }
     }
 }

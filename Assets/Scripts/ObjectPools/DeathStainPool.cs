@@ -1,23 +1,12 @@
 using System.Collections.Generic;
+using MonoSingleton;
 using UnityEngine;
 
 namespace ObjectPools
 {
-    public class DeathStainPool : MonoBehaviour
+    public class DeathStainPool : MonoSingleton<DeathStainPool>
     {
         public GameObject[] deathStains;
-        public static DeathStainPool Instance;
-
-        private void Awake()
-        {
-            Singleton();
-        }
-
-        private void Singleton()
-        {
-            if (Instance == null)
-                Instance = this;
-        }
 
         public void DeathStainObjectPool(bool setActive, Transform create)
         {
@@ -37,11 +26,5 @@ namespace ObjectPools
                 }
             }
         }
-    
-   
-    
-    
-    
-   
     }
 }

@@ -7,31 +7,27 @@ namespace Controller
 {
     public class EnemyController : MonoBehaviour
     {
-        private Transform _target;
         public static bool IsCanAttack;
         public static int EnemyAgentCount;
-
         public GameObject[] EnemyAgents;
+
+        private Transform _target;
         private NavMeshAgent[] _enemyNavMeshAgent;
         private Animator[] _enemyAnimator;
         private bool _attackAnimationWork;
+
+        #region Awake Get, Set Funcstions
+
         private void Awake()
         {
             GetReferences();
+            GetEnemyComponent();
             SetReferences();
         }
 
-        private void SetReferences()
-        {
-            IsCanAttack = false;
-            _attackAnimationWork = false;
-            EnemyAgentCount = EnemyAgents.Length;
-        }
-        
         private void GetReferences()
         {
             _target = GameObject.FindWithTag("Character").transform;
-            GetEnemyComponent();
         }
 
         private void GetEnemyComponent()
@@ -46,6 +42,17 @@ namespace Controller
             }
         }
 
+        private void SetReferences()
+        {
+            IsCanAttack = false;
+            _attackAnimationWork = false;
+            EnemyAgentCount = EnemyAgents.Length;
+        }
+
+        #endregion
+
+        public static void Attack(bool attack) => IsCanAttack = attack;
+        
         private void LateUpdate()
         {
             EnemyAttack();
@@ -65,10 +72,9 @@ namespace Controller
                         _enemyNavMeshAgent[i].SetDestination(_target.transform.position);
                     }
                 }
+
                 _attackAnimationWork = true;
             }
         }
-
-        public static void Attack(bool attack) => IsCanAttack = attack;
     }
 }

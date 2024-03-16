@@ -10,6 +10,9 @@ namespace Utilities
         private SkinnedMeshRenderer _skinnedMeshRenderer;
         private Animator _animator;
         private readonly Material[] _parentMaterial = new Material[1];
+
+        #region Awake, Start, Get Functions
+
         private void Awake()
         {
             GetReferences();
@@ -23,8 +26,11 @@ namespace Utilities
 
         private void Start()
         {
-             _parentMaterial[0] = GameObject.FindWithTag("Character").GetComponentInChildren<SkinnedMeshRenderer>().material;
+            _parentMaterial[0] = GameObject.FindWithTag("Character").GetComponentInChildren<SkinnedMeshRenderer>().material;
         }
+
+        #endregion
+       
 
         private void OnTriggerEnter(Collider other)
         {

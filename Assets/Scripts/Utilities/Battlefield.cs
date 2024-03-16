@@ -17,11 +17,24 @@ namespace Utilities
         private TextMeshProUGUI _rewardCoinText;
         private readonly CoinManager _coinManager = new();
         private IAdmob _intersititialAd = new InterstitialAD();
+
+        #region Awake
+
         private void Awake()
         {
             _activeScene = SceneManager.GetActiveScene();
         }
 
+        #endregion
+       
+        public void WarResult(int enemyCount)
+        {
+            ShowIntersititalAd();
+            if (enemyCount == 0)
+                Victory();
+            else
+                Defeat();
+        }
         private void Victory()
         {
             if (_activeScene.buildIndex == PlayerData.GetInt("EndLevel"))
@@ -36,15 +49,6 @@ namespace Utilities
             LevelPanelManager.DefeatPanel(true);
         }
         
-        public void WarResult(int enemyCount)
-        {
-            ShowIntersititalAd();
-            if (enemyCount == 0)
-                Victory();
-            else
-                Defeat();
-        }
-
         private void ShowIntersititalAd()
         {
             _intersititialAd.ShowAd();

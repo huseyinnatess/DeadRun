@@ -1,20 +1,17 @@
-﻿using TMPro;
+﻿using MonoSingleton;
+using TMPro;
 using UnityEngine;
 using Utilities;
 
 namespace Manager
 {
-    public class CoinManager : MonoBehaviour
+    public class CoinManager : MonoSingleton<CoinManager>
     {
-        public static CoinManager Instance;
-        
         private TextMeshProUGUI _coinText;
         private int _coin;
         
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
             _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
             _coin = PlayerData.GetInt("Coin");
             _coinText.text = _coin.ToString();
@@ -30,7 +27,8 @@ namespace Manager
         {
             _coin = PlayerData.GetInt("Coin");
             _coin += amount;
-            _coinText.text = _coin.ToString();
+            if (_coinText is not null)
+                _coinText.text = _coin.ToString();
             SaveCoin();
         }
 

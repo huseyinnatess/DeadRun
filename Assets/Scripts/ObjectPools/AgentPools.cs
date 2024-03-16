@@ -1,26 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using MonoSingleton;
 using UnityEngine;
 
 namespace ObjectPools
 {
-    public class AgentPools : MonoBehaviour
+    public class AgentPools : MonoSingleton<AgentPools>
     {
         public List<GameObject> agents;
 
         public static int CharacterCount = 0;
-        public static AgentPools Instance;
 
-        private void Awake()
-        {
-            Singleton();
-        }
-
-        private void Singleton()
-        {
-            if (Instance == null)
-                Instance = this;
-        }
         public void AgentObjectPoolManager(char sign, int count, Transform spawnPoint)
         {
             switch (sign)
@@ -50,6 +40,18 @@ namespace ObjectPools
 
                     break;
             }
+        }
+
+        public void AddMainCharacter(GameObject character)
+        {
+            agents.Add(character);
+            CharacterCount++;
+        }
+
+        public void AddList(GameObject agent)
+        {
+            agents.Insert(agents.Count - 1, agent);
+            CharacterCount++;
         }
 
         private void AgentObjectPool(int limit, Transform spawnPoint)
@@ -82,18 +84,6 @@ namespace ObjectPools
                     }
                 }
             }
-        }
-
-        public void AddMainCharacter(GameObject character)
-        {
-            agents.Add(character);
-            CharacterCount++;
-        }
-
-        public void AddList(GameObject agent)
-        {
-            agents.Insert(agents.Count - 1, agent);
-            CharacterCount++;
         }
     }
 }

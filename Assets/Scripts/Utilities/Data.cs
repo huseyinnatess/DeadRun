@@ -9,19 +9,6 @@ namespace Utilities
             DefaultData();
         }
 
-        private void DefaultData()
-        {
-            if (HasKey("First")) return;
-            SetInt("First", 1);
-            SetInt("EndLevel", 2);
-            SetInt("Coin", 10000);
-            SetInt("Score", 0);
-            SetFloat("SoundSlider", .5f);
-            SetFloat("FxSlider", .7f);
-            SetInt("Interstitial", 0);
-            PlayerPrefs.Save();
-        }
-
         public static void SetInt(string key, int value)
         {
             PlayerPrefs.SetInt(key, value);
@@ -68,6 +55,19 @@ namespace Utilities
         public static void DeleteAll()
         {
             PlayerPrefs.DeleteAll();
+        }
+        
+        private void DefaultData()
+        {
+            if (HasKey("First")) return;
+            SetInt("First", 1);
+            SetInt("EndLevel", 2);
+            SetInt("Coin", 10000);
+            SetInt("Score", 0);
+            SetFloat("SoundSlider", .5f);
+            SetFloat("FxSlider", .7f);
+            SetInt("Interstitial", 0);
+            PlayerPrefs.Save();
         }
     } 
 }
