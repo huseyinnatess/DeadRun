@@ -2,6 +2,7 @@
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utilities;
 using Utilities.Store;
@@ -11,7 +12,7 @@ namespace Manager.Store
 {
     public class HerosStoreManager : MonoSingleton<HerosStoreManager>
     {
-        public List<GameObject> Heros;
+        public List<GameObject> HerosObjects;
         public List<StoreInformations> herosInfos = new List<StoreInformations>();
         [HideInInspector] public int CurrentIndex = 0;
 
@@ -49,17 +50,19 @@ namespace Manager.Store
 
         private void InitalizeList()
         {
-            for (int i = 0; i < Heros.Count; i++)
+            for (int i = 0; i < HerosObjects.Count; i++)
             {
-                Heros[i].SetActive(false);
-                string[] parts = Heros[i].name.Split(' ');
+                HerosObjects[i].SetActive(false);
+                string[] parts = HerosObjects[i].name.Split(' ');
                 herosInfos[i] = new StoreInformations(0, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
                     _equippedButton);
                 StoreManager.Instance.UpdateButtonStatus(herosInfos, CurrentIndex);
                 UpdatePriceName();
             }
             _characterNameText.text = herosInfos[CurrentIndex].Name;
-            Heros[CurrentIndex].SetActive(true);
+            HerosObjects[0].SetActive(true);
+            herosInfos[0].IsBought = true;
+            herosInfos[0].IsEquipped = true;
         }
 
         public void UpdatePriceName()

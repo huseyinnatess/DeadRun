@@ -10,35 +10,37 @@ namespace Utilities.Store
     {
         public void NextButton()
         {
-            HerosStoreManager storeManager = HerosStoreManager.Instance;
-            int currentIndex = storeManager.CurrentIndex;
-            int maxIndex = storeManager.Heros.Count - 1;
+            HerosStoreManager herosStoreManager = HerosStoreManager.Instance;
+            int currentIndex = herosStoreManager.CurrentIndex;
+            int maxIndex = herosStoreManager.HerosObjects.Count - 1;
 
-            storeManager.Heros[currentIndex].SetActive(false);
+            herosStoreManager.HerosObjects[currentIndex].SetActive(false);
             currentIndex = (currentIndex + 1) % (maxIndex + 1);
-            storeManager.CurrentIndex = currentIndex;
+            herosStoreManager.CurrentIndex = currentIndex;
             
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
-            storeManager.Heros[currentIndex].SetActive(true);
-            storeManager.UpdatePriceName();
+            herosStoreManager.HerosObjects[currentIndex].SetActive(true);
+            herosStoreManager.UpdatePriceName();
+            
             StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.herosInfos,
                 HerosStoreManager.Instance.CurrentIndex);
         }
 
         public void BackButton()
         {
-            HerosStoreManager storeManager = HerosStoreManager.Instance;
-            int currentIndex = storeManager.CurrentIndex;
-            int maxIndex = storeManager.Heros.Count - 1;
+            HerosStoreManager herosStoreManager = HerosStoreManager.Instance;
+            int currentIndex = herosStoreManager.CurrentIndex;
+            int maxIndex = herosStoreManager.HerosObjects.Count - 1;
 
-            storeManager.Heros[currentIndex].SetActive(false);
+            herosStoreManager.HerosObjects[currentIndex].SetActive(false);
 
             currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
-            storeManager.CurrentIndex = currentIndex;
+            herosStoreManager.CurrentIndex = currentIndex;
             
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
-            storeManager.Heros[currentIndex].SetActive(true);
-            storeManager.UpdatePriceName();
+            herosStoreManager.HerosObjects[currentIndex].SetActive(true);
+            herosStoreManager.UpdatePriceName();
+            
             StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.herosInfos,
                 HerosStoreManager.Instance.CurrentIndex);
         }

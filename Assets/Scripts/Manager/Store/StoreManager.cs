@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using MonoSingleton;
-using TMPro;
-using UnityEngine.UI;
 using Utilities.Store.Skin;
 
 namespace Manager.Store
