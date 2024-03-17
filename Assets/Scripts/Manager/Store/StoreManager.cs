@@ -26,6 +26,12 @@ namespace Manager.Store
             UpdateButtonStatus(infoList, index);
         }
         
+        public void EquippedButtonStatus(List<StoreInformations> infoList, int index)
+        {
+            infoList[index].IsEquipped = false;
+            UpdateButtonStatus(infoList, index);
+        }
+        
         public void SetIsBought(List<StoreInformations> infoList, int index, bool check)
         {
             infoList[index].IsBought = check;

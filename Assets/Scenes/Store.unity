@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 11830729}
   - component: {fileID: 11830728}
   m_Layer: 5
-  m_Name: Slot (2)
+  m_Name: 0 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,18 +145,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11830726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1318842337}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1027043023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 475, y: 550}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11830728
 MonoBehaviour:
@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11830729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11830728}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &11830729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +518,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &128153831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128153832}
+  m_Layer: 5
+  m_Name: SwordsGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &128153832
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128153831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1389275226}
+  - {fileID: 1745967931}
+  - {fileID: 1091918341}
+  m_Father: {fileID: 698975608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &211598650
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +827,7 @@ GameObject:
   - component: {fileID: 258343686}
   - component: {fileID: 258343688}
   - component: {fileID: 258343687}
+  - component: {fileID: 258343689}
   m_Layer: 0
   m_Name: StoreManager
   m_TagString: Untagged
@@ -910,6 +961,9 @@ MonoBehaviour:
   ArmorsSkins:
   - {fileID: 919132149439760548}
   - {fileID: 919132147554452633}
+  HatsInfo: []
+  SwordsInfo: []
+  ArmorsInfo: []
 --- !u!114 &258343687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,6 +986,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 235e85f813734cbea6084b2646a479f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &258343689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258343675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be45f1bffa44c3589ffd0efa31fc489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &268825526
@@ -1098,12 +1164,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258343685}
-        m_TargetAssemblyTypeName: Utilities.StoreUIEventHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: Utilities.Store.StoreUIEventHandler, Assembly-CSharp
         m_MethodName: PurchaseButton
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 268825528}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1235,7 +1301,7 @@ GameObject:
   - component: {fileID: 383151379}
   - component: {fileID: 383151378}
   m_Layer: 5
-  m_Name: Slot (1)
+  m_Name: 0 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1248,18 +1314,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383151376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2016963745}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1027043023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 195, y: 550}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383151378
 MonoBehaviour:
@@ -1304,7 +1370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383151379}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 383151378}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &383151379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,7 +1588,7 @@ GameObject:
   - component: {fileID: 573543003}
   - component: {fileID: 573543002}
   m_Layer: 5
-  m_Name: Slot (6)
+  m_Name: 0 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,18 +1601,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573543000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996403083}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1027043023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 85, y: 120}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573543002
 MonoBehaviour:
@@ -1579,7 +1657,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573543003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 573543002}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &573543003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1858,15 +1948,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1384920638}
-  - {fileID: 383151377}
-  - {fileID: 11830727}
-  - {fileID: 1389275226}
-  - {fileID: 1745967931}
-  - {fileID: 1091918341}
-  - {fileID: 573543001}
-  - {fileID: 731636656}
-  - {fileID: 1760801743}
+  - {fileID: 1027043023}
+  - {fileID: 128153832}
+  - {fileID: 1538763493}
   m_Father: {fileID: 972765877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1919,7 +2003,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698975607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -1949,7 +2033,7 @@ GameObject:
   - component: {fileID: 731636658}
   - component: {fileID: 731636657}
   m_Layer: 5
-  m_Name: Slot (7)
+  m_Name: 2 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1962,18 +2046,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731636655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2120773012}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1538763493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 37.07733, y: -233.2}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731636657
 MonoBehaviour:
@@ -2018,7 +2102,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 731636658}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 731636657}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &731636658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2186,7 +2282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2245,8 +2341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6, y: 9.8}
-  m_SizeDelta: {x: 340.2738, y: 192.4717}
+  m_AnchoredPosition: {x: 3.6298, y: 10.064697}
+  m_SizeDelta: {x: 120.9682, y: 144.0652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994178949
 MonoBehaviour:
@@ -2322,6 +2418,45 @@ Transform:
   - {fileID: 1022013304607778544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1027043022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027043023}
+  m_Layer: 5
+  m_Name: HatsGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1027043023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027043022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1384920638}
+  - {fileID: 383151377}
+  - {fileID: 11830727}
+  - {fileID: 573543001}
+  m_Father: {fileID: 698975608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 138, y: -675}
+  m_SizeDelta: {x: 170, y: 190}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1082326104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,7 +2603,7 @@ GameObject:
   - component: {fileID: 1091918343}
   - component: {fileID: 1091918342}
   m_Layer: 5
-  m_Name: Slot (5)
+  m_Name: 1 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2481,18 +2616,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091918340}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1906365508}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 128153832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 232.07733, y: -23.832031}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091918342
 MonoBehaviour:
@@ -2537,7 +2672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1091918343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1091918342}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1091918343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,7 +3054,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1264369169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343685}
+        m_TargetAssemblyTypeName: Utilities.Store.StoreUIEventHandler, Assembly-CSharp
+        m_MethodName: EquippedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1264369169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,7 +3308,7 @@ GameObject:
   - component: {fileID: 1384920640}
   - component: {fileID: 1384920639}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: 0 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3162,18 +3321,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384920637}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 226146346}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1027043023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 645}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384920639
 MonoBehaviour:
@@ -3219,18 +3378,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258343675}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1384920639}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1384920640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,7 +3441,7 @@ GameObject:
   - component: {fileID: 1389275228}
   - component: {fileID: 1389275227}
   m_Layer: 5
-  m_Name: Slot (3)
+  m_Name: 1 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3295,18 +3454,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389275225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996387570}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 128153832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -157.92267, y: -23.832031}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389275227
 MonoBehaviour:
@@ -3351,7 +3510,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1389275228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1389275227}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1389275228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3695,6 +3866,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452090951}
   m_CullTransparentMesh: 1
+--- !u!1 &1538763492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538763493}
+  m_Layer: 5
+  m_Name: ArmorGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1538763493
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538763492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1760801743}
+  - {fileID: 731636656}
+  m_Father: {fileID: 698975608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1571235001
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,7 +4372,7 @@ GameObject:
   - component: {fileID: 1745967933}
   - component: {fileID: 1745967932}
   m_Layer: 5
-  m_Name: Slot (4)
+  m_Name: 1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4177,18 +4385,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745967930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797701446}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 128153832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 37.07733, y: -23.832031}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745967932
 MonoBehaviour:
@@ -4233,7 +4441,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1745967933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1745967932}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1745967933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4285,7 +4505,7 @@ GameObject:
   - component: {fileID: 1760801745}
   - component: {fileID: 1760801744}
   m_Layer: 5
-  m_Name: Slot (8)
+  m_Name: 2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4298,18 +4518,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760801742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 994178948}
-  m_Father: {fileID: 698975608}
+  m_Father: {fileID: 1538763493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 232.07733, y: -238.83203}
+  m_SizeDelta: {x: 170, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760801744
 MonoBehaviour:
@@ -4354,7 +4574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1760801745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343688}
+        m_TargetAssemblyTypeName: Utilities.Store.Skin.SkinButtonsEventHandler, Assembly-CSharp
+        m_MethodName: GetButtonName
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1760801744}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1760801745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,17 +4862,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797701445}
-  m_LocalRotation: {x: 0.027962482, y: -0.06616692, z: 0.38826585, w: 0.91874355}
-  m_LocalPosition: {x: 0, y: 0, z: 26}
+  m_LocalRotation: {x: 0.03302821, y: -0.0637895, z: 0.31557086, w: 0.9461792}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1059}
   m_LocalScale: {x: 1.2, y: 1.1, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1745967931}
-  m_LocalEulerAnglesHint: {x: 5.898, y: -5.762, z: 45.521}
+  m_LocalEulerAnglesHint: {x: 5.898, y: -5.762, z: 36.592}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 462.4306, y: 199.6529}
+  m_AnchoredPosition: {x: -0.00000047683716, y: 0.0000026226044}
+  m_SizeDelta: {x: 35.907, y: 152.4384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1797701447
 MonoBehaviour:
@@ -4705,17 +4937,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906365507}
-  m_LocalRotation: {x: 0.049543522, y: -0.06460882, z: 0.08046177, w: 0.993427}
-  m_LocalPosition: {x: 0, y: 0, z: 40.2578}
+  m_LocalRotation: {x: 0.061640125, y: -0.05319168, z: -0.12311285, w: 0.98904717}
+  m_LocalPosition: {x: 0, y: 0, z: 43.8068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1091918341}
-  m_LocalEulerAnglesHint: {x: 6.248, y: -6.956, z: 8.881}
+  m_LocalEulerAnglesHint: {x: 6.248, y: -6.956, z: -14.571}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038146973, y: -0.0000014305115}
-  m_SizeDelta: {x: 340.2738, y: 192.4717}
+  m_AnchoredPosition: {x: -0.0000009536743, y: -0.00000047683716}
+  m_SizeDelta: {x: 136.1062, y: 129.3294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906365509
 MonoBehaviour:
@@ -4856,7 +5088,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996403082}
   m_LocalRotation: {x: 0.053812724, y: -0.061098695, z: 0.012877799, w: 0.9965969}
-  m_LocalPosition: {x: 0, y: 0, z: 45}
+  m_LocalPosition: {x: 0, y: 0, z: 32.7566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4864,8 +5096,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 6.248, y: -6.956, z: 1.101}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 14}
-  m_SizeDelta: {x: 340.2738, y: 192.4717}
+  m_AnchoredPosition: {x: 0, y: 0.0000019073486}
+  m_SizeDelta: {x: 100.783, y: 138.4749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996403084
 MonoBehaviour:
@@ -5266,8 +5498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 14}
-  m_SizeDelta: {x: 340.2738, y: 192.4717}
+  m_AnchoredPosition: {x: 0.0000014305115, y: 7.9}
+  m_SizeDelta: {x: 114.2793, y: 152.6466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120773013
 MonoBehaviour:
@@ -15640,7 +15872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634092099952107144}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: -0.9620902, z: -0, w: -0.2727315}
   m_LocalPosition: {x: -0.12999994, y: 1.07, z: -3.1865828}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
@@ -15648,7 +15880,7 @@ Transform:
   - {fileID: 6161152719715116160}
   - {fileID: 8224601845717712318}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -211.654, z: 0}
 --- !u!1 &7481211516798555606
 GameObject:
   m_ObjectHideFlags: 0

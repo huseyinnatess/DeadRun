@@ -12,14 +12,16 @@ namespace Manager.Store
         public List<List<GameObject>> SkinObjectsMatrix = new List<List<GameObject>>();
         public List<List<StoreInformations>> SkinInfoMatrix = new List<List<StoreInformations>>();
 
-        [HideInInspector] public static int ActiveGroup;
-        [HideInInspector] public static int ActiveIndex;
+        public static int ActiveGroup;
+        public static int ActiveIndex;
         
         private Text _priceText;
+        private GameObject _skinSlots;
         private void Awake()
         {
             InitializeSkinInfos.Instance.SkinInfoList(SkinInfoMatrix, SkinObjectsMatrix);
             _priceText = GameObject.FindWithTag("PriceText").GetComponent<Text>();
+            _skinSlots = GameObject.FindWithTag("SkinSlots");
         }
         
         public void ActivateGroupItems()
@@ -34,7 +36,33 @@ namespace Manager.Store
             StoreManager.Instance.UpdateButtonStatus(SkinInfoMatrix[ActiveGroup], ActiveIndex);
         }
 
-        public void UpdatePrice()
+        public void DeactivateGroupItem(int group, int index)
+        {
+            SkinObjectsMatrix[group][index].SetActive(false);
+        }
+        
+        public void DeactivateGroupItems(int activeHeroIndex)
+        {
+            if (activeHeroIndex != 0)
+            {
+                _skinSlots.SetActive(false);
+                return;
+            }
+            _skinSlots.SetActive(true);
+            for (int i = 0; i < SkinObjectsMatrix.Count; i++)
+            {
+                for (int j = 0; j < SkinObjectsMatrix[i].Count; j++)
+                {
+                    if (SkinObjectsMatrix[i][j].activeSelf && !SkinInfoMatrix[i][j].IsEquipped)
+                    {
+                        DeactivateGroupItem(i, j);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void UpdatePrice()
         {
            _priceText.text = SkinInfoMatrix[ActiveGroup][ActiveIndex].Price;
         }

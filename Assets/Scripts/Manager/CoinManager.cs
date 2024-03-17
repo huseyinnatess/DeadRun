@@ -13,12 +13,12 @@ namespace Manager
         private void Awake()
         {
             _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
+            _coin = PlayerData.GetInt("Coin");
             if (_coinText is not null)
             {
                 _coinText.text = _coin.ToString();
             }
 
-            _coin = PlayerData.GetInt("Coin");
         }
         
         public bool ProcessPurchase(int price)
