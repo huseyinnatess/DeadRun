@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utilities
+namespace Utilities.SaveLoad
 {
     public class PlayerData : MonoBehaviour
     {

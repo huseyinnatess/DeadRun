@@ -2,11 +2,9 @@
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Utilities;
+using Utilities.SaveLoad;
 using Utilities.Store;
-using Utilities.Store.Skin;
 
 namespace Manager.Store
 {
@@ -16,9 +14,7 @@ namespace Manager.Store
         public List<StoreInformations> herosInfos = new List<StoreInformations>();
         [HideInInspector] public int CurrentIndex = 0;
 
-        private Button _purchasseButton;
-        private Button _equipButton;
-        private Button _equippedButton;
+
         private Text _priceText;
         private TextMeshProUGUI _characterNameText;
 
@@ -28,13 +24,11 @@ namespace Manager.Store
         {
             GetReferences();
             SetReferences();
+            BinaryData.Save(herosInfos, herosInfos.ToString());
         }
 
         private void GetReferences()
         {
-            _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
-            _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
-            _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
             _priceText = GameObject.FindWithTag("PriceText").GetComponent<Text>();
             _characterNameText = GameObject.FindWithTag("CharacterName").GetComponent<TextMeshProUGUI>();
         }
@@ -46,7 +40,7 @@ namespace Manager.Store
         }
 
         #endregion
-        
+
 
         private void InitalizeList()
         {
@@ -54,15 +48,16 @@ namespace Manager.Store
             {
                 HerosObjects[i].SetActive(false);
                 string[] parts = HerosObjects[i].name.Split(' ');
-                herosInfos[i] = new StoreInformations(0, parts[0], parts[1], false, false, _purchasseButton, _equipButton,
-                    _equippedButton);
+                herosInfos[i] = new StoreInformations(0, parts[0], parts[1], false, false);
                 StoreManager.Instance.UpdateButtonStatus(herosInfos, CurrentIndex);
                 UpdatePriceName();
             }
+
             _characterNameText.text = herosInfos[CurrentIndex].Name;
             HerosObjects[0].SetActive(true);
             herosInfos[0].IsBought = true;
             herosInfos[0].IsEquipped = true;
+            StoreManager.Instance.UpdateButtonStatus(herosInfos, CurrentIndex);
         }
 
         public void UpdatePriceName()
@@ -72,4 +67,3 @@ namespace Manager.Store
         }
     }
 }
-

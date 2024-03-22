@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MonoSingleton;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities.Store;
 using Utilities.Store.Skin;
 
 namespace Manager.Store
@@ -20,7 +21,6 @@ namespace Manager.Store
         private void Awake()
         {
             InitializeSkinInfos.Instance.SkinInfoList(SkinInfoMatrix, SkinObjectsMatrix);
-            _priceText = GameObject.FindWithTag("PriceText").GetComponent<Text>();
             _skinSlots = GameObject.FindWithTag("SkinSlots");
         }
         
@@ -32,7 +32,7 @@ namespace Manager.Store
                 tempList[i].SetActive(false);
             }
             tempList[ActiveIndex].SetActive(true);
-            UpdatePrice();
+           StoreManager.Instance.UpdateSkinPrice(SkinInfoMatrix[ActiveGroup][ActiveIndex].Price);
             StoreManager.Instance.UpdateButtonStatus(SkinInfoMatrix[ActiveGroup], ActiveIndex);
         }
 
@@ -60,11 +60,6 @@ namespace Manager.Store
                     }
                 }
             }
-        }
-
-        private void UpdatePrice()
-        {
-           _priceText.text = SkinInfoMatrix[ActiveGroup][ActiveIndex].Price;
         }
     }
 }

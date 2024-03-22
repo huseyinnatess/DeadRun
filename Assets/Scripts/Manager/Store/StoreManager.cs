@@ -1,17 +1,31 @@
 ﻿using System.Collections.Generic;
 using MonoSingleton;
-using Utilities.Store.Skin;
-
+using UnityEngine;
+using Utilities.Store;
+using UnityEngine.UI;
 namespace Manager.Store
 {
     public class StoreManager : MonoSingleton<StoreManager>
     {
+        private Button _purchasseButton;
+        private Button _equipButton;
+        private Button _equippedButton;
+
+        private Text _priceText;
+        private void Awake()
+        {
+            _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
+            _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
+            _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
+            _priceText = _purchasseButton.GetComponentInChildren<Text>();
+        }
+
         public void UpdateButtonStatus(List<StoreInformations> infoList, int index)
         {
             bool boughtStatus = infoList[index].IsBought;
-            infoList[index].PurchasseButton.gameObject.SetActive(!boughtStatus);
-            infoList[index].EquippedButton.gameObject.SetActive(infoList[index].IsEquipped);
-            infoList[index].EquipButton.gameObject.SetActive(boughtStatus);
+            _purchasseButton.gameObject.SetActive(!boughtStatus);
+            _equipButton.gameObject.SetActive(boughtStatus);
+            _equippedButton.gameObject.SetActive(infoList[index].IsEquipped);
         }
         
         public void EquipButtonStatus(List<StoreInformations> infoList, int index)
@@ -34,6 +48,11 @@ namespace Manager.Store
         {
             infoList[index].IsBought = check;
             UpdateButtonStatus(infoList, index);
+        }
+
+        public void UpdateSkinPrice(string price)
+        {
+            _priceText.text = price;
         }
     }
 }

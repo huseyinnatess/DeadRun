@@ -18,24 +18,13 @@ namespace Utilities.Store.Skin
         public List<StoreInformations> ArmorsInfo = new List<StoreInformations>();
         
         private int _groupIndex = 0;
-        private Button _purchasseButton;
-        private Button _equipButton;
-        private Button _equippedButton;
-
-        private void Awake()
-        {
-            _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
-            _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
-            _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
-        }
 
         private void InitializeSkinInfo(List<StoreInformations> skinInfolist, List<GameObject> skinObjects, List<List<StoreInformations>> mainList, List<List<GameObject>> mainObjects)
         {
             for (int i = 0; i < skinObjects.Count; i++)
             {
                 string[] parts = skinObjects[i].name.Split(' ');
-                skinInfolist.Add(new StoreInformations(_groupIndex, null, parts[1], false, false, _purchasseButton, _equipButton,
-                    _equippedButton));
+                skinInfolist.Add(new StoreInformations(_groupIndex, null, parts[1], false, false));
             }
             mainList.Add(skinInfolist);
             mainObjects.Add(skinObjects);
