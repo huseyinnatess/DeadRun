@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using MonoSingleton;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities.SaveLoad;
 using Utilities.Store;
 using Utilities.Store.Skin;
 
@@ -13,42 +15,80 @@ namespace Manager.Store
         public List<List<GameObject>> SkinObjectsMatrix = new List<List<GameObject>>();
         public List<List<StoreInformations>> SkinInfoMatrix = new List<List<StoreInformations>>();
 
-        public static int ActiveGroup;
-        public static int ActiveIndex;
-        
-        private Text _priceText;
-        private GameObject _skinSlots;
+        public static int ActiveSkinGroup;
+        public static int ActiveSkinIndex;
+
+
+        #region Awake, Save, Load, Initilaze Functions
+
         private void Awake()
         {
-            InitializeSkinInfos.Instance.SkinInfoList(SkinInfoMatrix, SkinObjectsMatrix);
-            _skinSlots = GameObject.FindWithTag("SkinSlots");
+            InitializeSkinInfos.Instance.InitializeSkinObjects(SkinObjectsMatrix);
+            CheckAndInitializeSkinInfo();
+            ActivateEquippedItem();
         }
-        
+
+        private void CheckAndInitializeSkinInfo()
+        {
+            if (!BinaryData.IsSaveDataExits("CheckSkinSave"))
+            {
+                SaveAndInitializeSkinInfo();
+            }
+            else
+            {
+                LoadSkinInfoMatrix();
+            }
+        }
+
+        private void SaveAndInitializeSkinInfo()
+        {
+            InitializeSkinInfos.Instance.SaveAndInitializeSkinInfo(SkinInfoMatrix);
+        }
+
+        private void LoadSkinInfoMatrix()
+        {
+            for (int i = 0; i < InitializeSkinInfos.ListCount; i++)
+            {
+                List<StoreInformations> list = BinaryData.Load("SkinGroup" + i);
+                SkinInfoMatrix.Add(list);
+            }
+        }
+
+        private void ActivateEquippedItem()
+        {
+            for (int i = 0; i < SkinInfoMatrix.Count; i++)
+            {
+                for (int j = 0; j < SkinInfoMatrix[i].Count; j++)
+                {
+                    if (SkinInfoMatrix[i][j].IsEquipped)
+                    {
+                        SkinObjectsMatrix[i][j].SetActive(true);
+                    }
+                }
+            }
+        }
+
+        #endregion
+
         public void ActivateGroupItems()
         {
-            List<GameObject> tempList = SkinObjectsMatrix[ActiveGroup];
+            List<GameObject> tempList = SkinObjectsMatrix[ActiveSkinGroup];
             for (int i = 0; i < tempList.Count; i++)
             {
                 tempList[i].SetActive(false);
             }
-            tempList[ActiveIndex].SetActive(true);
-           StoreManager.Instance.UpdateSkinPrice(SkinInfoMatrix[ActiveGroup][ActiveIndex].Price);
-            StoreManager.Instance.UpdateButtonStatus(SkinInfoMatrix[ActiveGroup], ActiveIndex);
+            tempList[ActiveSkinIndex].SetActive(true);
+            StoreManager.Instance.UpdateSkinPrice(SkinInfoMatrix[ActiveSkinGroup][ActiveSkinIndex].Price);
+            StoreManager.Instance.UpdateButtonStatus(SkinInfoMatrix[ActiveSkinGroup], ActiveSkinIndex);
         }
 
         public void DeactivateGroupItem(int group, int index)
         {
             SkinObjectsMatrix[group][index].SetActive(false);
         }
-        
+
         public void DeactivateGroupItems(int activeHeroIndex)
         {
-            if (activeHeroIndex != 0)
-            {
-                _skinSlots.SetActive(false);
-                return;
-            }
-            _skinSlots.SetActive(true);
             for (int i = 0; i < SkinObjectsMatrix.Count; i++)
             {
                 for (int j = 0; j < SkinObjectsMatrix[i].Count; j++)

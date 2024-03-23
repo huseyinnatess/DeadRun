@@ -2,6 +2,7 @@
 using Manager.Store;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities.SaveLoad;
 
 namespace Utilities.Store.Skin
 {
@@ -10,8 +11,8 @@ namespace Utilities.Store.Skin
         public void GetButtonName(Button button)
         {
             string[] parts = button.name.Split(' ');
-            SkinStoreManager.ActiveGroup = Convert.ToInt32(parts[0]);
-            SkinStoreManager.ActiveIndex = Convert.ToInt32(parts[1]);
+            SkinStoreManager.ActiveSkinGroup = Convert.ToInt32(parts[0]);
+            SkinStoreManager.ActiveSkinIndex = Convert.ToInt32(parts[1]);
             SkinStoreManager.Instance.ActivateGroupItems();
         }
     }

@@ -18,8 +18,9 @@ namespace Utilities.Store
             herosStoreManager.HerosObjects[currentIndex].SetActive(false);
             currentIndex = (currentIndex + 1) % (maxIndex + 1);
             herosStoreManager.CurrentIndex = currentIndex;
-            PlayerPrefs.SetInt("CurrentIndex", currentIndex);
+            PlayerData.SetInt("CurrentIndex", currentIndex);
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
+            StoreManager.Instance.ToggleSlotPanel(Convert.ToBoolean(currentIndex));
             herosStoreManager.HerosObjects[currentIndex].SetActive(true);
             herosStoreManager.UpdatePriceName();
             
@@ -37,7 +38,8 @@ namespace Utilities.Store
 
             currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
             herosStoreManager.CurrentIndex = currentIndex;
-            PlayerPrefs.SetInt("CurrentIndex", currentIndex);
+            PlayerData.SetInt("CurrentIndex", currentIndex);
+            StoreManager.Instance.ToggleSlotPanel(Convert.ToBoolean(currentIndex));
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
             herosStoreManager.HerosObjects[currentIndex].SetActive(true);
             herosStoreManager.UpdatePriceName();
@@ -50,12 +52,13 @@ namespace Utilities.Store
         {
             int price = Convert.ToInt32(priceText.text);
             bool stat = CoinManager.Instance.ProcessPurchase(price);
-            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveGroup][SkinStoreManager.ActiveIndex]
+            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveSkinGroup][SkinStoreManager.ActiveSkinIndex]
                 .activeInHierarchy)
             {
                 StoreManager.Instance.SetIsBought(
-                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveGroup],
-                    SkinStoreManager.ActiveIndex, stat);
+                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup],
+                    SkinStoreManager.ActiveSkinIndex, stat);
+                BinaryData.Save(SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup], "SkinGroup" + SkinStoreManager.ActiveSkinGroup);
             }
             else
             {
@@ -67,12 +70,13 @@ namespace Utilities.Store
 
         public void EquipButton()
         {
-            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveGroup][SkinStoreManager.ActiveIndex]
+            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveSkinGroup][SkinStoreManager.ActiveSkinIndex]
                 .activeInHierarchy)
             {
                 StoreManager.Instance.EquipButtonStatus(
-                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveGroup],
-                    SkinStoreManager.ActiveIndex);
+                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup],
+                    SkinStoreManager.ActiveSkinIndex);
+                BinaryData.Save(SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup], "SkinGroup" + SkinStoreManager.ActiveSkinGroup);
             }
             else
             {
@@ -84,13 +88,14 @@ namespace Utilities.Store
 
         public void EquippedButton()
         {
-            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveGroup][SkinStoreManager.ActiveIndex]
+            if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveSkinGroup][SkinStoreManager.ActiveSkinIndex]
                 .activeInHierarchy)
             {
                 StoreManager.Instance.EquippedButtonStatus(
-                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveGroup],
-                    SkinStoreManager.ActiveIndex);
-                SkinStoreManager.Instance.DeactivateGroupItem(SkinStoreManager.ActiveGroup, SkinStoreManager.ActiveIndex);
+                    SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup],
+                    SkinStoreManager.ActiveSkinIndex);
+                BinaryData.Save(SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup], "SkinGroup" + SkinStoreManager.ActiveSkinGroup);
+                SkinStoreManager.Instance.DeactivateGroupItem(SkinStoreManager.ActiveSkinGroup, SkinStoreManager.ActiveSkinIndex);
             }
         }
     }

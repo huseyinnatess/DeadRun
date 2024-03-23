@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MonoSingleton;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities.SaveLoad;
 
 namespace Utilities.Store.Skin
 {
@@ -11,15 +12,32 @@ namespace Utilities.Store.Skin
         public List<GameObject> HatsSkin = new List<GameObject>();
         public List<GameObject> SwordsSkin = new List<GameObject>();
         public List<GameObject> ArmorsSkins = new List<GameObject>();
-        public List<List<GameObject>> SkinsObjects = new List<List<GameObject>>();
 
         public List<StoreInformations> HatsInfo = new List<StoreInformations>(3);
         public List<StoreInformations> SwordsInfo = new List<StoreInformations>();
         public List<StoreInformations> ArmorsInfo = new List<StoreInformations>();
         
+        public static int ListCount = 3;
+        
         private int _groupIndex = 0;
+        public void SaveAndInitializeSkinInfo( List<List<StoreInformations>> mainList)
+        {
+            InitializeSkinInfo(HatsInfo, HatsSkin, mainList);
+            BinaryData.Save(HatsInfo, "SkinGroup0");
+            InitializeSkinInfo(SwordsInfo, SwordsSkin, mainList);
+            BinaryData.Save(SwordsInfo, "SkinGroup1");
+            InitializeSkinInfo(ArmorsInfo, ArmorsSkins, mainList);
+            BinaryData.Save(ArmorsInfo, "SkinGroup2");
+            BinaryData.Save(HatsInfo, "CheckSkinSave");
+        }
 
-        private void InitializeSkinInfo(List<StoreInformations> skinInfolist, List<GameObject> skinObjects, List<List<StoreInformations>> mainList, List<List<GameObject>> mainObjects)
+        public void InitializeSkinObjects(List<List<GameObject>> mainSkinObjectList)
+        {
+            InitializeSkinInfoObjects(HatsSkin, mainSkinObjectList);
+            InitializeSkinInfoObjects(SwordsSkin, mainSkinObjectList);
+            InitializeSkinInfoObjects(ArmorsSkins, mainSkinObjectList);
+        }
+        private void InitializeSkinInfo(List<StoreInformations> skinInfolist, List<GameObject> skinObjects, List<List<StoreInformations>> mainList)
         {
             for (int i = 0; i < skinObjects.Count; i++)
             {
@@ -27,15 +45,12 @@ namespace Utilities.Store.Skin
                 skinInfolist.Add(new StoreInformations(_groupIndex, null, parts[1], false, false));
             }
             mainList.Add(skinInfolist);
-            mainObjects.Add(skinObjects);
             _groupIndex++;
         }
-
-        public void SkinInfoList( List<List<StoreInformations>> mainList, List<List<GameObject>> mainObjects)
+        
+        private void InitializeSkinInfoObjects(List<GameObject> skinObjects, List<List<GameObject>> mainSkinObjectList)
         {
-            InitializeSkinInfo(HatsInfo, HatsSkin, mainList, mainObjects);
-            InitializeSkinInfo(SwordsInfo, SwordsSkin, mainList, mainObjects);
-            InitializeSkinInfo(ArmorsInfo, ArmorsSkins, mainList, mainObjects);
+            mainSkinObjectList.Add(skinObjects);
         }
     }
 }

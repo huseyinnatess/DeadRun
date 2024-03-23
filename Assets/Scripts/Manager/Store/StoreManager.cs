@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MonoSingleton;
 using UnityEngine;
 using Utilities.Store;
@@ -12,6 +13,8 @@ namespace Manager.Store
         private Button _purchasseButton;
         private Button _equipButton;
         private Button _equippedButton;
+        
+        private GameObject _skinSlots;
 
         private Text _priceText;
         private void Awake()
@@ -19,7 +22,9 @@ namespace Manager.Store
             _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
             _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
             _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
+            _skinSlots = GameObject.FindWithTag("SkinSlots");
             _priceText = _purchasseButton.GetComponentInChildren<Text>();
+            ToggleSlotPanel(Convert.ToBoolean(PlayerData.GetInt("CurrentIndex")));
         }
 
         public void UpdateButtonStatus(List<StoreInformations> infoList, int index)
@@ -55,6 +60,11 @@ namespace Manager.Store
         public void UpdateSkinPrice(string price)
         {
             _priceText.text = price;
+        }
+
+        public void ToggleSlotPanel(bool canBeActive)
+        {
+            _skinSlots.SetActive(!canBeActive);
         }
     }
 }
