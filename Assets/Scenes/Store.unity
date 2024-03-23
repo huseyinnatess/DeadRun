@@ -918,13 +918,13 @@ MonoBehaviour:
   - {fileID: 4473712060578252774}
   - {fileID: 209626134316510897}
   - {fileID: 1022013304607423120}
-  herosInfos:
-  - Price: 
-  - Price: 
-  - Price: 
-  - Price: 
-  - Price: 
-  - Price: 
+  HerosInfos:
+  - Price: 500
+  - Price: 1000
+  - Price: 1000
+  - Price: 1500
+  - Price: 2000
+  - Price: 2000
   CurrentIndex: 0
 --- !u!114 &258343685
 MonoBehaviour:

@@ -67,6 +67,7 @@ namespace Utilities.SaveLoad
             SetFloat("SoundSlider", .5f);
             SetFloat("FxSlider", .7f);
             SetInt("Interstitial", 0);
+            SetInt("CurrentIndex", 0);
             PlayerPrefs.Save();
         }
     } 

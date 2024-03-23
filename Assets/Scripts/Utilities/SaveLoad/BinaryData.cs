@@ -8,26 +8,41 @@
         {
             public class BinaryData : MonoBehaviour
             {
-                public static void Save(List<StoreInformations> data, string filename)
+                private const string FileExtension = ".gd";
+
+                public static void Save(List<StoreInformations> data, string fileName)
                 {
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
-                    FileStream file = File.Create(Application.persistentDataPath + "/" + filename + ".gd");
-                    binaryFormatter.Serialize(file, data);
-                    file.Close();
+                    if (!File.Exists(Application.persistentDataPath + "/" + fileName + FileExtension))
+                    {
+                        FileStream file = File.Create(Application.persistentDataPath + "/" + fileName + FileExtension);
+                        binaryFormatter.Serialize(file, data);
+                        file.Close();
+                    }
+                    else
+                    {
+                        FileStream file = File.OpenWrite(Application.persistentDataPath + "/" + fileName + FileExtension);
+                        binaryFormatter.Serialize(file, data);
+                        file.Close();
+                    }
                 }
 
-                public static List<StoreInformations> Load(List<StoreInformations> data, string filename)
+                public static List<StoreInformations> Load(string fileName)
                 {
-                    if (File.Exists(Application.persistentDataPath + "/" + filename + ".gd"))
+                    if (File.Exists(Application.persistentDataPath + "/" + fileName + FileExtension))
                     {
                         BinaryFormatter binaryFormatter = new BinaryFormatter();
-                        FileStream file = File.Open(Application.persistentDataPath + "/" + filename + ".gd", FileMode.Open);
-                        data = (List<StoreInformations>)binaryFormatter.Deserialize(file);
+                        FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + FileExtension, FileMode.Open);
+                        List<StoreInformations> data = (List<StoreInformations>)binaryFormatter.Deserialize(file);
                         file.Close();
                         return data;
                     }
-
                     return null;
+                }
+
+                public static bool IsSaveDataExits(string fileName)
+                {
+                    return File.Exists(Application.persistentDataPath + "/" + fileName + FileExtension);
                 }
             }
         }
