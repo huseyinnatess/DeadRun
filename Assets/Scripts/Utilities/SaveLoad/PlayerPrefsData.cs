@@ -61,12 +61,14 @@ namespace Utilities.SaveLoad
         {
             if (HasKey("First")) return;
             SetInt("First", 1);
-            SetInt("EndLevel", 2);
+            SetInt("EndLevel", 3);
             SetInt("Coin", 10000);
             SetInt("Score", 0);
             SetFloat("SoundSlider", .5f);
             SetFloat("FxSlider", .7f);
             SetInt("Interstitial", 0);
+            SetInt("ActiveHeroIndex", 0);
+            SetInt("CurrentIndex", 0);
             PlayerPrefs.Save();
         }
     } 

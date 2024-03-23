@@ -8,7 +8,7 @@ namespace GoogleAdmob
     public class InterstitialAD : MonoSingleton<InterstitialAD>, IAdmob
     {
 #if UNITY_EDITOR
-        private const string _adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        private const string _aDUnitId = "ca-app-pub-3940256099942544/6300978111";
 #endif
 
         private InterstitialAd _interstitialAd;
@@ -21,7 +21,7 @@ namespace GoogleAdmob
         {
             DestroyAd();
             var request = new AdRequest.Builder().Build();
-            InterstitialAd.Load(_adUnitId, request, (ad, error) =>
+            InterstitialAd.Load(_aDUnitId, request, (ad, error) =>
             {
                 if (ad == null || error != null)
                     return;

@@ -49,7 +49,7 @@ namespace Utilities
         private void SetPlayerRewardCoin()
         {
             _rewardCoin = (AgentPools.CharacterCount * 4) + Random.Range(0, 15);
-            GameObject.FindWithTag("RewardCoin").GetComponent<TextMeshProUGUI>().text = _rewardCoin.ToString();
+            GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>().text = _rewardCoin.ToString();
             CoinManager.Instance.EarnCoin(_rewardCoin);
         }
 

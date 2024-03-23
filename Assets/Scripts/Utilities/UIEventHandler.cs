@@ -7,39 +7,43 @@ namespace Utilities
 {
     public class UIEventHandler : MonoBehaviour
     {
-        public void NextLevel()
+        public void NextLevelButton()
         {
             LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
             Time.timeScale = 1f;
         }
 
-        public void Restart()
+        public void RestartButton()
         {
             LoadingSlider.Instance.StartLoad(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1f;
         }
 
-        public void MainMenu()
+        public void MainMenuButton()
         {
             LoadingSlider.Instance.StartLoad(0);
             Time.timeScale = 1f;
         }
 
-        public void Settings(bool active)
+        public void SettingsButton(bool active)
         {
             MainMenuManager.Instance.SettingsPanel(active);
         }
         
-        public void StartGame()
+        public void StartGameButton()
         {
             LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
-        }
-        public void LevelSelect(int index)
+        } 
+        public void MarketButton()
         {
-            LoadingSlider.Instance.StartLoad(index);
+            LoadingSlider.Instance.StartLoad(2);
+        }
+        public void LevelSelectButton()
+        {
+            LoadingSlider.Instance.StartLoad(1);
         }
 
-        public void PauseAndContinue(bool active)
+        public void PauseAndContinueButton(bool active)
         {
             Time.timeScale = Convert.ToInt32(!active);
             LevelPanelManager.Instance.PausePanel(active);

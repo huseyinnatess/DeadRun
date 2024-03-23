@@ -317,8 +317,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258343681}
-        m_TargetAssemblyTypeName: Utilities.PanelButtons, Assembly-CSharp
-        m_MethodName: Settings
+        m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
+        m_MethodName: SettingsButton
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2381,8 +2381,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258343681}
-        m_TargetAssemblyTypeName: Utilities.PanelButtons, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
+        m_MethodName: StartGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3504,9 +3504,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258343681}
-        m_TargetAssemblyTypeName: Utilities.PanelButtons, Assembly-CSharp
-        m_MethodName: LevelSelect
-        m_Mode: 3
+        m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
+        m_MethodName: LevelSelectButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3767,8 +3767,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 258343681}
-        m_TargetAssemblyTypeName: Utilities.PanelButtons, Assembly-CSharp
-        m_MethodName: Settings
+        m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
+        m_MethodName: SettingsButton
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3936,7 +3936,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 530430860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 258343681}
+        m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
+        m_MethodName: MarketButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &136364344359579770
 RectTransform:
   m_ObjectHideFlags: 0

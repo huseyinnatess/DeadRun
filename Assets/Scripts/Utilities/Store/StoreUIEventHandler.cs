@@ -83,6 +83,8 @@ namespace Utilities.Store
                 StoreManager.Instance.EquipButtonStatus(HerosStoreManager.Instance.HerosInfos,
                     HerosStoreManager.Instance.CurrentIndex);
                 BinaryData.Save(HerosStoreManager.Instance.HerosInfos, "HerosInfos");
+                HerosStoreManager.Instance.ActiveIndex = HerosStoreManager.Instance.CurrentIndex;
+                PlayerData.SetInt("ActiveHeroIndex",  HerosStoreManager.Instance.ActiveIndex);
             }
         }
 
@@ -97,6 +99,11 @@ namespace Utilities.Store
                 BinaryData.Save(SkinStoreManager.Instance.SkinInfoMatrix[SkinStoreManager.ActiveSkinGroup], "SkinGroup" + SkinStoreManager.ActiveSkinGroup);
                 SkinStoreManager.Instance.DeactivateGroupItem(SkinStoreManager.ActiveSkinGroup, SkinStoreManager.ActiveSkinIndex);
             }
+        }
+
+        public void MainMenuButton()
+        {
+            LoadingSlider.Instance.StartLoad(0);
         }
     }
 }

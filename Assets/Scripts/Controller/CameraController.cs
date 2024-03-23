@@ -7,7 +7,7 @@ namespace Controller
         private Transform _target;
         private Vector3 _targetOffset;
         private Vector3 _finishPosition;
-        private void Awake()
+        private void Start()
         {
             GetReferences();
         }

@@ -15,7 +15,7 @@ namespace Manager.Store
         public List<GameObject> HerosObjects;
         public List<StoreInformations> HerosInfos = new List<StoreInformations>();
         [HideInInspector] public int CurrentIndex;
-
+        [HideInInspector] public int ActiveIndex;
 
         private Text _priceText;
         private TextMeshProUGUI _characterNameText;
@@ -25,6 +25,7 @@ namespace Manager.Store
         private void Awake()
         {
             CurrentIndex = PlayerData.GetInt("CurrentIndex");
+            ActiveIndex = PlayerData.GetInt("ActiveHeroIndex");
             GetReferences();
             SetReferences();
         }

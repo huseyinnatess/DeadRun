@@ -26,8 +26,9 @@ namespace Utilities
 
         public void StartLoad(int sceneIndex)
         {
-            _loadingPanel.SetActive(true);
-           StartCoroutine(LoadAsync(sceneIndex));
+            if (_loadingPanel != null)
+                _loadingPanel.SetActive(true);
+            StartCoroutine(LoadAsync(sceneIndex));
         }
 
         private IEnumerator LoadAsync(int sceneIndex)
