@@ -2,7 +2,6 @@
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utilities.SaveLoad;
 using Utilities.Store;

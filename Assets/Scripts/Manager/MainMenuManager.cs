@@ -1,10 +1,6 @@
-using System;
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Utilities;
 using Utilities.SaveLoad;
 
 namespace Manager

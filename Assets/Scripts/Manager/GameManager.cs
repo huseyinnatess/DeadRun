@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Controller;
-using Manager.Store;
-using NUnit.Framework;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
@@ -35,12 +33,17 @@ namespace Manager
         private void Awake()
         {
             Time.timeScale = 1f;
-            _slider = GetComponentInChildren<Slider>();
-            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL " + (PlayerData.GetInt("EndLevel") - 1);
+            GetReferences();
             ActivateHero();
             InitializeSkins();
             ActivateHeroSkins();
+        }
+
+        private void GetReferences()
+        {
+            _slider = GetComponentInChildren<Slider>();
+            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
+            _levelText.text = "LEVEL " + (PlayerData.GetInt("EndLevel") - 1);
         }
 
         private void Start()
@@ -118,7 +121,6 @@ namespace Manager
                     }
                 }
             }
-            
         }
     }
 }

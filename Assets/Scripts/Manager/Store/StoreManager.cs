@@ -17,16 +17,26 @@ namespace Manager.Store
         private GameObject _skinSlots;
 
         private Text _priceText;
+
+        #region Awake, Get Functions
+
         private void Awake()
+        {
+            GetReferences();
+            ToggleSlotPanel(Convert.ToBoolean(PlayerData.GetInt("CurrentIndex")));
+        }
+
+        private void GetReferences()
         {
             _purchasseButton = GameObject.FindWithTag("PurchasseButton").GetComponent<Button>();
             _equipButton = GameObject.FindWithTag("EquipButton").GetComponent<Button>();
             _equippedButton = GameObject.FindWithTag("EquippedButton").GetComponent<Button>();
             _skinSlots = GameObject.FindWithTag("SkinSlots");
             _priceText = _purchasseButton.GetComponentInChildren<Text>();
-            ToggleSlotPanel(Convert.ToBoolean(PlayerData.GetInt("CurrentIndex")));
         }
 
+        #endregion
+        
         public void UpdateButtonStatus(List<StoreInformations> infoList, int index)
         {
             bool boughtStatus = infoList[index].IsBought;
