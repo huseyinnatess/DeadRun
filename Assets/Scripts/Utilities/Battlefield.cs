@@ -7,6 +7,8 @@ using ObjectPools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Utilities.SaveLoad;
 using Random = UnityEngine.Random;
 
@@ -16,7 +18,7 @@ namespace Utilities
     {
         private Scene _activeScene;
         private int _rewardCoin;
-        private TextMeshProUGUI _rewardCoinText;
+        [SerializeField] private TextMeshProUGUI rewardCoinText;
 
         #region Awake
 
@@ -26,7 +28,7 @@ namespace Utilities
         }
 
         #endregion
-       
+
         public void WarResult(int enemyCount)
         {
             ShowIntersititalAd();
@@ -48,8 +50,8 @@ namespace Utilities
 
         private void SetPlayerRewardCoin()
         {
-            _rewardCoin = (AgentPools.CharacterCount * 4) + Random.Range(0, 15);
-            GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>().text = _rewardCoin.ToString();
+            _rewardCoin = (AgentPools.Instance.CharacterCount * 4) + Random.Range(0, 15);
+            rewardCoinText.text = _rewardCoin.ToString();
             CoinManager.Instance.EarnCoin(_rewardCoin);
         }
 
@@ -62,12 +64,12 @@ namespace Utilities
         }
 
         #endregion
-        
+
         private void Defeat()
         {
             LevelPanelManager.Instance.DefeatPanel(true);
         }
-        
+
         private void ShowIntersititalAd()
         {
             InterstitialAD.Instance.ShowAd();

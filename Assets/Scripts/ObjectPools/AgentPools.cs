@@ -9,7 +9,7 @@ namespace ObjectPools
     {
         public List<GameObject> agents;
 
-        public static int CharacterCount = 0;
+        public int CharacterCount = 0;
 
         public void AgentObjectPoolManager(char sign, int count, Transform spawnPoint)
         {
@@ -45,7 +45,7 @@ namespace ObjectPools
         public void AddMainCharacter(GameObject character)
         {
             agents.Add(character);
-            CharacterCount++;
+            CharacterCount = 1;
         }
 
         public void AddList(GameObject agent)

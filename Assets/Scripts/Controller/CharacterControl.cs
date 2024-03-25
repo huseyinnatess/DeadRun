@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Manager;
 using MonoSingleton;
 using ObjectPools;
@@ -37,13 +38,13 @@ namespace Controller
         {
             CharacterMovement();
             GetInputAxis();
-
-            if (GameManager.IsSetActiveHandle == 1 && !_isCanRun)
-            {
-                Debug.Log(GameManager.IsSetActiveHandle);
-                _animator.SetTrigger("IsCanRun");
-                _isCanRun = true;
-            }
+            ActivateRunAnimation();
+        }
+        private void ActivateRunAnimation()
+        {
+            if (GameManager.IsSetActiveHandle != 1 || _isCanRun) return;
+            _animator.SetTrigger("IsCanRun");
+            _isCanRun = true;
         }
 
         private void CharacterMovement()
@@ -95,12 +96,12 @@ namespace Controller
                 EnemyController.Attack(true);
             }
 
-            if (AgentPools.CharacterCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
-                                                   other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
-                                                   other.CompareTag("EnemyAgent")))
+            if (AgentPools.Instance.CharacterCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
+                                                            other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
+                                                            other.CompareTag("EnemyAgent")))
             {
                 gameObject.SetActive(false);
-                AgentPools.CharacterCount--;
+                AgentPools.Instance.CharacterCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
             }

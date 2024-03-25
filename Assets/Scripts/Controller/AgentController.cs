@@ -35,7 +35,7 @@ namespace Controller
             if (other.CompareTag("ThornBox") || other.CompareTag("Saw") || other.CompareTag("ThornWall") || other.CompareTag("Hammer"))
             {
                 gameObject.SetActive(false);
-                AgentPools.CharacterCount--;
+                AgentPools.Instance.CharacterCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
             }
@@ -43,7 +43,7 @@ namespace Controller
             if (other.CompareTag("EnemyAgent"))
             {
                 gameObject.SetActive(false);
-                AgentPools.CharacterCount--;
+                AgentPools.Instance.CharacterCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
                 EnemyController.EnemyAgentCount--;

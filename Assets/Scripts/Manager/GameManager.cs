@@ -84,8 +84,8 @@ namespace Manager
         private void CheckWarResult()
         {
             if ((EnemyController.IsCanAttack && !_checkWarStatus &&
-                 (AgentPools.CharacterCount == 0 || EnemyController.EnemyAgentCount == 0)) ||
-                (AgentPools.CharacterCount == 0))
+                 (AgentPools.Instance.CharacterCount == 0 || EnemyController.EnemyAgentCount == 0)) ||
+                (AgentPools.Instance.CharacterCount == 0))
             {
                 _checkWarStatus = true;
                 _battlefield.WarResult(EnemyController.EnemyAgentCount);
