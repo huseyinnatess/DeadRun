@@ -9,7 +9,7 @@ namespace Controller
         public static int EnemyAgentCount;
         public GameObject[] EnemyAgents;
 
-        private Transform _target;
+        public static Transform Target;
         private NavMeshAgent[] _enemyNavMeshAgent;
         private Animator[] _enemyAnimator;
         private bool _attackAnimationWork;
@@ -18,14 +18,8 @@ namespace Controller
 
         private void Awake()
         {
-            GetReferences();
             GetEnemyComponent();
             SetReferences();
-        }
-
-        private void GetReferences()
-        {
-            _target = GameObject.FindWithTag("Character").transform;
         }
 
         private void GetEnemyComponent()
@@ -67,7 +61,7 @@ namespace Controller
                     {
                         if (!_attackAnimationWork)
                             _enemyAnimator[i].SetBool("Attack", true);
-                        _enemyNavMeshAgent[i].SetDestination(_target.transform.position);
+                        _enemyNavMeshAgent[i].SetDestination(Target.transform.position);
                     }
                 }
 

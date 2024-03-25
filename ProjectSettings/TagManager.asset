@@ -35,6 +35,7 @@ TagManager:
   - EquipButton
   - EquippedButton
   - SkinSlots
+  - Handel
   layers:
   - Default
   - TransparentFX

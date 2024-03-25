@@ -1,4 +1,5 @@
 using System;
+using Manager;
 using MonoSingleton;
 using ObjectPools;
 using UnityEngine;
@@ -10,11 +11,18 @@ namespace Controller
         private float _inputAxis;
         private Animator _animator;
         private float _speed;
+        private bool _isCanRun;
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
             _animator = GetComponent<Animator>();
             _speed = 1f;
+            _isCanRun = false;
+        }
+
+        private void Start()
+        {
+            SetEnemyTarget();
         }
 
         #region Update, FixedUpdate
@@ -29,11 +37,18 @@ namespace Controller
         {
             CharacterMovement();
             GetInputAxis();
+
+            if (GameManager.IsSetActiveHandle == 1 && !_isCanRun)
+            {
+                Debug.Log(GameManager.IsSetActiveHandle);
+                _animator.SetTrigger("IsCanRun");
+                _isCanRun = true;
+            }
         }
 
         private void CharacterMovement()
         {
-            transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
+            transform.Translate(Vector3.forward * (_speed * Time.deltaTime * GameManager.IsSetActiveHandle));
         }
 
         private void GetInputAxis()
@@ -89,6 +104,11 @@ namespace Controller
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
             }
+        }
+
+        private void SetEnemyTarget()
+        {
+            EnemyController.Target = gameObject.transform;
         }
     }
 }

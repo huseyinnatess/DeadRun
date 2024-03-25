@@ -16,7 +16,9 @@ namespace Manager
     {
         private Battlefield _battlefield;
         private bool _checkWarStatus;
-
+        private GameObject _handel;
+        public static int IsSetActiveHandle;
+        
         private Slider _slider;
         private GameObject _finishPosition;
         private GameObject _startPosition;
@@ -33,6 +35,7 @@ namespace Manager
         private void Awake()
         {
             Time.timeScale = 1f;
+            IsSetActiveHandle = 0;
             GetReferences();
             ActivateHero();
             InitializeSkins();
@@ -44,6 +47,7 @@ namespace Manager
             _slider = GetComponentInChildren<Slider>();
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
             _levelText.text = "LEVEL " + (PlayerData.GetInt("EndLevel") - 1);
+            _handel = GameObject.FindWithTag("Handel");
         }
 
         private void Start()
@@ -62,6 +66,14 @@ namespace Manager
         
         #endregion
 
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0) && IsSetActiveHandle != 1)
+            {
+                _handel.SetActive(false);
+                IsSetActiveHandle = 1;
+            }
+        }
         private void LateUpdate()
         {
             CheckWarResult();
