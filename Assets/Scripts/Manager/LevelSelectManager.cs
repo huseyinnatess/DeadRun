@@ -17,7 +17,7 @@ namespace Manager
 
         private void Awake()
         {
-            _currentLevel = PlayerData.GetInt("EndLevel") - 1;
+            _currentLevel = PlayerData.GetInt("EndLevel") - 2;
 
             ButtonConfigure();
         }
@@ -37,7 +37,7 @@ namespace Manager
                 {
                     ButtonsLock[i].SetActive(false);
                     Buttons[i].GetComponentInChildren<Text>().text = (i + 1).ToString();
-                    int sceneIndex = i + 2;
+                    int sceneIndex = i + 3;
                     Buttons[i].onClick.AddListener(delegate { SceneLoad(sceneIndex); });
                 }
                 else

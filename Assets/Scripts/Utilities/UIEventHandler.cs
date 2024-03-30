@@ -9,6 +9,8 @@ namespace Utilities
     {
         public void NextLevelButton()
         {
+            if (PlayerPrefs.GetInt("EndLevel") == SceneManager.sceneCountInBuildSettings) 
+                PlayerPrefs.SetInt("EndLevel", PlayerPrefs.GetInt("EndLevel") - 1);
             LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
             Time.timeScale = 1f;
         }
@@ -32,7 +34,9 @@ namespace Utilities
         
         public void StartGameButton()
         {
-            LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
+           if (PlayerPrefs.GetInt("EndLevel") == SceneManager.sceneCountInBuildSettings) 
+               PlayerPrefs.SetInt("EndLevel", PlayerPrefs.GetInt("EndLevel") - 1);
+           LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
         } 
         public void MarketButton()
         {

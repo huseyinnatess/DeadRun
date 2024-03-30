@@ -4,6 +4,7 @@ using Controller;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
 using Utilities.SaveLoad;
@@ -46,7 +47,7 @@ namespace Manager
         {
             _slider = GetComponentInChildren<Slider>();
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL " + (PlayerData.GetInt("EndLevel") - 1);
+            _levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 2);
             _handel = GameObject.FindWithTag("Handel");
         }
 

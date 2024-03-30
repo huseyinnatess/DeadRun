@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 2823456319965108239}
   - component: {fileID: 4006761672545681539}
   - component: {fileID: 5480798275571745004}
+  - component: {fileID: 8395939247671122088}
   m_Layer: 0
   m_Name: ThornBox
   m_TagString: ThornBox
@@ -450,6 +451,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28612205, y: 0.31209695, z: 0.113559976}
   m_Center: {x: -0.02310303, y: 0.0070440173, z: 0.25386527}
+--- !u!114 &8395939247671122088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474861432606933099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 0
+  m_AffectedAgents: 00000000
 --- !u!1 &4815092909839952183
 GameObject:
   m_ObjectHideFlags: 0
