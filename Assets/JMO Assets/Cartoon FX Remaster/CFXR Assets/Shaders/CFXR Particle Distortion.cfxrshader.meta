@@ -46,3 +46,11 @@ ScriptedImporter:
   shaderErrors: []
   variantCount: 64
   variantCountUsed: 2
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109565
+  packageName: Cartoon FX Remaster Free
+  packageVersion: R 1.3.1
+  assetPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle
+    Distortion.cfxrshader
+  uploadId: 623844

@@ -39,7 +39,7 @@ Material:
     - _Cutoff: 0.1
     - _DebugVisualize: 0
     - _EdgeFadePow: 1
-    - _ScreenDistortionScale: 0.5
+    - _ScreenDistortionScale: 0.2
     - _SoftParticlesFadeDistanceFar: 0.33
     - _SoftParticlesFadeDistanceNear: 0
     - _UseAlphaClip: 0
