@@ -14,7 +14,7 @@ namespace Manager
         {
             DontDestroyOnLoad(this);
             _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
-            _coin = PlayerData.GetInt("Coin");
+            _coin = PlayerPrefsData.GetInt("Coin");
             if (_coinText is not null)
             {
                 _coinText.text = _coin.ToString();
@@ -30,7 +30,7 @@ namespace Manager
         }
         public void EarnCoin(int amount)
         {
-            _coin = PlayerData.GetInt("Coin");
+            _coin = PlayerPrefsData.GetInt("Coin");
             _coin += amount;
             if (_coinText is not null)
                 _coinText.text = _coin.ToString();
@@ -39,7 +39,7 @@ namespace Manager
 
         private void SpendCoin(int amount)
         {
-            _coin = PlayerData.GetInt("Coin");
+            _coin = PlayerPrefsData.GetInt("Coin");
             _coin -= amount;
             if (_coinText is not null)
                 _coinText.text = _coin.ToString();
@@ -53,7 +53,7 @@ namespace Manager
         
         private void SaveCoin()
         {
-            PlayerData.SetInt("Coin", _coin);
+            PlayerPrefsData.SetInt("Coin", _coin);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Manager
         private void GetReferencesAwake()
         {
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL " + (PlayerData.GetInt("EndLevel") - 2);
+            _levelText.text = "LEVEL " + (PlayerPrefsData.GetInt("EndLevel") - 2);
             _settingsPanel = GameObject.FindWithTag("SettingsPanel");
         }
 

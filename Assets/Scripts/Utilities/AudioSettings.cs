@@ -29,22 +29,22 @@ namespace Utilities
 
         public void SetSoundSliderValue()
         {
-            PlayerData.SetFloat("SoundSlider", _soundSlider.value);
+            PlayerPrefsData.SetFloat("SoundSlider", _soundSlider.value);
         }
 
         public void SetFxSliderValue()
         {
-            PlayerData.SetFloat("FxSlider", _fxSlider.value);
+            PlayerPrefsData.SetFloat("FxSlider", _fxSlider.value);
         }
 
         public static float GetSoundSliderValue()
         {
-            return PlayerData.GetFloat("SoundSlider");
+            return PlayerPrefsData.GetFloat("SoundSlider");
         }
 
         public static float GetFxSliderValue()
         {
-            return PlayerData.GetFloat("FxSlider");
+            return PlayerPrefsData.GetFloat("FxSlider");
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Manager
 
         private void Awake()
         {
-            _currentLevel = PlayerData.GetInt("EndLevel") - 2;
+            _currentLevel = PlayerPrefsData.GetInt("EndLevel") - 2;
 
             ButtonConfigure();
         }

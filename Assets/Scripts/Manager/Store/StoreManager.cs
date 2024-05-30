@@ -23,7 +23,7 @@ namespace Manager.Store
         private void Awake()
         {
             GetReferences();
-            ToggleSlotPanel(Convert.ToBoolean(PlayerData.GetInt("CurrentIndex")));
+            ToggleSlotPanel(Convert.ToBoolean(PlayerPrefsData.GetInt("CurrentIndex")));
         }
 
         private void GetReferences()

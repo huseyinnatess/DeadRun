@@ -2,7 +2,7 @@
 
 namespace Utilities.SaveLoad
 {
-    public class PlayerData : MonoBehaviour
+    public class PlayerPrefsData : MonoBehaviour
     {
         private void Awake()
         {

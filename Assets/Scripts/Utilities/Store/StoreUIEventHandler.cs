@@ -18,7 +18,7 @@ namespace Utilities.Store
             herosStoreManager.HerosObjects[currentIndex].SetActive(false);
             currentIndex = (currentIndex + 1) % (maxIndex + 1);
             herosStoreManager.CurrentIndex = currentIndex;
-            PlayerData.SetInt("CurrentIndex", currentIndex);
+            PlayerPrefsData.SetInt("CurrentIndex", currentIndex);
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
             StoreManager.Instance.ToggleSlotPanel(Convert.ToBoolean(currentIndex));
             herosStoreManager.HerosObjects[currentIndex].SetActive(true);
@@ -38,7 +38,7 @@ namespace Utilities.Store
 
             currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
             herosStoreManager.CurrentIndex = currentIndex;
-            PlayerData.SetInt("CurrentIndex", currentIndex);
+            PlayerPrefsData.SetInt("CurrentIndex", currentIndex);
             StoreManager.Instance.ToggleSlotPanel(Convert.ToBoolean(currentIndex));
             SkinStoreManager.Instance.DeactivateGroupItems(currentIndex);
             herosStoreManager.HerosObjects[currentIndex].SetActive(true);
@@ -84,7 +84,7 @@ namespace Utilities.Store
                     HerosStoreManager.Instance.CurrentIndex);
                 BinaryData.Save(HerosStoreManager.Instance.HerosInfos, "HerosInfos");
                 HerosStoreManager.Instance.ActiveIndex = HerosStoreManager.Instance.CurrentIndex;
-                PlayerData.SetInt("ActiveHeroIndex",  HerosStoreManager.Instance.ActiveIndex);
+                PlayerPrefsData.SetInt("ActiveHeroIndex",  HerosStoreManager.Instance.ActiveIndex);
             }
         }
 

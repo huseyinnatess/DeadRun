@@ -1,14 +1,10 @@
-﻿using System;
-using Controller;
+﻿using Controller;
 using GoogleAdmob;
-using GoogleAdmob.Interface;
 using Manager;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using Utilities.SaveLoad;
 using Random = UnityEngine.Random;
 
@@ -57,9 +53,9 @@ namespace Utilities
 
         private void SetPlayerEndLevel()
         {
-            if (_activeScene.buildIndex == PlayerData.GetInt("EndLevel"))
+            if (_activeScene.buildIndex == PlayerPrefsData.GetInt("EndLevel"))
             {
-                PlayerData.SetInt("EndLevel", PlayerData.GetInt("EndLevel") + 1);
+                PlayerPrefsData.SetInt("EndLevel", PlayerPrefsData.GetInt("EndLevel") + 1);
             }
         }
 

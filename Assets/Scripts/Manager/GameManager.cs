@@ -114,7 +114,7 @@ namespace Manager
                 Heros[i].SetActive(false);
             }
 
-            Heros[PlayerData.GetInt("ActiveHeroIndex")].SetActive(true);
+            Heros[PlayerPrefsData.GetInt("ActiveHeroIndex")].SetActive(true);
         }
 
         private void ActivateHeroSkins()

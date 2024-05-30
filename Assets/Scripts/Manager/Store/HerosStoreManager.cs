@@ -23,8 +23,8 @@ namespace Manager.Store
 
         private void Awake()
         {
-            CurrentIndex = PlayerData.GetInt("CurrentIndex");
-            ActiveIndex = PlayerData.GetInt("ActiveHeroIndex");
+            CurrentIndex = PlayerPrefsData.GetInt("CurrentIndex");
+            ActiveIndex = PlayerPrefsData.GetInt("ActiveHeroIndex");
             GetReferences();
             SetReferences();
         }
