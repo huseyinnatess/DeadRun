@@ -64,7 +64,6 @@ namespace Controller
                         _enemyNavMeshAgent[i].SetDestination(Target.transform.position);
                     }
                 }
-
                 _attackAnimationWork = true;
             }
         }

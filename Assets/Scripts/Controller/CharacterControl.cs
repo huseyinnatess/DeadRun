@@ -10,15 +10,24 @@ namespace Controller
     public class CharacterControl : MonoSingleton<CharacterControl>
     {
         private float _inputAxis;
-        private Animator _animator;
         private float _speed;
+
         private bool _isCanRun;
+        private bool _isTouchingColumn;
+        private bool _isTouchingLeftBorder;
+        private bool _isTouchingRightBorder;
+            
+        private Animator _animator;
+
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
             _animator = GetComponent<Animator>();
             _speed = 1f;
             _isCanRun = false;
+            _isTouchingColumn = false;
+            _isTouchingLeftBorder = false;
+            _isTouchingRightBorder = false;
         }
 
         private void Start()
@@ -36,7 +45,8 @@ namespace Controller
 
         private void Update()
         {
-            CharacterMovement();
+            if (_isTouchingColumn == false)
+                CharacterMovement(_speed);
             GetInputAxis();
             ActivateRunAnimation();
         }
@@ -47,18 +57,18 @@ namespace Controller
             _isCanRun = true;
         }
 
-        private void CharacterMovement()
+        private void CharacterMovement(float speed)
         {
-            transform.Translate(Vector3.forward * (_speed * Time.deltaTime * GameManager.IsSetActiveHandle));
+            transform.Translate(Vector3.forward * (speed * Time.deltaTime * GameManager.IsSetActiveHandle));
         }
 
         private void GetInputAxis()
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                if (Input.GetAxis("Mouse X") < 0)
+                if (Input.GetAxis("Mouse X") < 0 && _isTouchingLeftBorder == false)
                     _inputAxis = .1f;
-                if (Input.GetAxis("Mouse X") > 0)
+                if (Input.GetAxis("Mouse X") > 0 && _isTouchingRightBorder == false)
                     _inputAxis = -.1f;
             }
             else
@@ -107,9 +117,46 @@ namespace Controller
             }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Column"))
+            {
+                _isTouchingColumn = true;
+                CharacterMovement(0);
+            }
+            if (other.gameObject.CompareTag("LeftBorder"))
+            {
+                _isTouchingLeftBorder = true;
+                _inputAxis = 0f;
+            }
+            if (other.gameObject.CompareTag("RightBorder"))
+            {
+                _isTouchingRightBorder = true;
+                _inputAxis = 0f;
+            }
+        }
+        
+        private void OnCollisionExit(Collision other)
+        {
+            if (other.gameObject.CompareTag("Column"))
+            {
+                _isTouchingColumn = false;
+            }
+
+            if (other.gameObject.CompareTag("LeftBorder"))
+            {
+                _isTouchingLeftBorder = false;
+            }
+            
+            if (other.gameObject.CompareTag("RightBorder"))
+            {
+                _isTouchingRightBorder = false;
+            }
+        }
+
         private void SetEnemyTarget()
         {
-            EnemyController.Target = gameObject.transform;
+            EnemyController.Target = transform;
         }
     }
 }

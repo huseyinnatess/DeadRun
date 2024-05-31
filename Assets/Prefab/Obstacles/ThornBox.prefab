@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 2823456319965108239}
   - component: {fileID: 3040587769148849426}
   - component: {fileID: 567399081768427085}
+  - component: {fileID: 5854849721722795827}
   m_Layer: 0
   m_Name: ThornBox
   m_TagString: ThornBox
@@ -404,6 +405,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25739464, y: 0.3049122, z: 0.06393819}
   m_Center: {x: -0.0070401873, y: 0.010577977, z: 0.22894028}
+--- !u!65 &5854849721722795827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474861432606933099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39179173, y: 0.38706744, z: 0.3935186}
+  m_Center: {x: 0.04137306, y: -0.0058376193, z: -0.025943546}
 --- !u!1 &4815092909839952183
 GameObject:
   m_ObjectHideFlags: 0

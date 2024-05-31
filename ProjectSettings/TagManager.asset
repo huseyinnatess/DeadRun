@@ -36,6 +36,7 @@ TagManager:
   - EquippedButton
   - SkinSlots
   - Handel
+  - Column
   layers:
   - Default
   - TransparentFX
