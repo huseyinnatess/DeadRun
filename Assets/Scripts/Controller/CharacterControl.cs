@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Manager;
 using MonoSingleton;
 using ObjectPools;
@@ -10,66 +9,78 @@ namespace Controller
 {
     public class CharacterControl : MonoSingleton<CharacterControl>
     {
-        private float _inputAxis;
-        private float _speed;
+        private float _inputAxis; // Mouse hareketine göre karakterin gideceği yön
+        private float _characterSpeed; // Karakterin hızı
 
-        private bool _isCanRun;
-        private bool _isTouchingColumn;
-        private bool _isTouchingLeftBorder;
-        private bool _isTouchingRightBorder;
+        private bool _isCanRun; // Karakter koşmaya başladı mı?
+        private bool _isTouchingColumn; // Karakter numaralı panellerin columnlarına çarptı mı?
+        private bool _isTouchingLeftBorder; // Karakter zeminin sol sınırına çarptı mı?
+        private bool _isTouchingRightBorder; // Karakter zeminin sağ sınırına çarptı mı?
             
         private Animator _animator;
 
         private NavMeshAgent _navMeshAgent;
-        private Transform _enemyTarget;
+        private Transform _enemyTarget; // NavmeshAgent için hedef
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
             _animator = GetComponent<Animator>();
-            _speed = 1f;
+            _characterSpeed = 1f;
             _isCanRun = false;
             _isTouchingColumn = false;
             _isTouchingLeftBorder = false;
             _isTouchingRightBorder = false;
             _navMeshAgent = GetComponent<NavMeshAgent>();
-
-            _enemyTarget = EnemyController.Instance.EnemyAgents[0].transform;
         }
         #region Update, FixedUpdate
-
+        
         private void FixedUpdate()
         {
-            if (_speed != 0f && _navMeshAgent.enabled == false)
-                SetCharacterTarget(transform.position);
+            if (_characterSpeed != 0f)
+                SetCharacterDirection(transform.position);
         }
-
+        
         private void Update()
         {
-            if (_isTouchingColumn == false && _navMeshAgent.enabled == false)
-                CharacterMovement(_speed);
-            GetInputAxis();
-            ActivateRunAnimation();
+            if (_isTouchingColumn == false)
+                StabilizeForwardMovement(_characterSpeed);
+            if (_isCanRun == false)
+                SetRunAnimation();
+            SetInputAxis();
+            
+
         }
 
         private void LateUpdate()
         {
-           if (_navMeshAgent.enabled)
+            if (_navMeshAgent.enabled)
+            {
                 SetCharacterNavMesh();
+                LookAtEnemy();
+            }
         }
-
-        private void ActivateRunAnimation()
+        
+        // Update
+        // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
+        private void SetRunAnimation()
         {
-            if (GameManager.IsSetActiveHandle != 1 || _isCanRun) return;
-            _animator.SetTrigger("IsCanRun");
-            _isCanRun = true;
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                _animator.SetTrigger("IsCanRun");
+                _isCanRun = true;
+            }
         }
-
-        private void CharacterMovement(float speed)
+        
+        // Update
+        // Karakterin koşarken sola kaymasını minimuma indiriyor.
+        private void StabilizeForwardMovement(float speed)
         {
             transform.Translate(Vector3.forward * (speed * Time.deltaTime * GameManager.IsSetActiveHandle));
         }
-
-        private void GetInputAxis()
+        
+        // Update
+        // Karakterin Mouse yönüne bağlı olarak sağa sola gitmesini sağlıyor.
+        private void SetInputAxis()
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -81,19 +92,16 @@ namespace Controller
             else
                 _inputAxis = 0f;
         }
-
-        private void SetCharacterTarget(Vector3 target)
+        
+        // FixedUpdate
+        // Karakterin koşarken " _inputAxis'e" göre yönünü ayarlıyor.
+        private void SetCharacterDirection(Vector3 target)
         {
             transform.position = Vector3.Lerp(target, new Vector3(target.x - _inputAxis, target.y, target.z), .3f);
         }
 
         #endregion
 
-        public void SetVictoryAnimation()
-        {
-            _speed = 0f;
-            _animator.SetTrigger("Victory");
-        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("NumbersPanel"))
@@ -108,11 +116,11 @@ namespace Controller
 
             if (other.CompareTag("Battlefield"))
             {
-                _speed = 0f;
+                _characterSpeed = 0f;
                 _navMeshAgent.enabled = true;
                 EnemyController.Attack(true);
             }
-
+            // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
             if (AgentPools.Instance.CharacterCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
                                                             other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
                                                             other.CompareTag("EnemyAgent")))
@@ -130,7 +138,7 @@ namespace Controller
             if (other.gameObject.CompareTag("Column"))
             {
                 _isTouchingColumn = true;
-                CharacterMovement(0);
+                StabilizeForwardMovement(0);
             }
             if (other.gameObject.CompareTag("LeftBorder"))
             {
@@ -161,10 +169,21 @@ namespace Controller
                 _isTouchingRightBorder = false;
             }
         }
-
+        
+        // LateUpdate
+        // Karakter bitiş çizgisini geçtiği zaman NavMesh Agent componenti enabled edilip target'ı ayarlanıyor.
         private void SetCharacterNavMesh()
         {
+            _enemyTarget = EnemyController.Instance.GetActiveEnemy();
+            if (_enemyTarget is null) return;
             _navMeshAgent.SetDestination(_enemyTarget.position);
+        }
+        
+        // LateUpdate
+        // Karakter bitiş çizgisini geçtiği zaman enemy'e bakmasını sağlıyor.
+        private void LookAtEnemy()
+        {
+            transform.LookAt(_enemyTarget.position, Vector3.up);
         }
     }
 }

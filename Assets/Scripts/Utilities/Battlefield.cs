@@ -39,7 +39,6 @@ namespace Utilities
         private void Victory()
         {
             SetPlayerEndLevel();
-            CharacterControl.Instance.SetVictoryAnimation();
             LevelPanelManager.Instance.VictoryPanel(true);
             SetPlayerRewardCoin();
         }

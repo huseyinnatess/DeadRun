@@ -23,6 +23,17 @@ namespace Controller
             SetReferences();
         }
 
+        public Transform GetActiveEnemy()
+        {
+            int i = 0;
+
+            while (i < EnemyAgents.Length)
+            {
+                if (EnemyAgents[i].activeInHierarchy)
+                    return EnemyAgents[i].transform;
+            }
+            return null;
+        }
         private void GetEnemyComponent()
         {
             _enemyNavMeshAgent = new NavMeshAgent[EnemyAgents.Length];

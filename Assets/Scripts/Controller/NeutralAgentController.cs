@@ -1,11 +1,9 @@
-﻿using System;
-using Controller;
-using ObjectPools;
+﻿using ObjectPools;
 using UnityEngine;
 
-namespace Utilities
+namespace Controller
 {
-    public class NeutralAgent : MonoBehaviour
+    public class NeutralAgentController : MonoBehaviour
     {
         private SkinnedMeshRenderer _skinnedMeshRenderer;
         private Animator _animator;

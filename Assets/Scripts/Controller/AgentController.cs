@@ -23,6 +23,7 @@ namespace Controller
         private void LateUpdate()
         { 
             _navMesh.SetDestination(_target.position);
+            transform.LookAt(_target.position, Vector3.up);
         }
         
         private void OnTriggerEnter(Collider other)
@@ -47,7 +48,7 @@ namespace Controller
 
             if (other.CompareTag("Battlefield"))
             {
-                _target = EnemyController.Instance.EnemyAgents[0].transform;
+                _target = EnemyController.Instance.GetActiveEnemy();
             }
         }
     }
