@@ -23,7 +23,8 @@ namespace Controller
         private void LateUpdate()
         { 
             _navMesh.SetDestination(_target.position);
-            transform.LookAt(_target.position, Vector3.up);
+            if (_target is not null)
+                LookAtEnemy();
         }
         
         private void OnTriggerEnter(Collider other)
@@ -50,6 +51,10 @@ namespace Controller
             {
                 _target = EnemyController.Instance.GetActiveEnemy();
             }
+        }
+        private void LookAtEnemy()
+        {
+            transform.LookAt(_target.position, Vector3.up);
         }
     }
 }

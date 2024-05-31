@@ -31,6 +31,7 @@ namespace Controller
             {
                 if (EnemyAgents[i].activeInHierarchy)
                     return EnemyAgents[i].transform;
+                i++;
             }
             return null;
         }

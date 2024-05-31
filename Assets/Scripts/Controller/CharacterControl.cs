@@ -31,6 +31,7 @@ namespace Controller
             _isTouchingLeftBorder = false;
             _isTouchingRightBorder = false;
             _navMeshAgent = GetComponent<NavMeshAgent>();
+            _enemyTarget = EnemyController.Instance.GetActiveEnemy();
         }
         #region Update, FixedUpdate
         
@@ -56,7 +57,8 @@ namespace Controller
             if (_navMeshAgent.enabled)
             {
                 SetCharacterNavMesh();
-                LookAtEnemy();
+                if (_enemyTarget is not null)
+                    LookAtEnemy();
             }
         }
         
@@ -125,11 +127,11 @@ namespace Controller
                                                             other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
                                                             other.CompareTag("EnemyAgent")))
             {
-                gameObject.SetActive(false);
                 AgentPools.Instance.CharacterCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
                 other.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
 
