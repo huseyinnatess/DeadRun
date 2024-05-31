@@ -37,6 +37,8 @@ TagManager:
   - SkinSlots
   - Handel
   - Column
+  - LeftBorder
+  - RightBorder
   layers:
   - Default
   - TransparentFX

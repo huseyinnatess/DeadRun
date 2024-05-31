@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using MonoSingleton;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Controller
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : MonoSingleton<EnemyController>
     {
         public static bool IsCanAttack;
         public static int EnemyAgentCount;
         public GameObject[] EnemyAgents;
 
-        public static Transform Target;
+        Transform _target;
         private NavMeshAgent[] _enemyNavMeshAgent;
         private Animator[] _enemyAnimator;
         private bool _attackAnimationWork;
@@ -38,6 +39,7 @@ namespace Controller
         {
             IsCanAttack = false;
             _attackAnimationWork = false;
+            _target = CharacterControl.Instance.transform;
             EnemyAgentCount = EnemyAgents.Length;
         }
 
@@ -49,7 +51,7 @@ namespace Controller
         {
             EnemyAttack();
         }
-
+        
         // ReSharper disable Unity.PerformanceAnalysis
         private void EnemyAttack()
         {
@@ -61,7 +63,7 @@ namespace Controller
                     {
                         if (!_attackAnimationWork)
                             _enemyAnimator[i].SetBool("Attack", true);
-                        _enemyNavMeshAgent[i].SetDestination(Target.transform.position);
+                        _enemyNavMeshAgent[i].SetDestination(_target.transform.position);
                     }
                 }
                 _attackAnimationWork = true;

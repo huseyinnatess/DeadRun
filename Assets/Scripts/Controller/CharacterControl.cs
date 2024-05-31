@@ -4,6 +4,7 @@ using Manager;
 using MonoSingleton;
 using ObjectPools;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Controller
 {
@@ -19,6 +20,8 @@ namespace Controller
             
         private Animator _animator;
 
+        private NavMeshAgent _navMeshAgent;
+        private Transform _enemyTarget;
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
@@ -28,28 +31,32 @@ namespace Controller
             _isTouchingColumn = false;
             _isTouchingLeftBorder = false;
             _isTouchingRightBorder = false;
-        }
+            _navMeshAgent = GetComponent<NavMeshAgent>();
 
-        private void Start()
-        {
-            SetEnemyTarget();
+            _enemyTarget = EnemyController.Instance.EnemyAgents[0].transform;
         }
-
         #region Update, FixedUpdate
 
         private void FixedUpdate()
         {
-            if (_speed != 0f)
-                SetCharacterPosition();
+            if (_speed != 0f && _navMeshAgent.enabled == false)
+                SetCharacterTarget(transform.position);
         }
 
         private void Update()
         {
-            if (_isTouchingColumn == false)
+            if (_isTouchingColumn == false && _navMeshAgent.enabled == false)
                 CharacterMovement(_speed);
             GetInputAxis();
             ActivateRunAnimation();
         }
+
+        private void LateUpdate()
+        {
+           if (_navMeshAgent.enabled)
+                SetCharacterNavMesh();
+        }
+
         private void ActivateRunAnimation()
         {
             if (GameManager.IsSetActiveHandle != 1 || _isCanRun) return;
@@ -75,11 +82,9 @@ namespace Controller
                 _inputAxis = 0f;
         }
 
-        private void SetCharacterPosition()
+        private void SetCharacterTarget(Vector3 target)
         {
-            var position = transform.position;
-            position = Vector3.Lerp(position, new Vector3(position.x - _inputAxis, position.y, position.z), .3f);
-            transform.position = position;
+            transform.position = Vector3.Lerp(target, new Vector3(target.x - _inputAxis, target.y, target.z), .3f);
         }
 
         #endregion
@@ -103,6 +108,8 @@ namespace Controller
 
             if (other.CompareTag("Battlefield"))
             {
+                _speed = 0f;
+                _navMeshAgent.enabled = true;
                 EnemyController.Attack(true);
             }
 
@@ -114,6 +121,7 @@ namespace Controller
                 AgentPools.Instance.CharacterCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
+                other.gameObject.SetActive(false);
             }
         }
 
@@ -154,9 +162,9 @@ namespace Controller
             }
         }
 
-        private void SetEnemyTarget()
+        private void SetCharacterNavMesh()
         {
-            EnemyController.Target = transform;
+            _navMeshAgent.SetDestination(_enemyTarget.position);
         }
     }
 }

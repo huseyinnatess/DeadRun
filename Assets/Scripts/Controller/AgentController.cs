@@ -6,7 +6,7 @@ namespace Controller
 {
     public class AgentController : MonoBehaviour
     {
-        private Transform _destiniation;
+        private Transform _target;
 
         private NavMeshAgent _navMesh;
         private void Awake()
@@ -16,20 +16,15 @@ namespace Controller
 
         private void GetReferences()
         {
-            _destiniation = GameObject.FindWithTag("DestiniationPos").transform;
+            _target = GameObject.FindWithTag("DestiniationPos").transform;
             _navMesh = GetComponent<NavMeshAgent>();
         }
 
         private void LateUpdate()
-        {
-            NavMeshSetDestiniation();
+        { 
+            _navMesh.SetDestination(_target.position);
         }
-
-        private void NavMeshSetDestiniation()
-        {
-            _navMesh.SetDestination(_destiniation.position);
-        }
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("ThornBox") || other.CompareTag("Saw") || other.CompareTag("ThornWall") || other.CompareTag("Hammer"))
@@ -48,6 +43,11 @@ namespace Controller
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
                 EnemyController.EnemyAgentCount--;
                 other.gameObject.SetActive(false);
+            }
+
+            if (other.CompareTag("Battlefield"))
+            {
+                _target = EnemyController.Instance.EnemyAgents[0].transform;
             }
         }
     }
