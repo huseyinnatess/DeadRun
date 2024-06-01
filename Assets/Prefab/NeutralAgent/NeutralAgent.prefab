@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 3813191689837783840}
   - component: {fileID: 2075286345533155325}
   - component: {fileID: 8454179525382302557}
+  - component: {fileID: 744016289295346619}
   m_Layer: 0
   m_Name: NeutralAgent
   m_TagString: NeutralAgent
@@ -1067,7 +1068,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5f9a5f9916b6e044d8de490faf24f341, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1136,6 +1137,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: caf4ceede6554e7a94d7c8f56449e58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &744016289295346619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539403188639037354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbda7f0642f45da9a2ea37fcd8c006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4956119010093205868

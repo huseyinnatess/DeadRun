@@ -39,6 +39,7 @@ TagManager:
   - Column
   - LeftBorder
   - RightBorder
+  - AgentPool
   layers:
   - Default
   - TransparentFX

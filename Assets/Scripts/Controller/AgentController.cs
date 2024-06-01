@@ -16,7 +16,7 @@ namespace Controller
         private void Awake()
         {
             GetReferences();
-            SetRefernces();
+            SetReferences();
         }
 
         private void GetReferences()
@@ -24,11 +24,12 @@ namespace Controller
             Target = GameObject.FindWithTag("DestiniationPos").transform;
         }
 
-        private void SetRefernces()
+        private void SetReferences()
         {
             AgentsCount = transform.childCount;
+            Debug.Log(AgentsCount);
             _navMeshAgent = new NavMeshAgent[AgentsCount * 2];
-            for (int i = 0; i < AgentsCount - 1; i++)
+            for (int i = 0; i < AgentsCount; i++)
                 _navMeshAgent[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
         }
 
@@ -41,7 +42,9 @@ namespace Controller
             for (int i = 0; i < AgentsCount; i++)
             {
                 if (transform.GetChild(i).gameObject.activeInHierarchy && Target is not null)
+                {               
                     _navMeshAgent[i].SetDestination(Target.position);
+                }
             }
         }
         #endregion
@@ -58,6 +61,11 @@ namespace Controller
                 i++;
             }
             return null;
+        }
+
+        public void UpdateAgentsComponent()
+        {
+            SetReferences();
         }
     }
 }

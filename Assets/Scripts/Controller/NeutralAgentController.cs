@@ -5,21 +5,25 @@ namespace Controller
 {
     public class NeutralAgentController : MonoBehaviour
     {
-        private SkinnedMeshRenderer _skinnedMeshRenderer;
+        private SkinnedMeshRenderer _skinnedMeshRenderer; // Materyali, anakarakterin materyaline ayarlamak için
         private Animator _animator;
-        private readonly Material[] _parentMaterial = new Material[1];
+        private readonly Material[] _parentMaterial = new Material[1]; // Anakarakterin materyali için
+
+        private Transform _parent;
+        private static readonly int Run = Animator.StringToHash("Run");
 
         #region Awake, Start, Get Functions
 
         private void Awake()
         {
-            GetReferences();
+            SetReferences();
         }
 
-        private void GetReferences()
+        private void SetReferences()
         {
             _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             _animator = GetComponent<Animator>();
+            _parent = GameObject.FindWithTag("AgentPool").transform;
         }
 
         private void Start()
@@ -29,19 +33,22 @@ namespace Controller
 
         #endregion
        
-
+        // Agent veya Anakarakter ile çarpışırsa materyali anakarakterin materyaline ayarlanıp
+        // koşma animasyonu tetikleniyor. Tag ve parenti diğer ajanlara göre ayarlanıp rotation ayarlanıyor.
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Agent") && !other.CompareTag("Character")) return;
             _skinnedMeshRenderer.material = _parentMaterial[0];
-            _animator.SetBool("Run", true);
+            _animator.SetBool(Run, true);
             gameObject.tag = "Agent";
-            gameObject.AddComponent<AgentController>();
+            transform.parent = _parent;
+            AgentController.Instance.UpdateAgentsComponent();
             SetRotation();
             AgentPools.Instance.AddList(gameObject);
             Destroy(this);
         }
-
+        
+        // Rotation ayarlaması yapılıyor
         private void SetRotation()
         {
             var rotation = transform.rotation;
