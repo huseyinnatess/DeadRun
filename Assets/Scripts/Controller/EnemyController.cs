@@ -61,8 +61,9 @@ namespace Controller
         
         private void LateUpdate()
         {
-            EnemyAttack();
-            if (!_target.gameObject.activeInHierarchy)
+            if (_target is not null)
+                EnemyAttack();
+            if (_target is not null && !_target.gameObject.activeInHierarchy)
                 _target = AgentController.Instance.GetActiveAgent();
         }
         
