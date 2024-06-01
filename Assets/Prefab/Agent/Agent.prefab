@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 996200945294847220}
   - component: {fileID: 7032094986757603844}
   - component: {fileID: 1441861752696625511}
-  - component: {fileID: 3014012364678604122}
+  - component: {fileID: 3285624133440414804}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Character
@@ -369,7 +369,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: f2f49fcaf99832541be5b43ef168500c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -428,7 +428,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3014012364678604122
+--- !u!114 &3285624133440414804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8489224689799845300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0f38a07eb47794ea30d22e0269ffb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cbda7f0642f45da9a2ea37fcd8c006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8489224689810918619

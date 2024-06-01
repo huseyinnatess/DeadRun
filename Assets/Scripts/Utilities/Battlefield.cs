@@ -45,7 +45,7 @@ namespace Utilities
 
         private void SetPlayerRewardCoin()
         {
-            _rewardCoin = (AgentPools.Instance.CharacterCount * 4) + Random.Range(0, 15);
+            _rewardCoin = (AgentPools.Instance.AgentCount * 4) + Random.Range(0, 15);
             rewardCoinText.text = _rewardCoin.ToString();
             CoinManager.Instance.EarnCoin(_rewardCoin);
         }

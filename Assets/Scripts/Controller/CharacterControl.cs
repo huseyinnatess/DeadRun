@@ -123,11 +123,11 @@ namespace Controller
                 EnemyController.Attack(true);
             }
             // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
-            if (AgentPools.Instance.CharacterCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
+            if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
                                                             other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
                                                             other.CompareTag("EnemyAgent")))
             {
-                AgentPools.Instance.CharacterCount--;
+                AgentPools.Instance.AgentCount--;
                 ParticleEffectPool.Instance.DeadEffectPool(transform);
                 DeathStainPool.Instance.DeathStainObjectPool(true, transform);
                 other.gameObject.SetActive(false);

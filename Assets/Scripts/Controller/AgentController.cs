@@ -1,60 +1,61 @@
-using ObjectPools;
+using MonoSingleton;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Controller
 {
-    public class AgentController : MonoBehaviour
+    public class AgentController : MonoSingleton<AgentController>
     {
-        private Transform _target;
+        public Transform Target;
 
-        private NavMeshAgent _navMesh;
+        private NavMeshAgent[] _navMeshAgent;
+        private int AgentsCount;
+        
+        #region Awake
+
         private void Awake()
         {
             GetReferences();
+            SetRefernces();
         }
 
         private void GetReferences()
         {
-            _target = GameObject.FindWithTag("DestiniationPos").transform;
-            _navMesh = GetComponent<NavMeshAgent>();
+            Target = GameObject.FindWithTag("DestiniationPos").transform;
         }
 
-        private void LateUpdate()
-        { 
-            _navMesh.SetDestination(_target.position);
-            if (_target is not null)
-                LookAtEnemy();
+        private void SetRefernces()
+        {
+            AgentsCount = transform.childCount;
+            _navMeshAgent = new NavMeshAgent[AgentsCount * 2];
+            for (int i = 0; i < AgentsCount - 1; i++)
+                _navMeshAgent[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
         }
+
+        #endregion
+
+        #region LateUpdate
         
-        private void OnTriggerEnter(Collider other)
+        private void LateUpdate()
         {
-            if (other.CompareTag("ThornBox") || other.CompareTag("Saw") || other.CompareTag("ThornWall") || other.CompareTag("Hammer"))
+            for (int i = 0; i < AgentsCount; i++)
             {
-                gameObject.SetActive(false);
-                AgentPools.Instance.CharacterCount--;
-                ParticleEffectPool.Instance.DeadEffectPool(transform);
-                DeathStainPool.Instance.DeathStainObjectPool(true, transform);
+                if (transform.GetChild(i).gameObject.activeInHierarchy)
+                    _navMeshAgent[i].SetDestination(Target.position);
             }
-
-            if (other.CompareTag("EnemyAgent"))
-            {
-                gameObject.SetActive(false);
-                AgentPools.Instance.CharacterCount--;
-                ParticleEffectPool.Instance.DeadEffectPool(transform);
-                DeathStainPool.Instance.DeathStainObjectPool(true, transform);
-                EnemyController.EnemyAgentCount--;
-                other.gameObject.SetActive(false);
-            }
-
-            if (other.CompareTag("Battlefield"))
-            {
-                _target = EnemyController.Instance.GetActiveEnemy();
-            }
+           // if (Target is not null)
+           //      LookAtEnemy();
         }
-        private void LookAtEnemy()
-        {
-            transform.LookAt(_target.position, Vector3.up);
-        }
+
+        #endregion
+        
+        
+        
+        // // LateUpdate
+        // // Bitiş çizgisini geçtiklerinde düşmana doğru bakmalarını sağlıyor.
+        // private void LookAtEnemy()
+        // {
+        //     transform.LookAt(Target.position, Vector3.up);
+        // }
     }
 }

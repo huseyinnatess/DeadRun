@@ -45,7 +45,7 @@ namespace Obstacle
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Agent") || (AgentPools.Instance.CharacterCount == 1 && other.CompareTag("Character")))
+            if (other.CompareTag("Agent") || (AgentPools.Instance.AgentCount == 1 && other.CompareTag("Character")))
             {
                 if (other.transform.position.x > transform.position.x)
                     other.GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0f, 0f), ForceMode.Impulse);

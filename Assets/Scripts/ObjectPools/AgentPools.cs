@@ -7,58 +7,64 @@ namespace ObjectPools
 {
     public class AgentPools : MonoSingleton<AgentPools>
     {
-        public List<GameObject> agents;
+        public List<GameObject> Agents; // Agent'ların tutulduğu liste
 
-        public int CharacterCount = 0;
-
+        public int AgentCount = 0; // Dinamik olarak değişen agent sayısı
+        
+        // Number panellerine anakarakterin çarpması durumunda ilgili işaret ve değere göre
+        // agent oluşturur.
         public void AgentObjectPoolManager(char sign, int count, Transform spawnPoint)
         {
             switch (sign)
             {
                 case 'x':
-                    AgentObjectPool((count * CharacterCount) - CharacterCount, spawnPoint);
+                    AgentObjectPool((count * AgentCount) - AgentCount, spawnPoint);
                     break;
                 case '+':
                     AgentObjectPool(count, spawnPoint);
                     break;
                 case '-':
-                    if (count >= CharacterCount)
-                        AgentObjectPool(-CharacterCount, spawnPoint);
+                    if (count >= AgentCount)
+                        AgentObjectPool(-AgentCount, spawnPoint);
                     else
                         AgentObjectPool(-count, spawnPoint);
                     break;
                 case '/':
-                    if (count > CharacterCount)
+                    if (count > AgentCount)
                         return;
-                    if (CharacterCount % count == 0)
-                        AgentObjectPool(-(CharacterCount - (CharacterCount / count)), spawnPoint);
+                    if (AgentCount % count == 0)
+                        AgentObjectPool(-(AgentCount - (AgentCount / count)), spawnPoint);
                     else
                     {
-                        decimal result = Math.Ceiling((decimal)CharacterCount / (decimal)count);
-                        AgentObjectPool((int)(result - CharacterCount), spawnPoint);
+                        decimal result = Math.Ceiling((decimal)AgentCount / (decimal)count);
+                        AgentObjectPool((int)(result - AgentCount), spawnPoint);
                     }
 
                     break;
             }
         }
-
+        
+        // Ana karakteri agents listesine ekler.
+        // Oyun başlar başlamaz CharacterController tarafından çağrılır.
         public void AddMainCharacter(GameObject character)
         {
-            agents.Add(character);
-            CharacterCount = 1;
+            Agents.Add(character);
+            AgentCount = 1;
         }
-
+        
+        // Agents listesine yeni eleman ekler.
         public void AddList(GameObject agent)
         {
-            agents.Insert(agents.Count - 1, agent);
-            CharacterCount++;
+            Agents.Insert(Agents.Count - 1, agent);
+            AgentCount++;
         }
-
+        
+        // Limit değerine göre agent oluşturur veya yok eder
         private void AgentObjectPool(int limit, Transform spawnPoint)
         {
             while (limit != 0)
             {
-                foreach (var item in agents)
+                foreach (var item in Agents)
                 {
                     if ((!item.activeInHierarchy && limit > 0) || (item.activeInHierarchy && limit < 0))
                     {
@@ -68,7 +74,7 @@ namespace ObjectPools
                             item.SetActive(true);
                             ParticleEffectPool.Instance.SpawnEffectPool(item.transform);
                             DeathStainPool.Instance.DeathStainObjectPool(false, item.transform);
-                            CharacterCount++;
+                            AgentCount++;
                             limit--;
                         }
                         else if (limit < 0)
@@ -76,7 +82,7 @@ namespace ObjectPools
                             item.SetActive(false);
                             ParticleEffectPool.Instance.DeadEffectPool(item.transform);
                             DeathStainPool.Instance.DeathStainObjectPool(true, item.transform);
-                            CharacterCount--;
+                            AgentCount--;
                             limit++;
                         }
 
