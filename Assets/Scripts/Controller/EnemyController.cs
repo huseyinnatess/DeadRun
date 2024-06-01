@@ -62,6 +62,8 @@ namespace Controller
         private void LateUpdate()
         {
             EnemyAttack();
+            if (!_target.gameObject.activeInHierarchy)
+                _target = AgentController.Instance.GetActiveAgent();
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
@@ -75,7 +77,8 @@ namespace Controller
                     {
                         if (!_attackAnimationWork)
                             _enemyAnimator[i].SetBool("Attack", true);
-                        _enemyNavMeshAgent[i].SetDestination(_target.transform.position);
+                        _enemyNavMeshAgent[i].SetDestination(_target.position);
+                        print(_target.name);
                     }
                 }
                 _attackAnimationWork = true;

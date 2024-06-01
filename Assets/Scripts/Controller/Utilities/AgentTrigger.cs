@@ -9,20 +9,17 @@ namespace Controller.Utilities
         {
             if (other.CompareTag("ThornBox") || other.CompareTag("Saw") || other.CompareTag("ThornWall") || other.CompareTag("Hammer"))
             {
-                gameObject.SetActive(false);
                 AgentPools.Instance.AgentCount--;
-                ParticleEffectPool.Instance.DeadEffectPool(transform);
-                DeathStainPool.Instance.DeathStainObjectPool(true, transform);
+                AgentDeathHandler.DeathHandel(transform);
             }
 
             if (other.CompareTag("EnemyAgent"))
             {
-                gameObject.SetActive(false);
                 AgentPools.Instance.AgentCount--;
-                ParticleEffectPool.Instance.DeadEffectPool(transform);
-                DeathStainPool.Instance.DeathStainObjectPool(true, transform);
                 EnemyController.EnemyAgentCount--;
                 other.gameObject.SetActive(false);
+                AgentController.Instance.Target = EnemyController.Instance.GetActiveEnemy();
+                AgentDeathHandler.DeathHandel(transform);
             }
 
             if (other.CompareTag("Battlefield"))

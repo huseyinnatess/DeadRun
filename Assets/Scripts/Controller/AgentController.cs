@@ -6,7 +6,7 @@ namespace Controller
 {
     public class AgentController : MonoSingleton<AgentController>
     {
-        public Transform Target;
+       [HideInInspector] public Transform Target;
 
         private NavMeshAgent[] _navMeshAgent;
         private int AgentsCount;
@@ -40,22 +40,24 @@ namespace Controller
         {
             for (int i = 0; i < AgentsCount; i++)
             {
-                if (transform.GetChild(i).gameObject.activeInHierarchy)
+                if (transform.GetChild(i).gameObject.activeInHierarchy && Target is not null)
                     _navMeshAgent[i].SetDestination(Target.position);
             }
-           // if (Target is not null)
-           //      LookAtEnemy();
         }
-
         #endregion
         
-        
-        
-        // // LateUpdate
-        // // Bitiş çizgisini geçtiklerinde düşmana doğru bakmalarını sağlıyor.
-        // private void LookAtEnemy()
-        // {
-        //     transform.LookAt(Target.position, Vector3.up);
-        // }
+        // Sahnede aktif olan agent'ın transform'unu return eder.
+        public Transform GetActiveAgent()
+        {
+            int i = 0;
+
+            while (i < AgentsCount)
+            {
+                if (transform.GetChild(i).gameObject.activeInHierarchy)
+                    return transform.GetChild(i).transform;
+                i++;
+            }
+            return null;
+        }
     }
 }

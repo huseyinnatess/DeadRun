@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Controller.Utilities;
 using MonoSingleton;
 using UnityEngine;
 
@@ -79,9 +80,7 @@ namespace ObjectPools
                         }
                         else if (limit < 0)
                         {
-                            item.SetActive(false);
-                            ParticleEffectPool.Instance.DeadEffectPool(item.transform);
-                            DeathStainPool.Instance.DeathStainObjectPool(true, item.transform);
+                            AgentDeathHandler.DeathHandel(item.transform);
                             AgentCount--;
                             limit++;
                         }

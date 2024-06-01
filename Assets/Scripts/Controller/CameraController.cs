@@ -31,7 +31,7 @@ namespace Controller
         {
             if (!EnemyController.IsCanAttack)
             {
-                var position = transform.position;
+                Vector3 position = transform.position;
                 transform.position = Vector3.Lerp(position, _target.position + _targetOffset, .125f);
                 _finishPosition = new Vector3(position.x, position.y + 1f, position.z - 1.5f);
             }

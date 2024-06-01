@@ -1,4 +1,5 @@
 using System;
+using Controller.Utilities;
 using Manager;
 using MonoSingleton;
 using ObjectPools;
@@ -124,14 +125,19 @@ namespace Controller
             }
             // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
             if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
-                                                            other.CompareTag("ThornWall") || other.CompareTag("Hammer") ||
-                                                            other.CompareTag("EnemyAgent")))
+                                                            other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
+            {
+                AgentDeathHandler.DeathHandel(transform);
+                AgentPools.Instance.AgentCount--;
+            }
+
+            if (_navMeshAgent.enabled && other.CompareTag("EnemyAgent"))
             {
                 AgentPools.Instance.AgentCount--;
-                ParticleEffectPool.Instance.DeadEffectPool(transform);
-                DeathStainPool.Instance.DeathStainObjectPool(true, transform);
+                EnemyController.EnemyAgentCount--;
                 other.gameObject.SetActive(false);
-                gameObject.SetActive(false);
+                AgentController.Instance.Target = EnemyController.Instance.GetActiveEnemy();
+                AgentDeathHandler.DeathHandel(transform);
             }
         }
 
