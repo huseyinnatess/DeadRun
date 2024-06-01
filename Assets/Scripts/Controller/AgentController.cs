@@ -27,7 +27,6 @@ namespace Controller
         private void SetReferences()
         {
             AgentsCount = transform.childCount;
-            Debug.Log(AgentsCount);
             _navMeshAgent = new NavMeshAgent[AgentsCount * 2];
             for (int i = 0; i < AgentsCount; i++)
                 _navMeshAgent[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
@@ -62,7 +61,8 @@ namespace Controller
             }
             return null;
         }
-
+        
+        // Parent'a yeni obje eklenince componentleri günceller
         public void UpdateAgentsComponent()
         {
             SetReferences();
