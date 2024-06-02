@@ -51,7 +51,7 @@ namespace Controller
         {
             IsCanAttack = false;
             _attackAnimationWork = false;
-            _target = CharacterControl.Instance.transform;
+            _target = CharacterController.Instance.transform;
             EnemyAgentCount = EnemyAgents.Length;
         }
 
@@ -79,7 +79,6 @@ namespace Controller
                         if (!_attackAnimationWork)
                             _enemyAnimator[i].SetBool("Attack", true);
                         _enemyNavMeshAgent[i].SetDestination(_target.position);
-                        print(_target.name);
                     }
                 }
                 _attackAnimationWork = true;

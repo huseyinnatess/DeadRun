@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 namespace Controller
 {
-    public class CharacterControl : MonoSingleton<CharacterControl>
+    public class CharacterController : MonoSingleton<CharacterController>
     {
         private float _inputAxis; // Mouse hareketine göre karakterin gideceği yön
         private float _characterSpeed; // Karakterin hızı
@@ -17,11 +17,18 @@ namespace Controller
         private bool _isTouchingColumn; // Karakter numaralı panellerin columnlarına çarptı mı?
         private bool _isTouchingLeftBorder; // Karakter zeminin sol sınırına çarptı mı?
         private bool _isTouchingRightBorder; // Karakter zeminin sağ sınırına çarptı mı?
-            
+
         private Animator _animator;
 
         private NavMeshAgent _navMeshAgent;
         private Transform _enemyTarget; // NavmeshAgent için hedef
+
+        [Header("NumbersPanel")] 
+        private char _sign; // Sayısal panelin işareti
+        private int _count; // Sayısal panelde işaretten sonra gelen sayı
+
+        #region Awake
+
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
@@ -34,14 +41,18 @@ namespace Controller
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _enemyTarget = EnemyController.Instance.GetActiveEnemy();
         }
-        #region Update, FixedUpdate
-        
+
+        #endregion
+       
+
+        #region Update, FixedUpdate, LateUpdate
+
         private void FixedUpdate()
         {
             if (_characterSpeed != 0f)
                 SetCharacterDirection(transform.position);
         }
-        
+
         private void Update()
         {
             if (_isTouchingColumn == false)
@@ -49,8 +60,6 @@ namespace Controller
             if (_isCanRun == false)
                 SetRunAnimation();
             SetInputAxis();
-            
-
         }
 
         private void LateUpdate()
@@ -62,7 +71,7 @@ namespace Controller
                     LookAtEnemy();
             }
         }
-        
+
         // Update
         // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
         private void SetRunAnimation()
@@ -73,14 +82,14 @@ namespace Controller
                 _isCanRun = true;
             }
         }
-        
+
         // Update
         // Karakterin koşarken sola kaymasını minimuma indiriyor.
         private void StabilizeForwardMovement(float speed)
         {
             transform.Translate(Vector3.forward * (speed * Time.deltaTime * GameManager.IsSetActiveHandle));
         }
-        
+
         // Update
         // Karakterin Mouse yönüne bağlı olarak sağa sola gitmesini sağlıyor.
         private void SetInputAxis()
@@ -95,7 +104,7 @@ namespace Controller
             else
                 _inputAxis = 0f;
         }
-        
+
         // FixedUpdate
         // Karakterin koşarken " _inputAxis'e" göre yönünü ayarlıyor.
         private void SetCharacterDirection(Vector3 target)
@@ -105,16 +114,15 @@ namespace Controller
 
         #endregion
 
+        #region OntriggerEnter
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("NumbersPanel"))
             {
-                char sign = Convert.ToChar(other.name.Remove(1, 1));
-                if (sign == 'x' || sign == '+' || sign == '-' || sign == '/')
-                {
-                    int count = Convert.ToInt32(other.name.Remove(0, 1));
-                    AgentPools.Instance.AgentObjectPoolManager(sign, count, other.transform);
-                }
+                _sign = Convert.ToChar(other.name.Remove(1, 1));
+                _count = Convert.ToInt32(other.name.Remove(0, 1));
+                AgentPools.Instance.AgentObjectPoolManager(_sign, _count, other.transform);
             }
 
             if (other.CompareTag("Battlefield"))
@@ -123,9 +131,10 @@ namespace Controller
                 _navMeshAgent.enabled = true;
                 EnemyController.Attack(true);
             }
+
             // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
             if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
-                                                            other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
+                                                        other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
             {
                 AgentDeathHandler.DeathHandel(transform);
                 AgentPools.Instance.AgentCount--;
@@ -141,6 +150,11 @@ namespace Controller
             }
         }
 
+        #endregion
+        
+
+        #region OnCollision Functions
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Column"))
@@ -148,18 +162,20 @@ namespace Controller
                 _isTouchingColumn = true;
                 StabilizeForwardMovement(0);
             }
+
             if (other.gameObject.CompareTag("LeftBorder"))
             {
                 _isTouchingLeftBorder = true;
                 _inputAxis = 0f;
             }
+
             if (other.gameObject.CompareTag("RightBorder"))
             {
                 _isTouchingRightBorder = true;
                 _inputAxis = 0f;
             }
         }
-        
+
         private void OnCollisionExit(Collision other)
         {
             if (other.gameObject.CompareTag("Column"))
@@ -171,12 +187,15 @@ namespace Controller
             {
                 _isTouchingLeftBorder = false;
             }
-            
+
             if (other.gameObject.CompareTag("RightBorder"))
             {
                 _isTouchingRightBorder = false;
             }
         }
+
+
+        #endregion
         
         // LateUpdate
         // Karakter bitiş çizgisini geçtiği zaman NavMesh Agent componenti enabled edilip target'ı ayarlanıyor.
@@ -186,7 +205,7 @@ namespace Controller
             if (_enemyTarget is null) return;
             _navMeshAgent.SetDestination(_enemyTarget.position);
         }
-        
+
         // LateUpdate
         // Karakter bitiş çizgisini geçtiği zaman enemy'e bakmasını sağlıyor.
         private void LookAtEnemy()
