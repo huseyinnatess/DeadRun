@@ -1,4 +1,5 @@
-﻿using MonoSingleton;
+﻿using System.Linq;
+using MonoSingleton;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,12 +11,13 @@ namespace Controller
         public static int EnemyAgentCount;
         public GameObject[] EnemyAgents;
 
-        Transform _target;
-        private NavMeshAgent[] _enemyNavMeshAgent;
+        private Transform _target;
         private Animator[] _enemyAnimator;
         private bool _attackAnimationWork;
+        
+        private float _enemySpeed;
 
-        #region Awake Get, Set Funcstions
+        #region Awake Get, Set Functions
 
         private void Awake()
         {
@@ -23,26 +25,12 @@ namespace Controller
             SetReferences();
         }
 
-        public Transform GetActiveEnemy()
-        {
-            int i = 0;
-
-            while (i < EnemyAgents.Length)
-            {
-                if (EnemyAgents[i].activeInHierarchy)
-                    return EnemyAgents[i].transform;
-                i++;
-            }
-            return null;
-        }
         private void GetEnemyComponent()
         {
-            _enemyNavMeshAgent = new NavMeshAgent[EnemyAgents.Length];
             _enemyAnimator = new Animator[EnemyAgents.Length];
             for (int i = 0; i < EnemyAgents.Length; i++)
             {
                 if (!EnemyAgents[i].activeInHierarchy) continue;
-                _enemyNavMeshAgent[i] = EnemyAgents[i].GetComponent<NavMeshAgent>();
                 _enemyAnimator[i] = EnemyAgents[i].GetComponent<Animator>();
             }
         }
@@ -53,36 +41,58 @@ namespace Controller
             _attackAnimationWork = false;
             _target = CharacterController.Instance.transform;
             EnemyAgentCount = EnemyAgents.Length;
+            _enemySpeed = 1f;
         }
 
         #endregion
+        
+        // Hiyerarşide aktif olan ilk enemy'nin transformunu return eder.
+        public Transform GetActiveEnemy()
+        {
+            return EnemyAgents.FirstOrDefault(agent => agent.activeInHierarchy)?.transform;
+        }
 
+        // Enemy'lerin saldıraya başlamasını sağlar.
         public static void Attack(bool attack) => IsCanAttack = attack;
         
         private void LateUpdate()
         {
-            if (_target is not null)
+            if (_target is not null && IsCanAttack)
                 EnemyAttack();
             if (_target is not null && !_target.gameObject.activeInHierarchy)
                 _target = AgentController.Instance.GetActiveAgent();
         }
         
-        // ReSharper disable Unity.PerformanceAnalysis
+        // Enemylerin agentlar'a saldırı yapmasını başlatır.
         private void EnemyAttack()
         {
-            if (IsCanAttack)
+            for (int i = 0; i < EnemyAgents.Length; i++)
             {
-                for (int i = 0; i < EnemyAgents.Length; i++)
-                {
-                    if (EnemyAgents[i].activeInHierarchy)
-                    {
-                        if (!_attackAnimationWork)
-                            _enemyAnimator[i].SetBool("Attack", true);
-                        _enemyNavMeshAgent[i].SetDestination(_target.position);
-                    }
-                }
-                _attackAnimationWork = true;
+                if (!EnemyAgents[i].activeInHierarchy) continue;
+                if (!_attackAnimationWork)
+                    SetAttackAnimations(i);
+                LookTarget(i);
+                EnemyAgents[i].transform.position += GetDirectionToTarget(i) * (_enemySpeed * Time.deltaTime);
             }
+            _attackAnimationWork = true;
+        }
+        
+        // Enemy'nin attack animasyonunu başlatır
+        private void SetAttackAnimations(int i)
+        {
+            _enemyAnimator[i].SetBool("Attack", true);
+        }
+
+        // Target ve enemy arasındaki farkı return eder.
+        private Vector3 GetDirectionToTarget(int i)
+        {
+            return (_target.position - EnemyAgents[i].transform.position).normalized;
+        }
+        
+        // Enemy'lerin yönlerini target'a ayarlar.
+        private void LookTarget(int i)
+        {
+            EnemyAgents[i].transform.LookAt(_target, Vector3.up);
         }
     }
 }

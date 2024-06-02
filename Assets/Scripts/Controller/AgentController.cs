@@ -8,7 +8,8 @@ namespace Controller
     {
        [HideInInspector] public Transform Target;
 
-        private NavMeshAgent[] _navMeshAgent;
+        private NavMeshAgent[] _navMeshAgents;
+        private Animator[] _animators;
         private int AgentsCount;
         
         #region Awake
@@ -27,9 +28,13 @@ namespace Controller
         private void SetReferences()
         {
             AgentsCount = transform.childCount;
-            _navMeshAgent = new NavMeshAgent[AgentsCount * 2];
+            _navMeshAgents = new NavMeshAgent[AgentsCount];
+            _animators = new Animator[AgentsCount];
             for (int i = 0; i < AgentsCount; i++)
-                _navMeshAgent[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
+            {
+                _navMeshAgents[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
+                _animators[i] = transform.GetChild(i).GetComponent<Animator>();
+            }
         }
 
         #endregion
@@ -41,9 +46,10 @@ namespace Controller
             for (int i = 0; i < AgentsCount; i++)
             {
                 if (transform.GetChild(i).gameObject.activeInHierarchy && Target is not null)
-                {               
-                    _navMeshAgent[i].SetDestination(Target.position);
-                }
+                    _navMeshAgents[i].SetDestination(Target.position);
+                if (transform.GetChild(i).gameObject.activeInHierarchy && EnemyController.IsCanAttack
+                                                                       && !_animators[i].applyRootMotion)
+                    _animators[i].applyRootMotion = true;
             }
         }
         #endregion

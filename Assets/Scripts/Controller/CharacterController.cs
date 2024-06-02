@@ -71,7 +71,8 @@ namespace Controller
                     LookAtEnemy();
             }
         }
-
+        #endregion
+        
         // Update
         // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
         private void SetRunAnimation()
@@ -111,9 +112,6 @@ namespace Controller
         {
             transform.position = Vector3.Lerp(target, new Vector3(target.x - _inputAxis, target.y, target.z), .3f);
         }
-
-        #endregion
-
         #region OntriggerEnter
 
         private void OnTriggerEnter(Collider other)
