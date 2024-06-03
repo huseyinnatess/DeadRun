@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using ObjectPools;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Obstacle
 {
@@ -45,13 +47,12 @@ namespace Obstacle
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Agent") || (AgentPools.Instance.AgentCount == 1 && other.CompareTag("Character")))
-            {
-                if (other.transform.position.x > transform.position.x)
-                    other.GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0f, 0f), ForceMode.Impulse);
-                else
-                    other.GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0f, 0f), ForceMode.Impulse);
-            }
+            if (!other.CompareTag("Agent") &&
+                (AgentPools.Instance.AgentCount != 1 || !other.CompareTag("Character"))) return;
+            if (other.transform.position.x > transform.position.x)
+                other.GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0f, 0f), ForceMode.Impulse);
+            else
+                other.GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0f, 0f), ForceMode.Impulse);
         }
     }
 }
