@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using MonoSingleton;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Controller
 {
@@ -12,7 +11,7 @@ namespace Controller
         public GameObject[] EnemyAgents;
 
         private Transform _target;
-        private Animator[] _enemyAnimator;
+        private Animator[] _enemyAnimators;
         private bool _attackAnimationWork;
         
         private float _enemySpeed;
@@ -27,12 +26,10 @@ namespace Controller
 
         private void GetEnemyComponent()
         {
-            _enemyAnimator = new Animator[EnemyAgents.Length];
-            for (int i = 0; i < EnemyAgents.Length; i++)
-            {
-                if (!EnemyAgents[i].activeInHierarchy) continue;
-                _enemyAnimator[i] = EnemyAgents[i].GetComponent<Animator>();
-            }
+            _enemyAnimators = EnemyAgents
+                .Where(agent => agent.activeInHierarchy)
+                .Select(agent => agent.GetComponent<Animator>())
+                .ToArray();
         }
 
         private void SetReferences()
@@ -80,7 +77,7 @@ namespace Controller
         // Enemy'nin attack animasyonunu başlatır
         private void SetAttackAnimations(int i)
         {
-            _enemyAnimator[i].SetBool("Attack", true);
+            _enemyAnimators[i].SetBool("Attack", true);
         }
 
         // Target ve enemy arasındaki farkı return eder.

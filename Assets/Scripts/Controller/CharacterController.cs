@@ -55,6 +55,7 @@ namespace Controller
 
         private void Update()
         {
+            if (!Warning.CharacterCanMove) return;
             if (_isTouchingColumn == false)
                 StabilizeForwardMovement(_characterSpeed);
             if (_isCanRun == false)
@@ -64,12 +65,10 @@ namespace Controller
 
         private void LateUpdate()
         {
-            if (_navMeshAgent.enabled)
-            {
-                SetCharacterNavMesh();
-                if (_enemyTarget is not null)
-                    LookAtEnemy();
-            }
+            if (!_navMeshAgent.enabled) return;
+            SetCharacterNavMesh();
+            if (_enemyTarget is not null)
+                LookAtEnemy();
         }
         #endregion
         

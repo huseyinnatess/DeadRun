@@ -1,5 +1,4 @@
-﻿using Controller;
-using GoogleAdmob;
+﻿using GoogleAdmob;
 using Manager;
 using ObjectPools;
 using TMPro;
@@ -25,10 +24,10 @@ namespace Utilities
 
         #endregion
 
-        public void WarResult(int enemyCount)
+        public void WarResult(int agentCount)
         {
             ShowIntersititalAd();
-            if (enemyCount == 0)
+            if (agentCount != 0)
                 Victory();
             else
                 Defeat();

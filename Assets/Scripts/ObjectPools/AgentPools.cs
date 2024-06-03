@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Controller.Utilities;
 using MonoSingleton;
 using UnityEngine;
@@ -12,33 +13,31 @@ namespace ObjectPools
 
         public int AgentCount = 0; // Dinamik olarak değişen agent sayısı
         
-        // Number panellerine anakarakterin çarpması durumunda ilgili işaret ve değere göre
-        // agent oluşturur.
-        public void AgentObjectPoolManager(char sign, int count, Transform spawnPoint)
+        public void AgentObjectPoolManager(char sign, int count, Transform point)
         {
             switch (sign)
             {
                 case 'x':
-                    AgentObjectPool((count * AgentCount) - AgentCount, spawnPoint);
+                    AgentObjectPool((count * AgentCount) - AgentCount, point);
                     break;
                 case '+':
-                    AgentObjectPool(count, spawnPoint);
+                    AgentObjectPool(count, point);
                     break;
                 case '-':
                     if (count >= AgentCount)
-                        AgentObjectPool(-AgentCount, spawnPoint);
+                        AgentObjectPool(-AgentCount, point);
                     else
-                        AgentObjectPool(-count, spawnPoint);
+                        AgentObjectPool(-count, point);
                     break;
                 case '/':
                     if (count > AgentCount)
                         return;
                     if (AgentCount % count == 0)
-                        AgentObjectPool(-(AgentCount - (AgentCount / count)), spawnPoint);
+                        AgentObjectPool(-(AgentCount - (AgentCount / count)), point);
                     else
                     {
                         decimal result = Math.Ceiling((decimal)AgentCount / (decimal)count);
-                        AgentObjectPool((int)(result - AgentCount), spawnPoint);
+                        AgentObjectPool((int)(result - AgentCount), point);
                     }
 
                     break;
@@ -61,7 +60,7 @@ namespace ObjectPools
         }
         
         // Limit değerine göre agent oluşturur veya yok eder
-        private void AgentObjectPool(int limit, Transform spawnPoint)
+        private void AgentObjectPool(int limit, Transform point)
         {
             while (limit != 0)
             {
@@ -69,7 +68,7 @@ namespace ObjectPools
                 {
                     if ((!item.activeInHierarchy && limit > 0) || (item.activeInHierarchy && limit < 0))
                     {
-                        item.transform.position = spawnPoint.position;
+                        item.transform.position = point.position;
                         if (limit > 0)
                         {
                             item.SetActive(true);

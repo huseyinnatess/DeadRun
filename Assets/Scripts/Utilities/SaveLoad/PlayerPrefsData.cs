@@ -69,6 +69,7 @@ namespace Utilities.SaveLoad
             SetInt("Interstitial", 0);
             SetInt("ActiveHeroIndex", 0);
             SetInt("CurrentIndex", 0);
+            SetInt("IsFirst", 0);
             PlayerPrefs.Save();
         }
     } 

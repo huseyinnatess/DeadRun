@@ -69,11 +69,9 @@ namespace Manager
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && IsSetActiveHandle != 1)
-            {
-                _handel.SetActive(false);
-                IsSetActiveHandle = 1;
-            }
+            if (!Input.GetMouseButtonDown(0) || IsSetActiveHandle == 1) return;
+            _handel.SetActive(false);
+            IsSetActiveHandle = 1;
         }
         private void LateUpdate()
         {
@@ -81,15 +79,15 @@ namespace Manager
             SliderUpdate();
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
+        // Savaş sonucunu kontrol eder.
         private void CheckWarResult()
         {
             if ((EnemyController.IsCanAttack && !_checkWarStatus &&
                  (AgentPools.Instance.AgentCount == 0 || EnemyController.EnemyAgentCount == 0)) ||
-                (AgentPools.Instance.AgentCount == 0))
+                AgentPools.Instance.AgentCount == 0)
             {
                 _checkWarStatus = true;
-                _battlefield.WarResult(EnemyController.EnemyAgentCount);
+                _battlefield.WarResult(AgentPools.Instance.AgentCount);
             }
         }
 

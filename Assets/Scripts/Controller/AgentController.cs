@@ -1,4 +1,5 @@
 using MonoSingleton;
+using ObjectPools;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -58,11 +59,10 @@ namespace Controller
         public Transform GetActiveAgent()
         {
             int i = 0;
-
-            while (i < AgentsCount)
+            while (i < AgentPools.Instance.Agents.Count)
             {
-                if (transform.GetChild(i).gameObject.activeInHierarchy)
-                    return transform.GetChild(i).transform;
+                if (AgentPools.Instance.Agents[i].activeInHierarchy)
+                    return AgentPools.Instance.Agents[i].transform;
                 i++;
             }
             return null;
