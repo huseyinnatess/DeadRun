@@ -26,7 +26,7 @@ TagManager:
   - DefeatPanel
   - SettingsPanel
   - SoundSlider
-  - FxSlider
+  - MusicSlider
   - PausePanel
   - LoadingPanel
   - PurchasseButton
@@ -41,6 +41,8 @@ TagManager:
   - RightBorder
   - AgentPool
   - WarningPanel
+  - MainMenuPanels
+  - GamePanels
   layers:
   - Default
   - TransparentFX

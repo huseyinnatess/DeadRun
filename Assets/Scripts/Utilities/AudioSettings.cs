@@ -7,7 +7,7 @@ namespace Utilities
     public class AudioSettings : MonoBehaviour
     {
         private Slider _soundSlider;
-        private Slider _fxSlider;
+        private Slider _musicSlider;
 
         #region Awake, Get Functions
 
@@ -19,22 +19,22 @@ namespace Utilities
         private void GetReferences()
         {
             _soundSlider = GameObject.FindWithTag("SoundSlider").GetComponent<Slider>();
-            _fxSlider = GameObject.FindWithTag("FxSlider").GetComponent<Slider>();
+            _musicSlider = GameObject.FindWithTag("MusicSlider").GetComponent<Slider>();
             _soundSlider.value = GetSoundSliderValue();
-            _fxSlider.value = GetFxSliderValue();
+            _musicSlider.value = GetMusicSliderValue();
         }
 
         #endregion
 
 
-        public void SetSoundSliderValue()
+        public void SetSoundSliderValue(Slider slider)
         {
-            PlayerPrefsData.SetFloat("SoundSlider", _soundSlider.value);
+            PlayerPrefsData.SetFloat("SoundSlider", slider.value);
         }
 
-        public void SetFxSliderValue()
+        public void SetMusicSliderValue(Slider slider)
         {
-            PlayerPrefsData.SetFloat("FxSlider", _fxSlider.value);
+            PlayerPrefsData.SetFloat("MusicSlider", slider.value);
         }
 
         public static float GetSoundSliderValue()
@@ -42,9 +42,9 @@ namespace Utilities
             return PlayerPrefsData.GetFloat("SoundSlider");
         }
 
-        public static float GetFxSliderValue()
+        public static float GetMusicSliderValue()
         {
-            return PlayerPrefsData.GetFloat("FxSlider");
+            return PlayerPrefsData.GetFloat("MusicSlider");
         }
     }
 }

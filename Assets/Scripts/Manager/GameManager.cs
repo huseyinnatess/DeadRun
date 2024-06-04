@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Controller;
+using MonoSingleton;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
@@ -10,19 +11,20 @@ using Utilities;
 using Utilities.SaveLoad;
 using Utilities.Store;
 using Utilities.Store.Skin;
+using CharacterController = Controller.CharacterController;
 
 namespace Manager
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoSingleton<GameManager>
     {
         private Battlefield _battlefield;
         private bool _checkWarStatus;
         private GameObject _handel;
-        public static int IsSetActiveHandle;
+        public static bool HandelIsActive; 
         
-        private Slider _slider;
+        private Slider _runSlider;
         private GameObject _finishPosition;
-        private GameObject _startPosition;
+        private GameObject _characterPosition;
         private TextMeshProUGUI _levelText;
 
         public List<GameObject> Heros;
@@ -36,7 +38,7 @@ namespace Manager
         private void Awake()
         {
             Time.timeScale = 1f;
-            IsSetActiveHandle = 0;
+            HandelIsActive = false;
             GetReferences();
             ActivateHero();
             InitializeSkins();
@@ -45,10 +47,11 @@ namespace Manager
 
         private void GetReferences()
         {
-            _slider = GetComponentInChildren<Slider>();
+            _runSlider = GetComponentInChildren<Slider>();
             _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
             _levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 2);
             _handel = GameObject.FindWithTag("Handel");
+            ActivateHandle(false);
         }
 
         private void Start()
@@ -60,8 +63,8 @@ namespace Manager
         {
             _finishPosition = GameObject.FindWithTag("Battlefield");
             _battlefield = _finishPosition.GetComponent<Battlefield>();
-            _startPosition = GameObject.FindWithTag("Character");
-            _slider.maxValue = Vector3.Distance(_finishPosition.transform.position, _startPosition.transform.position);
+            _characterPosition = GameObject.FindWithTag("Character");
+            _runSlider.maxValue = Vector3.Distance(_finishPosition.transform.position, _characterPosition.transform.position);
             _checkWarStatus = false;
         }
         
@@ -69,10 +72,17 @@ namespace Manager
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0) || IsSetActiveHandle == 1) return;
-            _handel.SetActive(false);
-            IsSetActiveHandle = 1;
+            if (!Input.GetMouseButtonDown(0) || !HandelIsActive) return;
+            ActivateHandle(false);
+            _characterPosition.GetComponent<CharacterController>().enabled = true;
+            HandelIsActive = false;
         }
+
+        public void ActivateHandle(bool state)
+        {
+            _handel.SetActive(state);
+        }
+
         private void LateUpdate()
         {
             CheckWarResult();
@@ -93,9 +103,9 @@ namespace Manager
 
         private void SliderUpdate()
         {
-            if (Math.Abs(_slider.value - _slider.maxValue) < .2f) return;
-            _slider.value = _slider.maxValue -
-                Vector3.Distance(_startPosition.transform.position, _finishPosition.transform.position) + 0.58f;
+            if (Math.Abs(_runSlider.value - _runSlider.maxValue) < .2f) return;
+            _runSlider.value = _runSlider.maxValue -
+                Vector3.Distance(_characterPosition.transform.position, _finishPosition.transform.position) + 0.58f;
         }
 
         private void InitializeSkins()

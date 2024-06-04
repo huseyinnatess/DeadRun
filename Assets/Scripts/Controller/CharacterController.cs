@@ -55,7 +55,7 @@ namespace Controller
 
         private void Update()
         {
-            if (!Warning.CharacterCanMove) return;
+            if (!Warning.CharacterCanMove || GameManager.HandelIsActive) return;
             if (_isTouchingColumn == false)
                 StabilizeForwardMovement(_characterSpeed);
             if (_isCanRun == false)
@@ -76,18 +76,16 @@ namespace Controller
         // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
         private void SetRunAnimation()
         {
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-                _animator.SetTrigger("IsCanRun");
-                _isCanRun = true;
-            }
+            if (!Input.GetKey(KeyCode.Mouse0)) return;
+            _animator.SetTrigger("IsCanRun");
+            _isCanRun = true;
         }
 
         // Update
         // Karakterin koşarken sola kaymasını minimuma indiriyor.
         private void StabilizeForwardMovement(float speed)
         {
-            transform.Translate(Vector3.forward * (speed * Time.deltaTime * GameManager.IsSetActiveHandle));
+            transform.Translate(Vector3.forward * (speed * Time.deltaTime));
         }
 
         // Update

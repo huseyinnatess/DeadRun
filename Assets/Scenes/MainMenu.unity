@@ -3963,7 +3963,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 258343681}
         m_TargetAssemblyTypeName: Utilities.MainMenuUIEventHandler, Assembly-CSharp
-        m_MethodName: MarketButton
+        m_MethodName: StoreButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4419,7 +4419,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1890696156}
         m_TargetAssemblyTypeName: Utilities.AudioSettings, Assembly-CSharp
-        m_MethodName: SetFxSliderValue
+        m_MethodName: SetMusicSliderValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

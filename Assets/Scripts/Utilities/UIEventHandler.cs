@@ -34,17 +34,19 @@ namespace Utilities
         
         public void StartGameButton()
         {
-           if (PlayerPrefs.GetInt("EndLevel") == SceneManager.sceneCountInBuildSettings) 
-               PlayerPrefs.SetInt("EndLevel", PlayerPrefs.GetInt("EndLevel") - 1);
-           LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
+           GameManager.Instance.ActivateHandle(true);
+           GameManager.HandelIsActive = true;
+           LevelPanelManager.Instance.MainMenuPanels.GetComponent<Animator>().SetTrigger("IsStartGame");
+           LevelPanelManager.Instance.GamePanels.SetActive(true);
+           LevelPanelManager.Instance.GamePanels.GetComponent<Animator>().SetTrigger("IsStartGame");
         } 
-        public void MarketButton()
+        public void StoreButton()
         {
-            LoadingSlider.Instance.StartLoad(2);
+            LoadingSlider.Instance.StartLoad(1);
         }
         public void LevelSelectButton()
         {
-            LoadingSlider.Instance.StartLoad(1);
+            LoadingSlider.Instance.StartLoad(0);
         }
 
         public void PauseAndContinueButton(bool active)

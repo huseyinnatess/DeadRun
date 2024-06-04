@@ -12,7 +12,6 @@ namespace Manager
         
         private void Awake()
         {
-            DontDestroyOnLoad(this);
             _coinText = GameObject.FindWithTag("Coin").GetComponent<TextMeshProUGUI>();
             _coin = PlayerPrefsData.GetInt("Coin");
             if (_coinText is not null)
