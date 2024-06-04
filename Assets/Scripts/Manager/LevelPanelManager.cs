@@ -11,8 +11,8 @@ namespace Manager
         private GameObject _victoryPanel;
         private GameObject _defeatPanel;
         private GameObject _pausePanel;
-        public GameObject GamePanels;
-        public GameObject MainMenuPanels;
+        [HideInInspector]public GameObject GamePanels;
+        [HideInInspector]public GameObject MainMenuPanels;
 
         private Slider[] _pausePanelSliders;
         #region Awake Start
@@ -46,19 +46,24 @@ namespace Manager
         }
         #endregion
         
-        public void VictoryPanel(bool active)
+        public void VictoryPanel(bool state)
         {
-            _victoryPanel.SetActive(active);
+            _victoryPanel.SetActive(state);
         }
 
-        public void DefeatPanel(bool active)
+        public void DefeatPanel(bool state)
         {
-            _defeatPanel.SetActive(active);
+            _defeatPanel.SetActive(state);
         }
 
-        public void PausePanel(bool active)
+        public void PausePanel(bool state)
         {
-            _pausePanel.SetActive(active);
+            _pausePanel.SetActive(state);
+        }
+
+        public void MainMenuPanel(bool state)
+        {
+            MainMenuPanels.SetActive(state);
         }
     }
 }

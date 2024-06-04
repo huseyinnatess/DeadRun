@@ -7,7 +7,7 @@ namespace Manager
 {
     public class MainMenuManager : MonoSingleton<MainMenuManager>
     {
-        private TextMeshProUGUI _levelText;
+        [SerializeField]private TextMeshProUGUI _levelText;
         private GameObject _settingsPanel;
 
         #region Awake, Start, Get Functions
@@ -25,8 +25,7 @@ namespace Manager
 
         private void GetReferencesAwake()
         {
-            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL " + (PlayerPrefsData.GetInt("EndLevel") - 2);
+            _levelText.text = "LEVEL " + (PlayerPrefsData.GetInt("EndLevel") - 1);
             _settingsPanel = GameObject.FindWithTag("SettingsPanel");
         }
 

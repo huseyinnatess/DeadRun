@@ -1522,6 +1522,7 @@ GameObject:
   - component: {fileID: 4990284491164512194}
   - component: {fileID: 6688023029231495218}
   - component: {fileID: 7430916701232489984}
+  - component: {fileID: 4755576253779908483}
   m_Layer: 0
   m_Name: ThornWall
   m_TagString: ThornWall
@@ -1622,6 +1623,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021677272, y: 0.14426048, z: 0.019999998}
   m_Center: {x: -0.0004750049, y: -0.06387632, z: 0.0000000013814058}
+--- !u!65 &4755576253779908483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682937900558382786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02029074, y: 0.13535781, z: 0.019999998}
+  m_Center: {x: 0.00014512047, y: -0.062977076, z: 0.0000000013619584}
 --- !u!1 &7725313316800176593
 GameObject:
   m_ObjectHideFlags: 0

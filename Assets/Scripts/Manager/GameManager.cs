@@ -25,7 +25,7 @@ namespace Manager
         private Slider _runSlider;
         private GameObject _finishPosition;
         private GameObject _characterPosition;
-        private TextMeshProUGUI _levelText;
+       [SerializeField] private TextMeshProUGUI _sliderLevelText;
 
         public List<GameObject> Heros;
         public List<GameObject> HatSkins;
@@ -34,12 +34,12 @@ namespace Manager
         public List<List<GameObject>> HerosSkins;
 
         #region Awake Start Get Functions
-
         private void Awake()
         {
             Time.timeScale = 1f;
             HandelIsActive = false;
             GetReferences();
+            SetReferences();
             ActivateHero();
             InitializeSkins();
             ActivateHeroSkins();
@@ -48,9 +48,12 @@ namespace Manager
         private void GetReferences()
         {
             _runSlider = GetComponentInChildren<Slider>();
-            _levelText = GameObject.FindWithTag("LevelText").GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 2);
             _handel = GameObject.FindWithTag("Handel");
+        }
+
+        private void SetReferences()
+        {
+            _sliderLevelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
             ActivateHandle(false);
         }
 

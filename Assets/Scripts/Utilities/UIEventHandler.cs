@@ -18,12 +18,13 @@ namespace Utilities
         public void RestartButton()
         {
             LoadingSlider.Instance.StartLoad(SceneManager.GetActiveScene().buildIndex);
+            LevelPanelManager.Instance.MainMenuPanel(false);
             Time.timeScale = 1f;
         }
 
         public void MainMenuButton()
         {
-            LoadingSlider.Instance.StartLoad(0);
+            LoadingSlider.Instance.StartLoad(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1f;
         }
 
