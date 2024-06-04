@@ -26,7 +26,7 @@ namespace Manager
         
         public void ExitButton()
         {
-            LoadingSlider.Instance.StartLoad(0);
+            LoadingSlider.Instance.StartLoad(PlayerPrefsData.GetInt("EndLevel"));
         }
 
         private void ButtonConfigure()
@@ -37,7 +37,7 @@ namespace Manager
                 {
                     ButtonsLock[i].SetActive(false);
                     Buttons[i].GetComponentInChildren<Text>().text = (i + 1).ToString();
-                    int sceneIndex = i + 3;
+                    int sceneIndex = i + 2;
                     Buttons[i].onClick.AddListener(delegate { SceneLoad(sceneIndex); });
                 }
                 else

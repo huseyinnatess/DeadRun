@@ -36,7 +36,7 @@ namespace Controller
         {
             IsCanAttack = false;
             _attackAnimationWork = false;
-            _target = CharacterController.Instance.transform;
+            _target = CharacterControl.Instance.transform;
             EnemyAgentCount = EnemyAgents.Length;
             _enemySpeed = 1f;
         }

@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 namespace Controller
 {
-    public class CharacterController : MonoSingleton<CharacterController>
+    public class CharacterControl : MonoSingleton<CharacterControl>
     {
         private float _inputAxis; // Mouse hareketine göre karakterin gideceği yön
         private float _characterSpeed; // Karakterin hızı

@@ -20,7 +20,7 @@ TagManager:
   - Battlefield
   - NeutralAgent
   - Coin
-  - LevelText
+  - Confetti
   - VictoryPanel
   - RewardCoin
   - DefeatPanel

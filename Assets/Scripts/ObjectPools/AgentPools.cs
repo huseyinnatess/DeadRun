@@ -45,7 +45,7 @@ namespace ObjectPools
         }
         
         // Ana karakteri agents listesine ekler.
-        // Oyun başlar başlamaz CharacterController tarafından çağrılır.
+        // Oyun başlar başlamaz CharacterControl tarafından çağrılır.
         public void AddMainCharacter(GameObject character)
         {
             Agents.Add(character);

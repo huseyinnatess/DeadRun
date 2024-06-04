@@ -103,7 +103,7 @@ namespace Utilities.Store
 
         public void MainMenuButton()
         {
-            LoadingSlider.Instance.StartLoad(0);
+            LoadingSlider.Instance.StartLoad(PlayerPrefsData.GetInt("EndLevel"));
         }
     }
 }

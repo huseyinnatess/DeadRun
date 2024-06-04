@@ -11,7 +11,6 @@ using Utilities;
 using Utilities.SaveLoad;
 using Utilities.Store;
 using Utilities.Store.Skin;
-using CharacterController = Controller.CharacterController;
 
 namespace Manager
 {
@@ -77,7 +76,7 @@ namespace Manager
         {
             if (!Input.GetMouseButtonDown(0) || !HandelIsActive) return;
             ActivateHandle(false);
-            _characterPosition.GetComponent<CharacterController>().enabled = true;
+            _characterPosition.GetComponent<CharacterControl>().enabled = true;
             HandelIsActive = false;
         }
 

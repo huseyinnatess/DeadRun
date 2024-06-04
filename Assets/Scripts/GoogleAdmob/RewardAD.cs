@@ -8,6 +8,8 @@ namespace GoogleAdmob
     {
 #if  UNITY_EDITOR
         private const string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+#else
+        private const string _adUnitId = "ca-app-pub-YOUR-REAL-AD-UNIT-ID";
 #endif
         private RewardedAd _rewardedAd;
         public void CreateAd()

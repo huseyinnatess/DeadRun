@@ -1,4 +1,5 @@
-﻿using GoogleAdmob;
+﻿using Controller;
+using GoogleAdmob;
 using Manager;
 using ObjectPools;
 using TMPro;
@@ -38,6 +39,7 @@ namespace Utilities
         private void Victory()
         {
             SetPlayerEndLevel();
+            ParticleEffectPool.Instance.ConfettiEffectPool(CharacterControl.Instance.transform);
             LevelPanelManager.Instance.VictoryPanel(true);
             SetPlayerRewardCoin();
         }
