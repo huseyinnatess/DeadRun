@@ -1,6 +1,7 @@
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utilities.SaveLoad;
 
 namespace Manager
@@ -25,7 +26,7 @@ namespace Manager
 
         private void GetReferencesAwake()
         {
-            _levelText.text = "LEVEL " + (PlayerPrefsData.GetInt("EndLevel") - 1);
+            _levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
             _settingsPanel = GameObject.FindWithTag("SettingsPanel");
         }
 

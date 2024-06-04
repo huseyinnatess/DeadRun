@@ -277,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4287372256946035845}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.4501997, z: 0.241}
+  m_LocalPosition: {x: -0, y: 0.4501997, z: 0.354}
   m_LocalScale: {x: 10, y: 10, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,7 +1141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911591393142075503}
   m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: -0.7071067, w: -0.000000030908616}
-  m_LocalPosition: {x: -0, y: 0.19803096, z: 0.335}
+  m_LocalPosition: {x: -0, y: 0.19803096, z: 0.448}
   m_LocalScale: {x: -2.411321, y: -1.5970732, z: -26.945324}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1376,7 +1376,6 @@ GameObject:
   - component: {fileID: 760698102219839167}
   - component: {fileID: 8350009928174533240}
   - component: {fileID: 5949230681990846982}
-  - component: {fileID: 610461645}
   m_Layer: 0
   m_Name: ThornWall
   m_TagString: ThornWall
@@ -1477,19 +1476,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020091562, y: 0.14426048, z: 0.019999998}
   m_Center: {x: 0.00059923314, y: -0.062130056, z: -0.0000000058080176}
---- !u!65 &610461645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6259843531293836663}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02029074, y: 0.13535781, z: 0.019999998}
-  m_Center: {x: 0.00014512047, y: -0.062977076, z: 0.0000000013619584}
 --- !u!1 &6526450856865719691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,7 +1565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8594949960542671281}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.4501997, z: 0.241}
+  m_LocalPosition: {x: -0, y: 0.4501997, z: 0.354}
   m_LocalScale: {x: 10, y: 10, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []

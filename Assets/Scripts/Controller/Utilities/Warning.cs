@@ -127,8 +127,13 @@ namespace Controller.Utilities
         // Uyarı mesajını ekrana yazdırıyor
         private IEnumerator WriteWarning(string[] messages)
         {
-            yield return new WaitForSeconds(3f);
-            if (!_isStaying) yield break;
+            // Saniye başı kontrol edilmesi gerekiyor (Daha düşük de olabilir). Süre üzerinden kontrol
+            // edildiği zaman thread'ler bir nevi çakışıyor hatalı kontrol yapılabiliyor.
+            for (int i = 0; i < 3; i++)
+            {
+                if (!_isStaying) yield break;
+                yield return new WaitForSeconds(1f);
+            }
             CharacterCanMove = false;
             SetWarningPanel(true);
             for (int i = 0; i < messages.Length; i++)

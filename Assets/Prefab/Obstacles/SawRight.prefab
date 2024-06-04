@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2448023344999947290}
   - component: {fileID: 4712987541796198558}
   - component: {fileID: 2041071119}
+  - component: {fileID: 482841305}
   m_Layer: 0
   m_Name: Threaded18
   m_TagString: Saw
@@ -97,6 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
   m_Center: {x: 0.00015947699, y: -0.00031689496, z: 0.00000023841494}
+--- !u!65 &482841305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25367107222631883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
+  m_Center: {x: 0.00015947699, y: -0.00031689496, z: -3.6368183e-12}
 --- !u!1 &93308401389183341
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +123,7 @@ GameObject:
   - component: {fileID: 6155480816881843513}
   - component: {fileID: 6736024117301940726}
   - component: {fileID: 1315683522}
+  - component: {fileID: 1213115494}
   m_Layer: 0
   m_Name: Threaded39
   m_TagString: Saw
@@ -194,6 +209,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982272, y: 0.0021606397, z: 0.000120133096}
   m_Center: {x: 0.000159477, y: -0.00031737186, z: -3.655264e-12}
+--- !u!65 &1213115494
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93308401389183341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982272, y: 0.0021606397, z: 0.000120133096}
+  m_Center: {x: 0.000159477, y: -0.00031737186, z: -0.0000004768408}
 --- !u!1 &93572460769997717
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +234,7 @@ GameObject:
   - component: {fileID: 4436757950502871845}
   - component: {fileID: 6235491541139297856}
   - component: {fileID: 1382465435}
+  - component: {fileID: 760624381}
   m_Layer: 0
   m_Name: Threaded22
   m_TagString: Saw
@@ -291,6 +320,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.0021606397, z: 0.00012013312}
   m_Center: {x: 0.00015935702, y: -0.00031690157, z: -3.6441757e-12}
+--- !u!65 &760624381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93572460769997717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.0021606397, z: 0.00012013312}
+  m_Center: {x: 0.00015935702, y: -0.00031689412, z: -3.6441757e-12}
 --- !u!1 &392662044466362090
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +345,7 @@ GameObject:
   - component: {fileID: 4410476091189021833}
   - component: {fileID: 5191297898860918417}
   - component: {fileID: 293945537}
+  - component: {fileID: 51219682}
   m_Layer: 0
   m_Name: Threaded11
   m_TagString: Saw
@@ -388,6 +431,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198226, y: 0.0021606386, z: 0.00012013312}
   m_Center: {x: 0.00015959541, y: -0.00031701318, z: -3.6287564e-12}
+--- !u!65 &51219682
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392662044466362090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198226, y: 0.0021606386, z: 0.00012013312}
+  m_Center: {x: 0.00015935699, y: -0.0003171324, z: -0.00000023842222}
 --- !u!1 &457946115700568185
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +456,7 @@ GameObject:
   - component: {fileID: 6651252417312920797}
   - component: {fileID: 4724778881570110785}
   - component: {fileID: 758723679}
+  - component: {fileID: 897614125}
   m_Layer: 0
   m_Name: Threaded28
   m_TagString: Saw
@@ -485,6 +542,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982272, y: 0.0021606395, z: 0.0001201331}
   m_Center: {x: 0.00015947627, y: -0.00031689412, z: -3.6275807e-12}
+--- !u!65 &897614125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457946115700568185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982272, y: 0.0021606395, z: 0.0001201331}
+  m_Center: {x: 0.00015947627, y: -0.00031692392, z: -3.6275807e-12}
 --- !u!1 &667515813199896195
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +567,7 @@ GameObject:
   - component: {fileID: 2368344338281989758}
   - component: {fileID: 2143080949363132917}
   - component: {fileID: 294345793}
+  - component: {fileID: 1407498506}
   m_Layer: 0
   m_Name: Threaded21
   m_TagString: Saw
@@ -582,6 +653,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198227, y: 0.002160639, z: 0.00012013309}
   m_Center: {x: 0.00015947626, y: -0.00031701324, z: -0.00000023842222}
+--- !u!65 &1407498506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667515813199896195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198227, y: 0.002160639, z: 0.00012013309}
+  m_Center: {x: 0.00015947626, y: -0.00031701324, z: -0.00000023842222}
 --- !u!1 &790727198621313900
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +678,7 @@ GameObject:
   - component: {fileID: 2391945252549685641}
   - component: {fileID: 8000610837279956914}
   - component: {fileID: 1666069677}
+  - component: {fileID: 210123826}
   m_Layer: 0
   m_Name: Threaded33
   m_TagString: Saw
@@ -679,6 +764,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198227, y: 0.00216064, z: 0.00012013309}
   m_Center: {x: 0.00015923782, y: -0.00031692398, z: -3.6356727e-12}
+--- !u!65 &210123826
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790727198621313900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198227, y: 0.00216064, z: 0.00012013309}
+  m_Center: {x: 0.00015923782, y: -0.00031689418, z: 0.00000023841494}
 --- !u!1 &885555227345035031
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +872,7 @@ GameObject:
   - component: {fileID: 8193060471718651913}
   - component: {fileID: 8787448652915463778}
   - component: {fileID: 289951112}
+  - component: {fileID: 606033206}
   m_Layer: 0
   m_Name: Threaded23
   m_TagString: Saw
@@ -859,6 +958,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.0001201331}
   m_Center: {x: 0.00015959544, y: -0.00031689033, z: -0.00000023842222}
+--- !u!65 &606033206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076486172671531120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.0001201331}
+  m_Center: {x: 0.00015947623, y: -0.0003168866, z: -3.6376757e-12}
 --- !u!1 &1096037061520784788
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +983,7 @@ GameObject:
   - component: {fileID: 6156378735399922099}
   - component: {fileID: 9013697590194988213}
   - component: {fileID: 256506263}
+  - component: {fileID: 1317613019}
   m_Layer: 0
   m_Name: Threaded30
   m_TagString: Saw
@@ -956,6 +1069,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606395, z: 0.000120133096}
   m_Center: {x: 0.00015949189, y: -0.00031683542, z: -3.6366882e-12}
+--- !u!65 &1317613019
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096037061520784788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606395, z: 0.000120133096}
+  m_Center: {x: 0.00015947699, y: -0.00031689502, z: -3.6366882e-12}
 --- !u!1 &1446539352181811188
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +1094,7 @@ GameObject:
   - component: {fileID: 7307930417059050656}
   - component: {fileID: 506994426675847078}
   - component: {fileID: 2130914513}
+  - component: {fileID: 468088966}
   m_Layer: 0
   m_Name: Threaded2
   m_TagString: Saw
@@ -1053,6 +1180,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982284, y: 0.0021606407, z: 0.000120133096}
   m_Center: {x: 0.00015947635, y: -0.00031689426, z: -0.00000023842222}
+--- !u!65 &468088966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446539352181811188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982284, y: 0.0021606407, z: 0.000120133096}
+  m_Center: {x: 0.00015935714, y: -0.00031689426, z: -3.6324576e-12}
 --- !u!1 &1773036866193591288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1205,7 @@ GameObject:
   - component: {fileID: 5404156606841864865}
   - component: {fileID: 1199966359369806503}
   - component: {fileID: 2133860129}
+  - component: {fileID: 1603181423}
   m_Layer: 0
   m_Name: Threaded3
   m_TagString: Saw
@@ -1150,6 +1291,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982277, y: 0.0021606404, z: 0.000120133096}
   m_Center: {x: 0.00015935708, y: -0.0003168942, z: 0.00000023841494}
+--- !u!65 &1603181423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773036866193591288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982277, y: 0.0021606404, z: 0.000120133096}
+  m_Center: {x: 0.00015947629, y: -0.00031688676, z: -0.00000023842222}
 --- !u!1 &2026859174037244365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1316,7 @@ GameObject:
   - component: {fileID: 4854586747363244138}
   - component: {fileID: 6863951251061737519}
   - component: {fileID: 1605726065}
+  - component: {fileID: 796141721}
   m_Layer: 0
   m_Name: Threaded36
   m_TagString: Saw
@@ -1247,6 +1402,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.0001201331}
   m_Center: {x: 0.000159477, y: -0.00031689496, z: 0.00000023841494}
+--- !u!65 &796141721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026859174037244365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.0001201331}
+  m_Center: {x: 0.00015948445, y: -0.00031689496, z: -3.640342e-12}
 --- !u!1 &2170652335454055580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1427,7 @@ GameObject:
   - component: {fileID: 1001287347193986085}
   - component: {fileID: 4600477391418709604}
   - component: {fileID: 1928443346}
+  - component: {fileID: 108393607}
   m_Layer: 0
   m_Name: Threaded8
   m_TagString: Saw
@@ -1344,6 +1513,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198226, y: 0.002160639, z: 0.00012013309}
   m_Center: {x: 0.00015947617, y: -0.00031692383, z: -3.6379784e-12}
+--- !u!65 &108393607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170652335454055580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198226, y: 0.002160639, z: 0.00012013309}
+  m_Center: {x: 0.00015947617, y: -0.00031689403, z: -3.6379784e-12}
 --- !u!1 &2193298732778215485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1538,7 @@ GameObject:
   - component: {fileID: 3577604012200938333}
   - component: {fileID: 5145183247654290070}
   - component: {fileID: 1443546942}
+  - component: {fileID: 285910227}
   m_Layer: 0
   m_Name: Threaded6
   m_TagString: Saw
@@ -1441,6 +1624,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982277, y: 0.0021606404, z: 0.000120133096}
   m_Center: {x: 0.00015947709, y: -0.0003166567, z: 0.00000023841496}
+--- !u!65 &285910227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193298732778215485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982277, y: 0.0021606404, z: 0.000120133096}
+  m_Center: {x: 0.00015947709, y: -0.0003168951, z: -3.6252748e-12}
 --- !u!1 &2292396318161124075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1649,7 @@ GameObject:
   - component: {fileID: 6808840305467923048}
   - component: {fileID: 969537193275605444}
   - component: {fileID: 1680486204}
+  - component: {fileID: 135056633}
   m_Layer: 0
   m_Name: Threaded37
   m_TagString: Saw
@@ -1538,6 +1735,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982258, y: 0.0021606386, z: 0.0001201331}
   m_Center: {x: 0.00015947617, y: -0.00031689397, z: -3.6402994e-12}
+--- !u!65 &135056633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292396318161124075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982258, y: 0.0021606386, z: 0.0001201331}
+  m_Center: {x: 0.00015923775, y: -0.00031689397, z: -3.6402994e-12}
 --- !u!1 &2413930517660797584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1760,7 @@ GameObject:
   - component: {fileID: 8823682202039546082}
   - component: {fileID: 1103758320604925884}
   - component: {fileID: 1229626260}
+  - component: {fileID: 1769073658}
   m_Layer: 0
   m_Name: Threaded7
   m_TagString: Saw
@@ -1635,6 +1846,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
   m_Center: {x: 0.00015947699, y: -0.00031692476, z: -0.00000023842222}
+--- !u!65 &1769073658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2413930517660797584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
+  m_Center: {x: 0.00015935778, y: -0.00031692476, z: -3.6356803e-12}
 --- !u!1 &2428217240117147338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1871,7 @@ GameObject:
   - component: {fileID: 3025746854057582696}
   - component: {fileID: 5054110901090624826}
   - component: {fileID: 1507020710}
+  - component: {fileID: 405593112}
   m_Layer: 0
   m_Name: Threaded25
   m_TagString: Saw
@@ -1732,6 +1957,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
   m_Center: {x: 0.00015947699, y: -0.00031683536, z: -3.6368256e-12}
+--- !u!65 &405593112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428217240117147338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.000120133096}
+  m_Center: {x: 0.00015947699, y: -0.00031683536, z: -3.6368256e-12}
 --- !u!1 &2536372798886248836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1982,7 @@ GameObject:
   - component: {fileID: 3879860093490018092}
   - component: {fileID: 3183441722435000668}
   - component: {fileID: 1445526226}
+  - component: {fileID: 1644374010}
   m_Layer: 0
   m_Name: Threaded34
   m_TagString: Saw
@@ -1829,6 +2068,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982274, y: 0.0021606397, z: 0.00012013309}
   m_Center: {x: 0.00015935705, y: -0.00031689412, z: 0.00000023841494}
+--- !u!65 &1644374010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536372798886248836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982274, y: 0.0021606397, z: 0.00012013309}
+  m_Center: {x: 0.00015959547, y: -0.0003166557, z: -0.00000023842222}
 --- !u!1 &2773672777052203122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,7 +2153,7 @@ Transform:
   - {fileID: 4747186760793366328}
   - {fileID: 1459569949209726589}
   m_Father: {fileID: 4241113662096028139}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2584445110851107475
 MeshFilter:
@@ -1986,6 +2238,7 @@ GameObject:
   - component: {fileID: 4274877454564551851}
   - component: {fileID: 4526057201985411646}
   - component: {fileID: 498100140}
+  - component: {fileID: 1943213955}
   m_Layer: 0
   m_Name: Threaded29
   m_TagString: Saw
@@ -2071,6 +2324,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982263, y: 0.0021606388, z: 0.00012013309}
   m_Center: {x: 0.00015947621, y: -0.000316894, z: -3.6379857e-12}
+--- !u!65 &1943213955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835815236276690353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982263, y: 0.0021606388, z: 0.00012013309}
+  m_Center: {x: 0.00015947621, y: -0.0003168642, z: -3.6379857e-12}
 --- !u!1 &2969184316727642090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2349,7 @@ GameObject:
   - component: {fileID: 5077748578686586718}
   - component: {fileID: 7099072648249733275}
   - component: {fileID: 1294116912}
+  - component: {fileID: 1581447150}
   m_Layer: 0
   m_Name: Threaded20
   m_TagString: Saw
@@ -2168,6 +2435,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606395, z: 0.00012013312}
   m_Center: {x: 0.00015947621, y: -0.00031689406, z: -3.6425906e-12}
+--- !u!65 &1581447150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969184316727642090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606395, z: 0.00012013312}
+  m_Center: {x: 0.000159357, y: -0.00031689406, z: -3.6425906e-12}
 --- !u!1 &2992070577165552304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2460,7 @@ GameObject:
   - component: {fileID: 7004356208788283904}
   - component: {fileID: 5741197675002133004}
   - component: {fileID: 1038537716}
+  - component: {fileID: 2106232731}
   m_Layer: 0
   m_Name: Threaded
   m_TagString: Saw
@@ -2265,6 +2546,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982263, y: 0.002160639, z: 0.0001201331}
   m_Center: {x: 0.00015947691, y: -0.00031689493, z: -3.637979e-12}
+--- !u!65 &2106232731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992070577165552304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982263, y: 0.002160639, z: 0.0001201331}
+  m_Center: {x: 0.0001594797, y: -0.00031689493, z: -3.637979e-12}
 --- !u!1 &3181701930069698904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2568,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4241113662096028139}
-  - component: {fileID: 5806453852445833248}
   m_Layer: 0
   m_Name: SawRight
   m_TagString: Untagged
@@ -2294,32 +2587,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5430926387214061045}
   - {fileID: 6754249240046778021}
+  - {fileID: 5430926387214061045}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5806453852445833248
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3181701930069698904}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cbe9328ea3b2bb9448a25c1f19f7482b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3328802234021965498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2623,7 @@ Transform:
   - {fileID: 6757051577640534004}
   - {fileID: 2925471703006368758}
   m_Father: {fileID: 4241113662096028139}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4102133703480261313
 GameObject:
@@ -2365,6 +2637,7 @@ GameObject:
   - component: {fileID: 6614950796150890553}
   - component: {fileID: 7290453562355547317}
   - component: {fileID: 1635147113}
+  - component: {fileID: 1469604246}
   m_Layer: 0
   m_Name: Threaded14
   m_TagString: Saw
@@ -2450,6 +2723,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.000120133096}
   m_Center: {x: 0.00015947623, y: -0.00031701327, z: 0.00000023841494}
+--- !u!65 &1469604246
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102133703480261313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.000120133096}
+  m_Center: {x: 0.00015947623, y: -0.00031689406, z: -3.635673e-12}
 --- !u!1 &4380865736906508828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2748,7 @@ GameObject:
   - component: {fileID: 1195726646155302377}
   - component: {fileID: 4110949943055666782}
   - component: {fileID: 488372121}
+  - component: {fileID: 272549514}
   m_Layer: 0
   m_Name: Threaded5
   m_TagString: Saw
@@ -2547,6 +2834,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982277, y: 0.0021606397, z: 0.00012013312}
   m_Center: {x: 0.00015947629, y: -0.00031677494, z: 0.00000023841496}
+--- !u!65 &272549514
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380865736906508828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982277, y: 0.0021606397, z: 0.00012013312}
+  m_Center: {x: 0.0001595955, y: -0.00031689415, z: -3.6240852e-12}
 --- !u!1 &4386176397168579727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2859,7 @@ GameObject:
   - component: {fileID: 2914962192194876614}
   - component: {fileID: 3974881827567390676}
   - component: {fileID: 320939889}
+  - component: {fileID: 1277662741}
   m_Layer: 0
   m_Name: Threaded38
   m_TagString: Saw
@@ -2644,6 +2945,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198227, y: 0.0021606393, z: 0.0001201331}
   m_Center: {x: 0.00015947627, y: -0.00031689406, z: -3.637979e-12}
+--- !u!65 &1277662741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386176397168579727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198227, y: 0.0021606393, z: 0.0001201331}
+  m_Center: {x: 0.00015959548, y: -0.00031641722, z: -0.00000023842222}
 --- !u!1 &4862219775659687302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,6 +2970,7 @@ GameObject:
   - component: {fileID: 5354629719656336542}
   - component: {fileID: 3008172867713476460}
   - component: {fileID: 508940382}
+  - component: {fileID: 11175890}
   m_Layer: 0
   m_Name: Threaded19
   m_TagString: Saw
@@ -2741,6 +3056,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982263, y: 0.0021606393, z: 0.0001201331}
   m_Center: {x: 0.00015941737, y: -0.00031689493, z: 0.00000023841494}
+--- !u!65 &11175890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862219775659687302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982263, y: 0.0021606393, z: 0.0001201331}
+  m_Center: {x: 0.00015947697, y: -0.00031689493, z: 0.00000023841494}
 --- !u!1 &5466146041882999369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,6 +3164,7 @@ GameObject:
   - component: {fileID: 7778535513338578048}
   - component: {fileID: 8286533198123021495}
   - component: {fileID: 1523959847}
+  - component: {fileID: 2011761807}
   m_Layer: 0
   m_Name: Threaded15
   m_TagString: Saw
@@ -2921,6 +3250,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.00012013309}
   m_Center: {x: 0.00015947623, y: -0.00031677485, z: -0.00000023842222}
+--- !u!65 &2011761807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666400771343392591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.0021606393, z: 0.00012013309}
+  m_Center: {x: 0.00015947623, y: -0.00031689406, z: 0.00000023841494}
 --- !u!1 &5707333404899926922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +3275,7 @@ GameObject:
   - component: {fileID: 2564827029594272978}
   - component: {fileID: 1521908178328342090}
   - component: {fileID: 1071546513}
+  - component: {fileID: 1087909316}
   m_Layer: 0
   m_Name: Threaded9
   m_TagString: Saw
@@ -3018,6 +3361,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.0021606395, z: 0.000120133096}
   m_Center: {x: 0.00015947623, y: -0.00031695372, z: -3.642575e-12}
+--- !u!65 &1087909316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707333404899926922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.0021606395, z: 0.000120133096}
+  m_Center: {x: 0.00015947623, y: -0.00031689412, z: -0.00000023842222}
 --- !u!1 &6092421233600445601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3386,7 @@ GameObject:
   - component: {fileID: 2472523691073418221}
   - component: {fileID: 5889350394789931621}
   - component: {fileID: 1286127224}
+  - component: {fileID: 308585668}
   m_Layer: 0
   m_Name: Threaded35
   m_TagString: Saw
@@ -3115,6 +3472,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982267, y: 0.002160639, z: 0.000120133096}
   m_Center: {x: 0.00015935703, y: -0.00031689403, z: -3.64259e-12}
+--- !u!65 &308585668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092421233600445601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982267, y: 0.002160639, z: 0.000120133096}
+  m_Center: {x: 0.00015935703, y: -0.00031689403, z: 0.00000023841494}
 --- !u!1 &6453466867202606278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3497,7 @@ GameObject:
   - component: {fileID: 2997114732378061176}
   - component: {fileID: 922033918126382535}
   - component: {fileID: 117799359}
+  - component: {fileID: 1951344962}
   m_Layer: 0
   m_Name: Threaded27
   m_TagString: Saw
@@ -3212,6 +3583,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198227, y: 0.0021606395, z: 0.0001201331}
   m_Center: {x: 0.00015947627, y: -0.00031689412, z: -3.638544e-12}
+--- !u!65 &1951344962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453466867202606278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198227, y: 0.0021606395, z: 0.0001201331}
+  m_Center: {x: 0.00015947627, y: -0.0003168345, z: -3.638544e-12}
 --- !u!1 &6733154425899522620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3608,7 @@ GameObject:
   - component: {fileID: 2124828358688593739}
   - component: {fileID: 5256217643715945395}
   - component: {fileID: 1112253082}
+  - component: {fileID: 386789833}
   m_Layer: 0
   m_Name: Threaded10
   m_TagString: Saw
@@ -3309,6 +3694,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982274, y: 0.00216064, z: 0.0001201331}
   m_Center: {x: 0.00015959551, y: -0.00031689418, z: -0.00000023842222}
+--- !u!65 &386789833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733154425899522620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982274, y: 0.00216064, z: 0.0001201331}
+  m_Center: {x: 0.00015959551, y: -0.0003170134, z: -3.6379638e-12}
 --- !u!1 &7107923601485845952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,6 +3719,7 @@ GameObject:
   - component: {fileID: 889584869759792935}
   - component: {fileID: 1964011608970977379}
   - component: {fileID: 1203803558}
+  - component: {fileID: 1940868612}
   m_Layer: 0
   m_Name: Threaded26
   m_TagString: Saw
@@ -3406,6 +3805,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.002160639, z: 0.0001201331}
   m_Center: {x: 0.00015947621, y: -0.00031677482, z: -3.6391393e-12}
+--- !u!65 &1940868612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107923601485845952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.002160639, z: 0.0001201331}
+  m_Center: {x: 0.00015950602, y: -0.00031683443, z: -3.6391393e-12}
 --- !u!1 &7170078440640613550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,6 +3913,7 @@ GameObject:
   - component: {fileID: 6687955862068021071}
   - component: {fileID: 8218188921912000831}
   - component: {fileID: 1790052922}
+  - component: {fileID: 598303714}
   m_Layer: 0
   m_Name: Threaded16
   m_TagString: Saw
@@ -3586,6 +3999,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982263, y: 0.0021606393, z: 0.000120133096}
   m_Center: {x: 0.00015971462, y: -0.00031695366, z: -0.00000023842222}
+--- !u!65 &598303714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714038139014801931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982263, y: 0.0021606393, z: 0.000120133096}
+  m_Center: {x: 0.00015971462, y: -0.00031689406, z: -0.00000023842222}
 --- !u!1 &7823641757368402572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3598,6 +4024,7 @@ GameObject:
   - component: {fileID: 2937872958519346005}
   - component: {fileID: 8354395457082484786}
   - component: {fileID: 1034693418}
+  - component: {fileID: 697604100}
   m_Layer: 0
   m_Name: Threaded24
   m_TagString: Saw
@@ -3683,6 +4110,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.0001201331}
   m_Center: {x: 0.00015947326, y: -0.00031689496, z: -0.00000023842222}
+--- !u!65 &697604100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823641757368402572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.0021606393, z: 0.0001201331}
+  m_Center: {x: 0.00015947699, y: -0.00031689496, z: -0.00000023842222}
 --- !u!1 &7872556971601510854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,6 +4135,7 @@ GameObject:
   - component: {fileID: 1905282405596911033}
   - component: {fileID: 2769131711337078638}
   - component: {fileID: 393542055}
+  - component: {fileID: 37258662}
   m_Layer: 0
   m_Name: Threaded32
   m_TagString: Saw
@@ -3780,6 +4221,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982258, y: 0.0021606386, z: 0.0001201331}
   m_Center: {x: 0.00015947616, y: -0.00031689397, z: -3.6414673e-12}
+--- !u!65 &37258662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872556971601510854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982258, y: 0.0021606386, z: 0.0001201331}
+  m_Center: {x: 0.00015947616, y: -0.00031689397, z: -3.6414673e-12}
 --- !u!1 &8226098783198067496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,6 +4246,7 @@ GameObject:
   - component: {fileID: 8929076959947915777}
   - component: {fileID: 7211976305632144130}
   - component: {fileID: 1701118191}
+  - component: {fileID: 1019173537}
   m_Layer: 0
   m_Name: Threaded12
   m_TagString: Saw
@@ -3877,6 +4332,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002198227, y: 0.0021606395, z: 0.00012013309}
   m_Center: {x: 0.00015948448, y: -0.00031689502, z: -0.00000023842222}
+--- !u!65 &1019173537
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226098783198067496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002198227, y: 0.0021606395, z: 0.00012013309}
+  m_Center: {x: 0.00015946958, y: -0.00031701423, z: -3.6402114e-12}
 --- !u!1 &8794706298822123727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +4357,7 @@ GameObject:
   - component: {fileID: 4989030250775978084}
   - component: {fileID: 8266993624012373330}
   - component: {fileID: 847880132}
+  - component: {fileID: 1788685533}
   m_Layer: 0
   m_Name: Threaded17
   m_TagString: Saw
@@ -3974,6 +4443,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982265, y: 0.002160639, z: 0.000120133096}
   m_Center: {x: 0.00015923778, y: -0.00031692383, z: -3.635673e-12}
+--- !u!65 &1788685533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794706298822123727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982265, y: 0.002160639, z: 0.000120133096}
+  m_Center: {x: 0.0001594762, y: -0.00031689403, z: -3.635673e-12}
 --- !u!1 &8891288801565590287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,6 +4468,7 @@ GameObject:
   - component: {fileID: 5800309745948939840}
   - component: {fileID: 8450675366914238994}
   - component: {fileID: 1656448556}
+  - component: {fileID: 969335273}
   m_Layer: 0
   m_Name: Threaded4
   m_TagString: Saw
@@ -4071,6 +4554,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982281, y: 0.00216064, z: 0.00012013308}
   m_Center: {x: 0.00015947636, y: -0.00031689418, z: -0.00000023842222}
+--- !u!65 &969335273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891288801565590287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982281, y: 0.00216064, z: 0.00012013308}
+  m_Center: {x: 0.00015959557, y: -0.00031689418, z: -3.624114e-12}
 --- !u!1 &8902338556806843976
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,6 +4579,7 @@ GameObject:
   - component: {fileID: 6529471175662607461}
   - component: {fileID: 5001527235510698502}
   - component: {fileID: 514233886}
+  - component: {fileID: 894339082}
   m_Layer: 0
   m_Name: Threaded31
   m_TagString: Saw
@@ -4168,6 +4665,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982274, y: 0.00216064, z: 0.0001201331}
   m_Center: {x: 0.00015947704, y: -0.00031689508, z: -0.00000023842222}
+--- !u!65 &894339082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902338556806843976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982274, y: 0.00216064, z: 0.0001201331}
+  m_Center: {x: 0.00015947704, y: -0.00031689508, z: -0.00000023842222}
 --- !u!1 &8948439078537084306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,6 +4690,7 @@ GameObject:
   - component: {fileID: 26262843270590942}
   - component: {fileID: 5727235994896804958}
   - component: {fileID: 528241303}
+  - component: {fileID: 1423998043}
   m_Layer: 0
   m_Name: Threaded13
   m_TagString: Saw
@@ -4265,3 +4776,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0021982263, y: 0.002160639, z: 0.0001201331}
   m_Center: {x: 0.00015947696, y: -0.00031701414, z: 0.00000023841494}
+--- !u!65 &1423998043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948439078537084306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0021982263, y: 0.002160639, z: 0.0001201331}
+  m_Center: {x: 0.00015947696, y: -0.00031689493, z: -3.6392118e-12}
