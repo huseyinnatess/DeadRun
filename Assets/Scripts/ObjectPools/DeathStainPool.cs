@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using MonoSingleton;
 using UnityEngine;
 
@@ -6,22 +5,26 @@ namespace ObjectPools
 {
     public class DeathStainPool : MonoSingleton<DeathStainPool>
     {
-        public GameObject[] deathStains;
-
+        public GameObject[] deathStains; // Ölüm lekelerinin listesi
+        
+        /// <summary>
+        /// Ölüm lekeleri oluşturur veya pasif eder
+        /// </summary>
+        /// <param name="setActive"> Ölüm lekesinin aktifliğini belirler</param>
+        /// <param name="create"> Ölüm lekesinin oluşma yeri </param>
         public void DeathStainObjectPool(bool setActive, Transform create)
         {
-            foreach (var item in deathStains)
+            for (int i = 0; i < deathStains.Length; i++)
             {
-                if (!item.activeInHierarchy && setActive)
+                if (!deathStains[i].activeInHierarchy && setActive)
                 {
-                    item.transform.position = new Vector3(create.position.x, 1.05f, create.position.z);
-                    item.SetActive(true);
+                    deathStains[i].transform.position = new Vector3(create.position.x, 1.05f, create.position.z);
+                    deathStains[i].SetActive(true);
                     break;
                 }
-
-                if (item.activeInHierarchy && !setActive)
+                if (deathStains[i].activeInHierarchy && !setActive)
                 {
-                    item.SetActive(false);
+                    deathStains[i].SetActive(false);
                     break;
                 }
             }

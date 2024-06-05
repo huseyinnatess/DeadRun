@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using ObjectPools;
 using UnityEngine;
@@ -31,7 +30,7 @@ namespace Obstacle
 
         #endregion
 
-
+        // Random sürelerde fan'ın çalışmasını sağlar
         private IEnumerator FanAnimation()
         {
             while (true)
