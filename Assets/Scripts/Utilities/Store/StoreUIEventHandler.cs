@@ -2,7 +2,6 @@
 using Manager;
 using Manager.Store;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities.SaveLoad;
 using Utilities.UIElements;
@@ -11,6 +10,10 @@ namespace Utilities.Store
 {
     public class StoreUIEventHandler : MonoBehaviour
     {
+        /// <summary>
+        /// Market içerisinde hero'lar arasında geçiş yapıp buton durumlarını ve
+        /// aktif hero, skinleri günceller.
+        /// </summary>
         public void NextButton()
         {
             HerosStoreManager herosStoreManager = HerosStoreManager.Instance;
@@ -29,7 +32,11 @@ namespace Utilities.Store
             StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.HerosInfos,
                 HerosStoreManager.Instance.CurrentIndex);
         }
-
+        
+        /// <summary>
+        /// Market içerisinde hero'lar arasında geçiş yapıp buton durumlarını ve
+        /// aktif hero, skinleri günceller.
+        /// </summary>
         public void BackButton()
         {
             HerosStoreManager herosStoreManager = HerosStoreManager.Instance;
@@ -37,7 +44,6 @@ namespace Utilities.Store
             int maxIndex = herosStoreManager.HerosObjects.Count - 1;
 
             herosStoreManager.HerosObjects[currentIndex].SetActive(false);
-
             currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
             herosStoreManager.CurrentIndex = currentIndex;
             PlayerPrefsData.SetInt("CurrentIndex", currentIndex);
@@ -49,7 +55,12 @@ namespace Utilities.Store
             StoreManager.Instance.UpdateButtonStatus(HerosStoreManager.Instance.HerosInfos,
                 HerosStoreManager.Instance.CurrentIndex);
         }
-
+        
+        /// <summary>
+        /// Hero ve skinlerin satın alma butonu. Satın alınma durumlarını
+        /// güncelleyip dosyaya kaydeder.
+        /// </summary>
+        /// <param name="priceText"> Fiyat text'i </param>
         public void PurchaseButton(Text priceText)
         {
             int price = Convert.ToInt32(priceText.text);
@@ -69,7 +80,10 @@ namespace Utilities.Store
                 BinaryData.Save(HerosStoreManager.Instance.HerosInfos, "HerosInfos");
             }
         }
-
+        
+        /// <summary>
+        /// Satın alınmış hero veya skinlerin kuşanma butonu.
+        /// </summary>
         public void EquipButton()
         {
             if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveSkinGroup][SkinStoreManager.ActiveSkinIndex]
@@ -89,7 +103,10 @@ namespace Utilities.Store
                 PlayerPrefsData.SetInt("ActiveHeroIndex",  HerosStoreManager.Instance.ActiveIndex);
             }
         }
-
+        
+        /// <summary>
+        /// Kuşanılmış hero veya skinler'i geri çıkarma butonu.
+        /// </summary>
         public void EquippedButton()
         {
             if (SkinStoreManager.Instance.SkinObjectsMatrix[SkinStoreManager.ActiveSkinGroup][SkinStoreManager.ActiveSkinIndex]
@@ -102,7 +119,10 @@ namespace Utilities.Store
                 SkinStoreManager.Instance.DeactivateGroupItem(SkinStoreManager.ActiveSkinGroup, SkinStoreManager.ActiveSkinIndex);
             }
         }
-
+        
+        /// <summary>
+        /// Anamenü'ye dönme butonu.
+        /// </summary>
         public void MainMenuButton()
         {
             LoadingSlider.Instance.StartLoad(PlayerPrefsData.GetInt("EndLevel"));

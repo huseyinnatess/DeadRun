@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
@@ -11,13 +12,13 @@ namespace Manager.Store
 {
     public class HerosStoreManager : MonoSingleton<HerosStoreManager>
     {
-        public List<GameObject> HerosObjects;
-        public List<StoreInformations> HerosInfos = new List<StoreInformations>();
-        [HideInInspector] public int CurrentIndex;
-        [HideInInspector] public int ActiveIndex;
+        public List<GameObject> HerosObjects; // Herolar'ın obje listesi.
+        public List<StoreInformations> HerosInfos = new(); // Herolar'ın bilgilerini tutan liste.
+        [HideInInspector] public int CurrentIndex; // Market sahnesinde aktif olan hero index'i.
+        [HideInInspector] public int ActiveIndex; // Aktif olarak kullanılan hero index'i.
 
-        private Text _priceText;
-        private TextMeshProUGUI _characterNameText;
+        private Text _priceText; // Hero'ların fiyat text'i.
+        private TextMeshProUGUI _characterNameText; // Hero'ların isim text'i.
 
         #region Awake, Set, Get Functions
 
@@ -51,25 +52,27 @@ namespace Manager.Store
         }
         #endregion
 
-        #region Load
-
+        #region Load Hero Informations
+        
+        // Hero bilgilerini dosyadan geri yükler.
         private void LoadHerosInfos()
         {
             HerosInfos = BinaryData.Load("HerosInfos");
         }
         
+        // Aktif olarak kullanılan hero dışındaki hero'ları pasif yapar
         private void SetHerosObjects()
         {
-            for (int i = 0; i < HerosObjects.Count; i++)
-            {
-                HerosObjects[i].SetActive(false);
-            }
-            HerosObjects[CurrentIndex].SetActive(true);
+            // Liste küçük olduğu için foreach kullanmak sorun olmaz.
+            HerosObjects.ForEach(hero => hero.SetActive(false));
+            HerosObjects.ElementAt(CurrentIndex).SetActive(true);
         }
         #endregion
 
         #region InitiliazeAndSave
-        private void InitalizeList()
+        // İlk defa market açıldığında çalışacak. Hero bilgilerini listeye kaydedip
+        // daha sonra dosyaya kayıt ediyor.
+        private void InitializeAndSaveHerosInfos()
         {
             for (int i = 0; i < HerosObjects.Count; i++)
             {
@@ -85,15 +88,13 @@ namespace Manager.Store
             HerosInfos[0].IsBought = true;
             HerosInfos[0].IsEquipped = true;
             StoreManager.Instance.UpdateButtonStatus(HerosInfos, CurrentIndex);
-        }
-        private void InitializeAndSaveHerosInfos()
-        {
-            InitalizeList();
             BinaryData.Save(HerosInfos, "HerosInfos");
         }
-
         #endregion
         
+        /// <summary>
+        /// Aktif olan hero'nun ismini ve fiyatını günceller.
+        /// </summary>
         public void UpdatePriceName()
         {
             _characterNameText.text = HerosInfos[CurrentIndex].Name;

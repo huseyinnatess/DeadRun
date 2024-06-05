@@ -9,8 +9,8 @@ namespace Manager.Store
 {
     public class SkinStoreManager : MonoSingleton<SkinStoreManager>
     {
-        public List<List<GameObject>> SkinObjectsMatrix = new List<List<GameObject>>();
-        public List<List<StoreInformations>> SkinInfoMatrix = new List<List<StoreInformations>>();
+        public List<List<GameObject>> SkinObjectsMatrix = new();
+        public List<List<StoreInformations>> SkinInfoMatrix = new();
 
         public static int ActiveSkinGroup;
         public static int ActiveSkinIndex;

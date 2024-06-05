@@ -897,6 +897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6c389864394cdba8d7c39b580a24b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadingPanel: {fileID: 934327980314778661}
+  _loadingSlider: {fileID: 934327980314778660}
 --- !u!114 &258343683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17112,10 +17114,28 @@ PrefabInstance:
     - target: {fileID: 4945609226857901353, guid: 2ed6b28d43ec70b4f900e7386f1ebf40,
         type: 3}
       propertyPath: m_Name
-      value: Loading
+      value: LoadingPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed6b28d43ec70b4f900e7386f1ebf40, type: 3}
+--- !u!114 &934327980314778660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9213193366446729658, guid: 2ed6b28d43ec70b4f900e7386f1ebf40,
+    type: 3}
+  m_PrefabInstance: {fileID: 934327980314778659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &934327980314778661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4945609226857901353, guid: 2ed6b28d43ec70b4f900e7386f1ebf40,
+    type: 3}
+  m_PrefabInstance: {fileID: 934327980314778659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &948219166794521039
 Transform:
   m_ObjectHideFlags: 0
@@ -167510,7 +167530,7 @@ GameObject:
   - component: {fileID: 2823090747927826027}
   - component: {fileID: 1587545475841338111}
   m_Layer: 0
-  m_Name: default
+  m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
