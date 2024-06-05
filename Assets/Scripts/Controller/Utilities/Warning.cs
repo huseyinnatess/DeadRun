@@ -15,8 +15,8 @@ namespace Controller.Utilities
 
         private Coroutine _calculateCoroutine; // Çarpışma süresini hesaplayan coroutine
 
-        private TextMeshProUGUI _warningText; // Uyarı mesajının yazılacağı text
-        private GameObject _warningPanel; // Uyarı mesajının paneli
+        [SerializeField]private TextMeshProUGUI _warningText; // Uyarı mesajının yazılacağı text
+        [SerializeField]private GameObject _warningPanel; // Uyarı mesajının paneli
         private int _isFirst; // Uyarıların sıralamasını tutan değer
         
         private string[] _warningMessages; // Uyarı mesajlarını tutan array
@@ -27,19 +27,16 @@ namespace Controller.Utilities
 
         private void Awake()
         {
-            SetRefernces();
+            SetReferences();
             SetFirstMessages();
         }
         
         // Değişkenlerin default değerlerini ayarlar
-        private void SetRefernces()
+        private void SetReferences()
         {
             _maxTime = 2f;
             _currentTime = 0f;
             _isStaying = false;
-            _warningPanel = GameObject.FindWithTag("WarningPanel");
-            _warningText = _warningPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            _warningPanel.SetActive(false);
             _isFirst = PlayerPrefsData.GetInt("IsFirst");
             CharacterCanMove = true;
         }

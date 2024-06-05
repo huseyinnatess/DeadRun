@@ -5,7 +5,7 @@ namespace Utilities.UIElements
 {
     public class SettingsPanel : MonoSingleton<SettingsPanel>
     {
-        [SerializeField]private GameObject _settingsPanel; // Ayarlar paneli
+        public GameObject SettingPanell; // Ayarlar paneli
         
         // False edilmeden önce slider'ları AudioSetting tarafından tag ile erişilmesi gerekiyor.
         // Bu yüzden awake içerisine alınmamalı.
@@ -17,7 +17,7 @@ namespace Utilities.UIElements
         // Parametre olarak gelen değişkene göre panel'in aktifliğini ayarlıyor.
         public void SettingPanel(bool active)
         {
-            _settingsPanel.SetActive(active);
+            SettingPanell.SetActive(active);
         }
     }
 }

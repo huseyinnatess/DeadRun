@@ -21,14 +21,6 @@ TagManager:
   - NeutralAgent
   - Coin
   - Confetti
-  - VictoryPanel
-  - RewardCoin
-  - DefeatPanel
-  - SettingsPanel
-  - SoundSlider
-  - MusicSlider
-  - PausePanel
-  - LoadingPanel
   - PurchasseButton
   - PriceText
   - CharacterName
@@ -40,7 +32,6 @@ TagManager:
   - LeftBorder
   - RightBorder
   - AgentPool
-  - WarningPanel
   - MainMenuPanels
   - GamePanels
   layers:

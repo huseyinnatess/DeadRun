@@ -3,73 +3,41 @@ using GoogleAdmob;
 using Manager;
 using MonoSingleton;
 using ObjectPools;
-using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using Utilities.SaveLoad;
-using Random = UnityEngine.Random;
+using Utilities.UIElements;
 
 namespace Utilities
 {
     public class Battlefield : MonoSingleton<Battlefield>
     {
-        private Scene _activeScene;
-        private int _rewardCoin;
-        [SerializeField] private TextMeshProUGUI rewardCoinText;
-
-        #region Awake
-
-        private void Awake()
-        {
-            _activeScene = SceneManager.GetActiveScene();
-        }
-
-        #endregion
-
+        /// <summary>
+        /// Savaş sonucuna göre Victory veya Defeat panelini aktif eder
+        /// </summary>
+        /// <param name="agentCount"></param>
         public void WarResult(int agentCount)
         {
-            ShowIntersititalAd();
+            InterstitialAD.Instance.ShowAd();
             if (agentCount != 0)
                 Victory();
             else
                 Defeat();
         }
 
-        #region Victory Functions
-
+        /// <para> Oyuncuğu kazandığında son level, confetti effect'i, Victory Panel ve kazanılan
+        /// coinlerin ayarlamasını yapar.</para>
         private void Victory()
         {
-            SetPlayerEndLevel();
+            PlayerLevel.SetPlayerEndLevel(SceneManager.GetActiveScene().buildIndex);
             ParticleEffectPool.Instance.ConfettiEffectPool(CharacterControl.Instance.transform);
             LevelPanelManager.Instance.VictoryPanel(true);
-            SetPlayerRewardCoin();
+            RewardCoin.Instance.SetPlayerRewardCoin();
         }
 
-        private void SetPlayerRewardCoin()
-        {
-            _rewardCoin = (AgentPools.Instance.AgentCount * 4) + Random.Range(0, 15);
-            rewardCoinText.text = _rewardCoin.ToString();
-            CoinManager.Instance.EarnCoin(_rewardCoin);
-        }
-
-        private void SetPlayerEndLevel()
-        {
-            if (_activeScene.buildIndex == PlayerPrefsData.GetInt("EndLevel"))
-            {
-                PlayerPrefsData.SetInt("EndLevel", PlayerPrefsData.GetInt("EndLevel") + 1);
-            }
-        }
-
-        #endregion
-
+        /// <para> Defeat Panel'ini açar</para>
         private void Defeat()
         {
             LevelPanelManager.Instance.DefeatPanel(true);
         }
-
-        private void ShowIntersititalAd()
-        {
-            InterstitialAD.Instance.ShowAd();
-        }
+        
     }
 }

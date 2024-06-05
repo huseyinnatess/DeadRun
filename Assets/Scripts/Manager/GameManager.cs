@@ -48,13 +48,12 @@ namespace Manager
         #endregion
 
         #region Update
-
         private void Update()
         {
             if (!Input.GetMouseButtonDown(0) || !HandelIsActive) return;
             ActivateHandle(false);
-            CharacterControl.Instance.enabled = true;
             HandelIsActive = false;
+            CharacterControl.Instance.enabled = true;
         }
         #endregion
         

@@ -43,8 +43,7 @@ namespace Controller
         }
 
         #endregion
-       
-
+        
         #region Update, FixedUpdate, LateUpdate
 
         private void FixedUpdate()
@@ -76,7 +75,6 @@ namespace Controller
         // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
         private void SetRunAnimation()
         {
-            if (!Input.GetKey(KeyCode.Mouse0)) return;
             _animator.SetTrigger("IsCanRun");
             _isCanRun = true;
         }
