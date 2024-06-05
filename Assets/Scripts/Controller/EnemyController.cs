@@ -43,13 +43,19 @@ namespace Controller
 
         #endregion
         
-        // Hiyerarşide aktif olan ilk enemy'nin transformunu return eder.
+        /// <summary>
+        /// Hiyerarşide aktif olan ilk enemy'nin transformunu return eder.
+        /// </summary>
+        /// <returns> Aktif olan enemy'nin transform componentini aksi halde null return eder</returns>
         public Transform GetActiveEnemy()
         {
             return EnemyAgents.FirstOrDefault(agent => agent.activeInHierarchy)?.transform;
         }
 
-        // Enemy'lerin saldıraya başlamasını sağlar.
+        /// <summary>
+        ///  Enemy'lerin saldırıya başlamasını sağlar.
+        /// </summary>
+        /// <param name="attack"> Saldırıya başlayıp başlanmamasını belirler</param>
         public static void Attack(bool attack) => IsCanAttack = attack;
 
         #region LateUpdate

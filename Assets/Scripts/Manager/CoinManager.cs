@@ -24,7 +24,11 @@ namespace Manager
         }
         #endregion
         
-        // Satın alma işlemi için yeterli coin olup olmadığını kontrol eder
+        /// <summary>
+        /// Satın alma işlemi için yeterli coin olup olmadığını kontrol eder
+        /// </summary>
+        /// <param name="price"> Ürünün fiyatı </param>
+        /// <returns> true veya false dönüş yapar. </returns>
         public bool ProcessPurchase(int price)
         {
             if (!CheckPurchase(price)) return false;
@@ -32,7 +36,10 @@ namespace Manager
             return (true);
         }
         
-        // Coin kazanıldığı zaman coin miktarını güncelleyip kaydeder
+        /// <summary>
+        /// Coin kazanıldığı zaman coin miktarını güncelleyip kaydeder
+        /// </summary>
+        /// <param name="amount"> Kazanılan coin miktarı </param>
         public void EarnCoin(int amount)
         {
             _coin += amount;

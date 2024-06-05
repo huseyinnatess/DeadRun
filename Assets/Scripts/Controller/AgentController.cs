@@ -54,7 +54,9 @@ namespace Controller
 
         #endregion
         
-        // Sahnede aktif olan agent'ın transform'unu return eder.
+        /// <summary>
+        /// Sahnede aktif olan agent'ın transform'unu return eder.
+        /// </summary> 
         public static Transform GetActiveAgent()
         {
             int i = 0;
@@ -67,7 +69,9 @@ namespace Controller
             return null;
         }
         
-        // Parent'a yeni obje eklenince componentleri günceller
+        /// <summary>
+        /// Parent'a yeni obje eklenince componentleri günceller.
+        /// </summary>
         public void UpdateAgentsComponent()
         {
             SetReferences();

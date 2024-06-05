@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Controller;
 using MonoSingleton;
-using ObjectPools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Utilities;
 using Utilities.SaveLoad;
 using Utilities.Store;
 using Utilities.Store.Skin;
@@ -63,26 +59,30 @@ namespace Manager
         #endregion
         
         // Update
-        // Paramtetre olarak gelen state göre handle aktifliğini ayarlar
+        /// <summary>
+        /// Parametre olarak gelen state göre handle aktifliğini ayarlar
+        /// </summary>
+        /// <param name="state"> Handle aktifliği için</param>
         public void ActivateHandle(bool state) => _handel.SetActive(state);
         
+        // Skin listelerini Initilaze eder
         private void InitializeSkins()
         {
-            HerosSkins = new List<List<GameObject>>(3);
-            HerosSkins.Add(HatSkins);
-            HerosSkins.Add(SwordSkins);
-            HerosSkins.Add(ArmorSkins);
+            HerosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
         }
+        
+        // Seçilen hero'yu aktif edip diğer heroları kapatır
         private void ActivateHero()
         {
+            int activeHeroIndex = PlayerPrefsData.GetInt("ActiveHeroIndex");
+
             for (int i = 0; i < Heros.Count; i++)
             {
-                Heros[i].SetActive(false);
+                Heros[i].SetActive(i == activeHeroIndex);
             }
-
-            Heros[PlayerPrefsData.GetInt("ActiveHeroIndex")].SetActive(true);
         }
-
+        
+        // Kuşanılmış olan skinleri aktif edip diğerlerini kapatır
         private void ActivateHeroSkins()
         {
             for (int i = 0; i < InitializeSkinInfos.ListCount; i++)
@@ -90,14 +90,7 @@ namespace Manager
                 List<StoreInformations> informationList = BinaryData.Load("SkinGroup" + i);
                 for (int j = 0; j < informationList.Count; j++)
                 {
-                    if (informationList[j].IsEquipped)
-                    {
-                        HerosSkins[i][j].SetActive(true);
-                    }
-                    else
-                    {
-                        HerosSkins[i][j].SetActive(false);
-                    }
+                    HerosSkins[i][j].SetActive(informationList[j].IsEquipped);
                 }
             }
         }

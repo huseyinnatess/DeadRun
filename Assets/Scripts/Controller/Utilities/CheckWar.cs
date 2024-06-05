@@ -5,7 +5,9 @@ namespace Controller.Utilities
 {
     public static class CheckWar
     {
-        /// <para> Savaş sonucunu kontrol eder. </para> 
+        /// <summary>
+        /// Savaş sonucunu kontrol eder.
+        /// </summary>
         public static void CheckWarResult()
         {
             if ((EnemyController.IsCanAttack &&

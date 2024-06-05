@@ -2,6 +2,7 @@ using System;
 using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities.UIElements;
 
 namespace Utilities
 {
@@ -30,7 +31,7 @@ namespace Utilities
 
         public void SettingsButton(bool active)
         {
-            MainMenuManager.Instance.SettingsPanel(active);
+            SettingsPanel.Instance.SettingPanel(active);
         }
         
         public void StartGameButton()
