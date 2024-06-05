@@ -3,15 +3,17 @@ using UnityEngine;
 
 namespace Controller.Utilities
 {
-    public class AgentDeathHandler
+    public static class AgentDeathHandler
     {
-        // Parametre olarak gelen agent'ın pozisyonunda ölüm efektlerini çalıştırıp
-        // inaktif yapar.
+        /// <para> Parametre olarak gelen agent'ın pozisyonunda ölüm efektlerini çalıştırıp inaktif yapar.</para>
+        /// <para> Agent azaltma işlemi fonksiyon çağrısından önce yapılmalı.</para>
+        /// <para> Savaş sonucu kontrolü yapılıyor. </para> 
         public static void DeathHandel(Transform agentTransform)
         {
             ParticleEffectPool.Instance.DeadEffectPool(agentTransform);
             DeathStainPool.Instance.DeathStainObjectPool(true, agentTransform);
             agentTransform.gameObject.SetActive(false);
+            CheckWar.CheckWarResult();
         }
     }
 }

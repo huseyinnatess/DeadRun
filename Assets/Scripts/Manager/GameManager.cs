@@ -16,7 +16,6 @@ namespace Manager
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        private bool _checkWarStatus; // Savaş sonucunun döngü içerisinde tekrar tekrar kontrol edilmemesini sağlar
         private GameObject _handel; // Oyundaki sağa sola giden el nesnesi
         public static bool HandelIsActive; // Elin aktif olup olmadığını kontrol eder
         
@@ -28,7 +27,7 @@ namespace Manager
         public List<GameObject> ArmorSkins; // Zırhların listesi
         public List<List<GameObject>> HerosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
-        #region Awake Start Get Functions
+        #region Awake, Get, Set Functions
         private void Awake()
         {
             Time.timeScale = 1f;
@@ -50,20 +49,9 @@ namespace Manager
             _sliderLevelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
             ActivateHandle(false);
         }
-
-        private void Start()
-        {
-            GetReferencesStart();
-        }
-
-        private void GetReferencesStart()
-        {
-            _checkWarStatus = false;
-        }
-        
         #endregion
 
-        #region Update, LateUpdate
+        #region Update
 
         private void Update()
         {
@@ -72,29 +60,12 @@ namespace Manager
             CharacterControl.Instance.enabled = true;
             HandelIsActive = false;
         }
-        
-        private void LateUpdate()
-        {
-            CheckWarResult();
-        }
         #endregion
         
         // Update
         // Paramtetre olarak gelen state göre handle aktifliğini ayarlar
         public void ActivateHandle(bool state) => _handel.SetActive(state);
-
-        // Savaş sonucunu kontrol eder.
-        private void CheckWarResult()
-        {
-            if ((EnemyController.IsCanAttack && !_checkWarStatus &&
-                 (AgentPools.Instance.AgentCount == 0 || EnemyController.EnemyAgentCount == 0)) ||
-                AgentPools.Instance.AgentCount == 0)
-            {
-                _checkWarStatus = true;
-                Battlefield.Instance.WarResult(AgentPools.Instance.AgentCount);
-            }
-        }
-
+        
         private void InitializeSkins()
         {
             HerosSkins = new List<List<GameObject>>(3);

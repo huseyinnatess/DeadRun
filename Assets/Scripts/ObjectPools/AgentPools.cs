@@ -79,8 +79,8 @@ namespace ObjectPools
                         }
                         else if (limit < 0)
                         {
-                            AgentDeathHandler.DeathHandel(item.transform);
                             AgentCount--;
+                            AgentDeathHandler.DeathHandel(item.transform);
                             limit++;
                         }
 

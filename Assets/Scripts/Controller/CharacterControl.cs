@@ -109,7 +109,7 @@ namespace Controller
         {
             transform.position = Vector3.Lerp(target, new Vector3(target.x - _inputAxis, target.y, target.z), .3f);
         }
-        #region OntriggerEnter
+        #region OnTriggerEnter
 
         private void OnTriggerEnter(Collider other)
         {
@@ -131,8 +131,8 @@ namespace Controller
             if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
                                                         other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
             {
-                AgentDeathHandler.DeathHandel(transform);
                 AgentPools.Instance.AgentCount--;
+                AgentDeathHandler.DeathHandel(transform);
             }
 
             if (_navMeshAgent.enabled && other.CompareTag("EnemyAgent"))

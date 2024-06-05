@@ -134,6 +134,8 @@ namespace Controller.Utilities
                 if (!_isStaying) yield break;
                 yield return new WaitForSeconds(1f);
             }
+            // Oyun ömrü boyunca sadece 2 kere çalışacak bir fonksiyon. GetComponent kullanımı bu yüzden pek sıkıntı olmaz.
+            CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
             CharacterCanMove = false;
             SetWarningPanel(true);
             for (int i = 0; i < messages.Length; i++)
@@ -145,6 +147,7 @@ namespace Controller.Utilities
             SaveFirstStatus();
             if (_isFirst == 2)
                 DestroyAgent();
+            CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
             CharacterCanMove = true;
         }
 

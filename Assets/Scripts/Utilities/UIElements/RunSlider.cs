@@ -41,7 +41,6 @@ namespace Utilities.UIElements
         }
 
         #endregion
-       
         
         // LateUpdate
         // Karakterin finish çizgisine olan yakınlığına göre slider value değerini günceller
