@@ -6,15 +6,15 @@ namespace Controller
 {
     public class EnemyController : MonoSingleton<EnemyController>
     {
-        public static bool IsCanAttack;
-        public static int EnemyAgentCount;
-        public GameObject[] EnemyAgents;
+        public static bool IsCanAttack; // Enemy'nin saldırıya başlayacağını belirleyen değişken
+        public static int EnemyAgentCount; // Level'daki enemy sayısı
+        public GameObject[] EnemyAgents; // Enemy'lerin tutulduğu array
 
-        private Transform _target;
-        private Animator[] _enemyAnimators;
-        private bool _attackAnimationWork;
+        private Transform _target; // Enemy'ler için hedef
+        private Animator[] _enemyAnimators; // Enemey'lerin animator componentini tutan array
+        private bool _attackAnimationWork; // Enemy'lerin saldırı animasyonuna geçmesini belirleyen değişken
         
-        private float _enemySpeed;
+        private float _enemySpeed; // Enemy'lerin hızı
 
         #region Awake Get, Set Functions
 
@@ -51,15 +51,21 @@ namespace Controller
 
         // Enemy'lerin saldıraya başlamasını sağlar.
         public static void Attack(bool attack) => IsCanAttack = attack;
-        
+
+        #region LateUpdate
+
         private void LateUpdate()
         {
             if (_target is not null && IsCanAttack)
                 EnemyAttack();
             if (_target is not null && !_target.gameObject.activeInHierarchy)
-                _target = AgentController.Instance.GetActiveAgent();
+                _target = AgentController.GetActiveAgent();
         }
+
+        #endregion
         
+        
+        // LateUpdate
         // Enemylerin agentlar'a saldırı yapmasını başlatır.
         private void EnemyAttack()
         {

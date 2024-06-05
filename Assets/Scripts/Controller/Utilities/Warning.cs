@@ -181,7 +181,7 @@ namespace Controller.Utilities
             for (int i = 0; i < limit && agentCount > 0; i++)
             {
                 if (agentCount > 1)
-                    AgentDeathHandler.DeathHandel(AgentController.Instance.GetActiveAgent());
+                    AgentDeathHandler.DeathHandel(AgentController.GetActiveAgent());
                 else
                     AgentDeathHandler.DeathHandel(transform);
                 agentCount--;

@@ -7,14 +7,12 @@ namespace Controller
 {
     public class AgentController : MonoSingleton<AgentController>
     {
-       [HideInInspector] public Transform Target;
+       [HideInInspector] public Transform Target; // Navmesh için target
 
-        private NavMeshAgent[] _navMeshAgents;
-        private Animator[] _animators;
-        private int AgentsCount;
+        private NavMeshAgent[] _navMeshAgents; // Tüm agent'ların navmesh componentlerini tutan array
+        private int _agentsCount; // Anlık agent sayısı
         
-        #region Awake
-
+        #region Awake Get, Set Functions
         private void Awake()
         {
             GetReferences();
@@ -25,38 +23,39 @@ namespace Controller
         {
             Target = GameObject.FindWithTag("DestiniationPos").transform;
         }
-
+        
+        // Alt obje olarak bulunan tüm agentların ilgili componentini arraye alıyor
         private void SetReferences()
         {
-            AgentsCount = transform.childCount;
-            _navMeshAgents = new NavMeshAgent[AgentsCount];
-            _animators = new Animator[AgentsCount];
-            for (int i = 0; i < AgentsCount; i++)
-            {
+            _agentsCount = transform.childCount;
+            _navMeshAgents = new NavMeshAgent[_agentsCount];
+            for (int i = 0; i < _agentsCount; i++)
                 _navMeshAgents[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
-                _animators[i] = transform.GetChild(i).GetComponent<Animator>();
-            }
         }
 
         #endregion
 
         #region LateUpdate
-        
         private void LateUpdate()
         {
-            for (int i = 0; i < AgentsCount; i++)
+            SetAgentTarget();
+        }
+        
+        // LateUpdate
+        // Agent'ların target'ını ayarlıyor.
+        private void SetAgentTarget()
+        {
+            for (int i = 0; i < _agentsCount; i++)
             {
                 if (transform.GetChild(i).gameObject.activeInHierarchy && Target is not null)
                     _navMeshAgents[i].SetDestination(Target.position);
-                if (transform.GetChild(i).gameObject.activeInHierarchy && EnemyController.IsCanAttack
-                                                                       && !_animators[i].applyRootMotion)
-                    _animators[i].applyRootMotion = true;
             }
         }
+
         #endregion
         
         // Sahnede aktif olan agent'ın transform'unu return eder.
-        public Transform GetActiveAgent()
+        public static Transform GetActiveAgent()
         {
             int i = 0;
             while (i < AgentPools.Instance.Agents.Count)

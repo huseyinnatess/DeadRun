@@ -4,29 +4,38 @@ namespace Controller
 {
     public class CameraController : MonoBehaviour
     {
-        private Transform _target;
-        private Vector3 _targetOffset;
-        private Vector3 _finishPosition;
-        private void Start()
+        private Transform _target; // Kameranın takip edeceği hedef
+        private Vector3 _targetOffset; // Kamera ve target arasındaki takip mesafesi
+        private Vector3 _finishPosition; // Bitiş çizgisi geçildikten sonraki kamera pozisyonu
+
+        #region Awake, Get, Set Functions
+
+        private void Awake()
         {
             GetReferences();
+            SetReferences();
         }
 
         private void GetReferences()
         {
-            _target = GameObject.FindWithTag("Character").gameObject.transform;
-            SetReferences();
+            _target = GameObject.FindWithTag("Character").transform;
         }
         private void SetReferences()
         {
             _targetOffset = transform.position - _target.position;
         }
 
+        #endregion
+
+        #region LateUpdate, SetCameraPosition Functions
+
         private void LateUpdate()
         {
             SetCameraPosition();
         }
-
+        
+        // LateUpdate
+        // Target veya finish position'a göre oyun içerisinde kamera konumunu güncelliyor
         private void SetCameraPosition()
         {
             if (!EnemyController.IsCanAttack)
@@ -38,5 +47,8 @@ namespace Controller
             else
                 transform.position = Vector3.Lerp(transform.position, _finishPosition, .100f);
         }
+
+        #endregion
+       
     }
 }

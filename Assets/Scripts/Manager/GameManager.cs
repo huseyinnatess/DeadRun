@@ -16,21 +16,17 @@ namespace Manager
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        private Battlefield _battlefield;
-        private bool _checkWarStatus;
-        private GameObject _handel;
-        public static bool HandelIsActive; 
+        private bool _checkWarStatus; // Savaş sonucunun döngü içerisinde tekrar tekrar kontrol edilmemesini sağlar
+        private GameObject _handel; // Oyundaki sağa sola giden el nesnesi
+        public static bool HandelIsActive; // Elin aktif olup olmadığını kontrol eder
         
-        private Slider _runSlider;
-        private GameObject _finishPosition;
-        private GameObject _characterPosition;
-       [SerializeField] private TextMeshProUGUI _sliderLevelText;
+       [SerializeField] private TextMeshProUGUI _sliderLevelText; // Game panel'deki level
 
-        public List<GameObject> Heros;
-        public List<GameObject> HatSkins;
-        public List<GameObject> SwordSkins;
-        public List<GameObject> ArmorSkins;
-        public List<List<GameObject>> HerosSkins;
+        public List<GameObject> Heros; // Karakterlerin tutulduğu liste
+        public List<GameObject> HatSkins; // Şapkaların listesi
+        public List<GameObject> SwordSkins; // Kılıçların listesi
+        public List<GameObject> ArmorSkins; // Zırhların listesi
+        public List<List<GameObject>> HerosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
         #region Awake Start Get Functions
         private void Awake()
@@ -46,7 +42,6 @@ namespace Manager
 
         private void GetReferences()
         {
-            _runSlider = GetComponentInChildren<Slider>();
             _handel = GameObject.FindWithTag("Handel");
         }
 
@@ -63,33 +58,30 @@ namespace Manager
 
         private void GetReferencesStart()
         {
-            _finishPosition = GameObject.FindWithTag("Battlefield");
-            _battlefield = _finishPosition.GetComponent<Battlefield>();
-            _characterPosition = GameObject.FindWithTag("Character");
-            _runSlider.maxValue = Vector3.Distance(_finishPosition.transform.position, _characterPosition.transform.position);
             _checkWarStatus = false;
         }
         
         #endregion
 
+        #region Update, LateUpdate
+
         private void Update()
         {
             if (!Input.GetMouseButtonDown(0) || !HandelIsActive) return;
             ActivateHandle(false);
-            _characterPosition.GetComponent<CharacterControl>().enabled = true;
+            CharacterControl.Instance.enabled = true;
             HandelIsActive = false;
         }
-
-        public void ActivateHandle(bool state)
-        {
-            _handel.SetActive(state);
-        }
-
+        
         private void LateUpdate()
         {
             CheckWarResult();
-            SliderUpdate();
         }
+        #endregion
+        
+        // Update
+        // Paramtetre olarak gelen state göre handle aktifliğini ayarlar
+        public void ActivateHandle(bool state) => _handel.SetActive(state);
 
         // Savaş sonucunu kontrol eder.
         private void CheckWarResult()
@@ -99,15 +91,8 @@ namespace Manager
                 AgentPools.Instance.AgentCount == 0)
             {
                 _checkWarStatus = true;
-                _battlefield.WarResult(AgentPools.Instance.AgentCount);
+                Battlefield.Instance.WarResult(AgentPools.Instance.AgentCount);
             }
-        }
-
-        private void SliderUpdate()
-        {
-            if (Math.Abs(_runSlider.value - _runSlider.maxValue) < .2f) return;
-            _runSlider.value = _runSlider.maxValue -
-                Vector3.Distance(_characterPosition.transform.position, _finishPosition.transform.position) + 0.58f;
         }
 
         private void InitializeSkins()

@@ -9,21 +9,21 @@ namespace Controller
         private SkinnedMeshRenderer _skinnedMeshRenderer; // Materyali, anakarakterin materyaline ayarlamak için
         private readonly Material[] _parentMaterial = new Material[1]; // Anakarakterin materyali için
         
-        private Animator _animator;
+        private Animator _animator; // Neutral agent'ın animatorü
 
-        private Transform _parent;
-        private GameObject _character;
+        private Transform _parent; // Normal agent olduğu zaman ayarlancak olan yeni parent nesnesi
+        private GameObject _character; // Oyundaki ana karakter
 
-        private Vector3 _characterColliderSize;
+        private Vector3 _characterColliderSize; // Ana karakterin collider boyutları
 
         #region Awake, Start, Get Functions
 
         private void Awake()
         {
-            SetReferences();
+            GetReferences();
         }
 
-        private void SetReferences()
+        private void GetReferences()
         {
             _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             _animator = GetComponent<Animator>();

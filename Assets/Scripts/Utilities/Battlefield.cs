@@ -1,6 +1,7 @@
 ﻿using Controller;
 using GoogleAdmob;
 using Manager;
+using MonoSingleton;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ using Random = UnityEngine.Random;
 
 namespace Utilities
 {
-    public class Battlefield : MonoBehaviour
+    public class Battlefield : MonoSingleton<Battlefield>
     {
         private Scene _activeScene;
         private int _rewardCoin;
