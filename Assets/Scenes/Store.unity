@@ -828,6 +828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258343676}
+  - component: {fileID: 258343689}
   - component: {fileID: 258343680}
   - component: {fileID: 258343678}
   - component: {fileID: 258343682}
@@ -837,7 +838,6 @@ GameObject:
   - component: {fileID: 258343686}
   - component: {fileID: 258343688}
   - component: {fileID: 258343687}
-  - component: {fileID: 258343689}
   - component: {fileID: 258343690}
   m_Layer: 0
   m_Name: StoreManager
