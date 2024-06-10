@@ -52,7 +52,6 @@ namespace Manager.Store
         /// </summary>
         public void DeactivateGroupItems()
         {
-            print(ActiveSkinGroup);
             for (int i = 0; i < SkinObjectsMatrix.Count; i++)
             {
                 for (int j = 0; j < SkinObjectsMatrix[i].Count; j++)

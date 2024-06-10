@@ -44,7 +44,6 @@ namespace Utilities.Store.Skin
             mainSkinObjectList.Add(HatsSkin);
             mainSkinObjectList.Add(SwordsSkin);
             mainSkinObjectList.Add(ArmorsSkins);
-            print(Application.persistentDataPath);
         }
         
         // Skin bilgilerini mainList içerisine Initialize eder.
