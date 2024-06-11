@@ -14,8 +14,8 @@ namespace Manager
     {
         private GameObject _handel; // Oyundaki sağa sola giden el nesnesi
         public static bool HandelIsActive; // Elin aktif olup olmadığını kontrol eder
-        
-       [SerializeField] private TextMeshProUGUI _sliderLevelText; // Game panel'deki level
+
+        [SerializeField] private TextMeshProUGUI _sliderLevelText; // Game panel'deki level
 
         public List<GameObject> Heros; // Karakterlerin tutulduğu liste
         public List<GameObject> HatSkins; // Şapkaların listesi
@@ -24,6 +24,7 @@ namespace Manager
         public List<List<GameObject>> HerosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
         #region Awake, Get, Set Functions
+
         private void Awake()
         {
             Time.timeScale = 1f;
@@ -45,9 +46,11 @@ namespace Manager
             _sliderLevelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
             ActivateHandle(false);
         }
+
         #endregion
 
         #region Update
+
         private void Update()
         {
             if (!Input.GetMouseButtonDown(0) || !HandelIsActive) return;
@@ -55,21 +58,22 @@ namespace Manager
             HandelIsActive = false;
             CharacterControl.Instance.enabled = true;
         }
+
         #endregion
-        
+
         // Update
         /// <summary>
         /// Parametre olarak gelen state göre handle aktifliğini ayarlar
         /// </summary>
         /// <param name="state"> Handle aktifliği için</param>
         public void ActivateHandle(bool state) => _handel.SetActive(state);
-        
+
         // Skin listelerini Initilaze eder
         private void InitializeSkins()
         {
             HerosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
         }
-        
+
         // Seçilen hero'yu aktif edip diğer heroları kapatır
         private void ActivateHero()
         {
@@ -80,13 +84,15 @@ namespace Manager
                 Heros[i].SetActive(i == activeHeroIndex);
             }
         }
-        
+
         // Kuşanılmış olan skinleri aktif edip diğerlerini kapatır
         private void ActivateHeroSkins()
         {
+            List<StoreInformations> informationList;
             for (int i = 0; i < InitializeSkinInfos.ListCount; i++)
             {
-                List<StoreInformations> informationList = BinaryData.Load("SkinGroup" + i);
+                informationList = BinaryData.Load("SkinGroup" + i);
+                if (informationList is null) continue;
                 for (int j = 0; j < informationList.Count; j++)
                 {
                     HerosSkins[i][j].SetActive(informationList[j].IsEquipped);

@@ -27,19 +27,29 @@ namespace Controller
         private char _sign; // Sayısal panelin işareti
         private int _count; // Sayısal panelde işaretten sonra gelen sayı
 
-        #region Awake
+        #region Awake, Get, Set Functions
 
         private void Awake()
         {
             AgentPools.Instance.AddMainCharacter(gameObject);
+            GetReferences();
+            SetReferences();
+        }
+
+        private void GetReferences()
+        {
             _animator = GetComponent<Animator>();
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _enemyTarget = EnemyController.Instance.GetActiveEnemy();
+        }
+
+        private void SetReferences()
+        {
             _characterSpeed = 1f;
             _isCanRun = false;
             _isTouchingColumn = false;
             _isTouchingLeftBorder = false;
             _isTouchingRightBorder = false;
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            _enemyTarget = EnemyController.Instance.GetActiveEnemy();
         }
 
         #endregion
