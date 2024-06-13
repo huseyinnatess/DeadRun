@@ -108,7 +108,7 @@ namespace Utilities.SaveLoad
             SetInt("Coin", 10000);
             SetInt("Score", 0);
             SetFloat("SoundSlider", .5f);
-            SetFloat("MusicSlider", .7f);
+            SetFloat("FxSlider", .7f);
             SetInt("Interstitial", 0);
             SetInt("ActiveHeroIndex", 0);
             SetInt("CurrentIndex", 0);

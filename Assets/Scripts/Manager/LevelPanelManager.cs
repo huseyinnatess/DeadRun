@@ -44,7 +44,7 @@ namespace Manager
         public void UpdatePausePanelSliders()
         {
             _pausePanelSliders[0].value = AudioManager.GetSoundSliderValue();
-            _pausePanelSliders[1].value = AudioManager.GetMusicSliderValue();
+            _pausePanelSliders[1].value = AudioManager.GetFxSliderValue();
         }
         
         /// <summary>

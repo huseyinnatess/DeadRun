@@ -46,15 +46,13 @@ namespace Manager
         // Mevcut level'a göre butonların kilidini açıp her birine level indexi ataması yapıyor.
         private void ButtonConfigure()
         {
-            int sceneIndex;
-            print(_currentLevel);
             for (int i = 0; i < Buttons.Count; i++)
             {
                 if (i + 1 <= _currentLevel)
                 {
                     _lockImage[i].enabled = false;
                     Buttons[i].GetComponentInChildren<Text>().text = (i + 1).ToString();
-                    sceneIndex = i + 2;
+                    int sceneIndex = i + 2;
                     Buttons[i].onClick.AddListener(delegate { SceneLoad(sceneIndex); });
                 }
                 else
