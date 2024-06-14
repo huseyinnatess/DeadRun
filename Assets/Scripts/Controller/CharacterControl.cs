@@ -87,6 +87,7 @@ namespace Controller
         private void SetRunAnimation()
         {
             _animator.SetTrigger("IsCanRun");
+            FxSounds.Instance.CharacterRunFx.Play();
             _isCanRun = true;
         }
 

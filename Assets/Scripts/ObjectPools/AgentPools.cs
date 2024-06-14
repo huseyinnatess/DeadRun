@@ -99,16 +99,16 @@ namespace ObjectPools
                             ParticleEffectPool.Instance.SpawnEffectPool(item.transform);
                             DeathStainPool.Instance.DeathStainObjectPool(false, item.transform);
                             AgentCount++;
-                            StartCoroutine(_fxSounds.RepeatedSound(_fxSounds.SpawnAgentFx, limit));
+                            StartCoroutine(FxSounds.RepeatedSound(_fxSounds.SpawnAgentFx, _fxSounds.SpawnAgentClip, limit));
                             limit--;
                         }
                         else if (limit < 0)
                         {
                             AgentCount--;
                             AgentDeathHandler.DeathHandel(item.transform);
+                            StartCoroutine(FxSounds.RepeatedSound(_fxSounds.DeadAgentFx, _fxSounds.DeadAgentClip ,limit));
                             limit++;
                         }
-
                         break;
                     }
                 }
