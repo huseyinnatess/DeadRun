@@ -105,11 +105,11 @@ GameObject:
   - component: {fileID: 3866770792206892861}
   m_Layer: 5
   m_Name: Loading
-  m_TagString: LoadingPanel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4300963236908592087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ RectTransform:
   m_GameObject: {fileID: 4945609226857901353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3159865445445905328}
@@ -432,7 +432,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5.614746, y: 0}
   m_SizeDelta: {x: -1.2296, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

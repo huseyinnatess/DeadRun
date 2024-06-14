@@ -24,11 +24,10 @@ namespace Utilities.UIElements
         /// <para>Yükleme slider'ının value değerini ayarlar. </para>
         private IEnumerator LoadAsync(int sceneIndex)
         {
-            float value;
             AsyncOperation op = SceneManager.LoadSceneAsync(sceneIndex);
             while (op is not null && !op.isDone)
             {
-                value = Mathf.Clamp01(op.progress / .9f);
+                float value = Mathf.Clamp01(op.progress / .9f);
                 _loadingSlider.value = value;
                 yield return null;
             }

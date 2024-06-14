@@ -12,7 +12,7 @@ namespace Manager
         [SerializeField] private GameObject _defeatPanel; // Yenilgi paneli
         [SerializeField] private GameObject _pausePanel; // Duraklatma paneli
         
-        [HideInInspector] public GameObject GamePanels; // Oyun içindeki Victory, Defeat, Pause panellerinin parent'ı
+        [HideInInspector] public GameObject GamePanels; // Oyun içindeki VictoryFx, Defeat, Pause panellerinin parent'ı
         [HideInInspector] public GameObject MainMenuPanels; // AnaMenü panellerinin parent'ı
 
         private Slider[] _pausePanelSliders; // Duraklatma panelinin slider'ları
@@ -48,7 +48,7 @@ namespace Manager
         }
         
         /// <summary>
-        /// State parametresine göre Victory panelin aktifliğini ayarlar.
+        /// State parametresine göre VictoryFx panelin aktifliğini ayarlar.
         /// </summary>
         /// <param name="state"> Panel'in aktiflik durumu</param>
         public void VictoryPanel(bool state)

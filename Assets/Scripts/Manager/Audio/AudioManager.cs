@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Manager.Audio.Utilities;
+using UnityEngine;
 using UnityEngine.UI;
 using Utilities.SaveLoad;
 
@@ -23,6 +24,8 @@ namespace Manager.Audio
         public void SetFxSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("FxSlider", slider.value);
+            ButtonSoundsManager.Instance.SetButtonFxVolume();
+            FxSounds.Instance.SetFxSoundsVolume();
             LevelPanelManager.Instance.UpdatePausePanelSliders();
         }
         

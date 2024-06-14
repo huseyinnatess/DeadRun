@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Controller.Utilities;
+using Manager.Audio.Utilities;
 using MonoSingleton;
 using UnityEngine;
 
@@ -11,7 +11,18 @@ namespace ObjectPools
     {
         public List<GameObject> Agents; // Agent'ların tutulduğu liste
         public int AgentCount = 0; // Dinamik olarak değişen agent sayısı
-        
+
+        private FxSounds _fxSounds; // FxSounds script dosyası.
+
+        #region Start
+
+        private void Start()
+        {
+            _fxSounds = FxSounds.Instance;
+        }
+
+        #endregion
+
         /// <summary>
         /// Parametre olarak gelen işaret, sayı, ve Transform'a göre Agent'ı aktif eder.
         /// </summary>
@@ -48,7 +59,7 @@ namespace ObjectPools
                     break;
             }
         }
-        
+
         /// <summary>
         /// Ana karakteri agents listesine ekler.
         /// Sadece anakarakter'i eklemek için kullanılmalı. Agent eklemek için
@@ -60,7 +71,7 @@ namespace ObjectPools
             Agents.Add(character);
             AgentCount = 1;
         }
-        
+
         /// <summary>
         /// Agents listesine yeni eleman ekler. Eklenen elemanlar son elemanın bir önceki indexine eklenir.
         /// Son eleman'ın daima ana karakter olmasını sağlar. Böylelikle anakarakter en son yok edilir.
@@ -71,7 +82,7 @@ namespace ObjectPools
             Agents.Insert(Agents.Count - 1, agent);
             AgentCount++;
         }
-        
+
         // Limit değerine göre agent oluşturur veya yok eder
         private void AgentObjectPool(int limit, Transform point)
         {
@@ -88,6 +99,7 @@ namespace ObjectPools
                             ParticleEffectPool.Instance.SpawnEffectPool(item.transform);
                             DeathStainPool.Instance.DeathStainObjectPool(false, item.transform);
                             AgentCount++;
+                            StartCoroutine(_fxSounds.RepeatedSound(_fxSounds.SpawnAgentFx, limit));
                             limit--;
                         }
                         else if (limit < 0)

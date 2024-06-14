@@ -1,6 +1,7 @@
 using System;
 using Controller.Utilities;
 using Manager;
+using Manager.Audio.Utilities;
 using MonoSingleton;
 using ObjectPools;
 using UnityEngine;
@@ -103,9 +104,15 @@ namespace Controller
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 if (Input.GetAxis("Mouse X") < 0 && _isTouchingLeftBorder == false)
+                {
+                    FxSounds.Instance.MoveSoundFx.Play();
                     _inputAxis = .1f;
+                }
                 if (Input.GetAxis("Mouse X") > 0 && _isTouchingRightBorder == false)
+                {
+                    FxSounds.Instance.MoveSoundFx.Play();
                     _inputAxis = -.1f;
+                }
             }
             else
                 _inputAxis = 0f;

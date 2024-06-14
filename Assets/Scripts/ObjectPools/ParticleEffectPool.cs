@@ -7,10 +7,12 @@ namespace ObjectPools
 {
     public class ParticleEffectPool : MonoSingleton<ParticleEffectPool>
     {
-        public List<ParticleSystem> SpawnEffects; // Spawn efekti
-        public List<ParticleSystem> DeadEffects; // Ölüm efekti
-        public List<ParticleSystem> ConfettiEffects; // Kutlama efekti
+        public List<ParticleSystem> SpawnEffects; // Spawn efekti.
+        public List<ParticleSystem> DeadEffects; // Ölüm efekti.
+        public List<ParticleSystem> ConfettiEffects; // Kutlama efekti.
+
         
+
         /// <summary>
         /// Spawn efekti oluşturur
         /// </summary>
