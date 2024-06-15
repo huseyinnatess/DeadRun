@@ -25,7 +25,8 @@ namespace Manager.Audio.Utilities
         
         [Header("Obstacles")]
         public AudioSource HammerFx;
-
+        public AudioSource FanFx;
+        
         #region Start
         private void Start()
         {
@@ -47,6 +48,7 @@ namespace Manager.Audio.Utilities
             MoveSoundFx.volume = fxSliderValue;
             CharacterRunFx.volume = fxSliderValue;
             HammerFx.volume = fxSliderValue - .2f;
+            FanFx.volume = fxSliderValue - .4f;
         }
 
         /// <summary>
@@ -56,7 +58,7 @@ namespace Manager.Audio.Utilities
         /// <param name="audioClip">Oynatılacak ses klibi.</param>
         /// <param name="repeat">Sesin oynatılacağı tekrar sayısı.</param>
         /// <returns>Herhangi bir return değeri yok.</returns>
-        public static IEnumerator RepeatedSound(AudioSource audioSource,AudioClip audioClip = default, int repeat = 1)
+        public IEnumerator RepeatedSound(AudioSource audioSource,AudioClip audioClip = default, int repeat = 1)
         {
             repeat = repeat < 0 ? repeat * -1 : repeat;
             while (repeat != 0)
@@ -65,6 +67,18 @@ namespace Manager.Audio.Utilities
                 repeat--;
                 yield return new WaitForSeconds(.1f);
             }
+        }
+        
+        /// <summary>
+        /// Anakarakter ile ses kaynağı arasındaki mesafeye göre ses volume'ünü dinamik olarak ayarlar..
+        /// </summary>
+        /// <param name="audioManager">Ses düzeyi değiştirilecek ses kaynağı.</param>
+        /// <param name="distance">Ses kaynağı ile anakarakter arasındaki mesafe.</param>
+        /// <param name="minDistance">Sesin duyulacağı minimum mesafe.</param>
+        /// <param name="distanceRange">Sesin duyulacağı maxDistance - minDistance değeri.</param>
+        public void SetVolumeToDistance(AudioSource audioManager, float distance, float minDistance, float distanceRange)
+        {
+            audioManager.volume = 1.0f - (distance - minDistance) / distanceRange;
         }
     }
 }

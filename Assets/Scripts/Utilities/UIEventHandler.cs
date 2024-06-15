@@ -53,6 +53,7 @@ namespace Utilities
         {
            GameManager.Instance.ActivateHandle(true);
            GameManager.HandelIsActive = true;
+           GameManager.GameIsStart = true;
            LevelPanelManager.Instance.MainMenuPanels.GetComponent<Animator>().SetTrigger("IsStartGame");
            LevelPanelManager.Instance.GamePanels.SetActive(true);
            LevelPanelManager.Instance.GamePanels.GetComponent<Animator>().SetTrigger("IsStartGame");

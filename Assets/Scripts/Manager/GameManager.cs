@@ -23,12 +23,14 @@ namespace Manager
         public List<GameObject> ArmorSkins; // Zırhların listesi
         public List<List<GameObject>> HerosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
+        public static bool GameIsStart;
         #region Awake, Get, Set Functions
 
         private void Awake()
         {
             Time.timeScale = 1f;
             HandelIsActive = false;
+            GameIsStart = false;
             GetReferences();
             SetReferences();
             ActivateHero();

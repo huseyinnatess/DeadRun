@@ -1,3 +1,4 @@
+using Manager.Audio.Utilities;
 using ObjectPools;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Controller.Utilities
             if (other.CompareTag("ThornBox") || other.CompareTag("Saw") || other.CompareTag("ThornWall") || other.CompareTag("Hammer"))
             {
                 AgentPools.Instance.AgentCount--;
+                FxSounds.Instance.DeadAgentFx.Play();
                 AgentDeathHandler.DeathHandel(transform);
             }
 
@@ -19,6 +21,7 @@ namespace Controller.Utilities
                 AgentPools.Instance.AgentCount--;
                 EnemyController.EnemyAgentCount--;
                 other.gameObject.SetActive(false);
+                FxSounds.Instance.DeadAgentFx.Play();
                 AgentController.Instance.Target = EnemyController.Instance.GetActiveEnemy();
                 AgentDeathHandler.DeathHandel(transform);
             }

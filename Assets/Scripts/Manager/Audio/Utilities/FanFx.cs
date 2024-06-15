@@ -3,35 +3,38 @@ using UnityEngine;
 
 namespace Manager.Audio.Utilities
 {
-    public class HammerFx : ADistanceBasedAudioEffect
+    public class FanFx : ADistanceBasedAudioEffect
     {
-        private Transform _character; // Anakarakter
-        
         private FxSounds _fxSounds;
         
+        private Transform _character; // Anakarakter.
+
         #region Awake
+
         private void Awake()
         {
             _character = GameObject.FindWithTag("Character").transform;
             _fxSounds = FxSounds.Instance;
         }
         #endregion
-
+        
         /// <summary>
-        /// Hammer vuruş efekt sesini oynatır.
+        /// Fan efekt sesini oynatır.
         /// </summary>
         public override void PlayFx()
         {
             CalculateDistance();
             if (AudioManager.GetFxSliderValue() != 0f)
-                _fxSounds.SetVolumeToDistance(_fxSounds.HammerFx, Distance, MinDistance, MaxDistance - MinDistance);
-            _fxSounds.HammerFx.Play();
+                _fxSounds.SetVolumeToDistance(_fxSounds.FanFx, Distance, MinDistance, MaxDistance - MinDistance);
+            _fxSounds.FanFx.Play();
         }
         
-        // Hammer ve karakter arasındaki mesafeyi hesaplar.
+        
+        // Ses kaynağı ve karakter arasındaki mesafeyi hesaplar.
         protected override void CalculateDistance()
         {
             Distance = Vector3.Distance(_character.position, transform.position);
+
         }
     }
 }

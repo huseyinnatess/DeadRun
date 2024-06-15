@@ -35,11 +35,13 @@ namespace Utilities
             RewardCoin.Instance.SetPlayerRewardCoin();
         }
 
-        /// <para> Defeat Panel'ini açar</para>
+        /// <para> Defeat Panel'ini açar ve ses ayarlarını günceller.</para>
         private void Defeat()
         {
             LevelPanelManager.Instance.DefeatPanel(true);
             FxSounds.Instance.DefeatFx.Play();
+            FxSounds.Instance.CharacterRunFx.enabled = false;
+            FxSounds.Instance.FanFx.enabled = false;
         }
         
     }

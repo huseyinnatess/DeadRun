@@ -1,4 +1,6 @@
 using System.Collections;
+using Manager;
+using Manager.Audio.Utilities;
 using ObjectPools;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -30,17 +32,26 @@ namespace Obstacle
 
         #endregion
 
-        // Random sürelerde fan'ın çalışmasını sağlar
+        // Oyunun başlama durumuna göre random sürelerde fan'ın çalışmasını sağlar
         private IEnumerator FanAnimation()
         {
+            bool gameIsStart;
             while (true)
             {
-                _animator.SetBool("isStart", true);
-                _fanCollider.enabled = true;
-                yield return new WaitForSeconds(Random.Range(2f, 3.5f));
-                _animator.SetBool("isStart", false);
-                _fanCollider.enabled = false;
-                yield return new WaitForSeconds(Random.Range(1f, 2.8f));
+                gameIsStart = GameManager.GameIsStart;
+                while (gameIsStart)
+                {
+                    _animator.SetBool("isStart", true);
+                    _fanCollider.enabled = true;
+                    FanFx.Instance.PlayFx();
+                    yield return new WaitForSeconds(Random.Range(2f, 3.5f));
+                    FxSounds.Instance.FanFx.Stop();
+                    _animator.SetBool("isStart", false);
+                    _fanCollider.enabled = false;
+                    yield return new WaitForSeconds(Random.Range(1f, 2.8f));
+                }
+
+                yield return null;
             }
         }
 

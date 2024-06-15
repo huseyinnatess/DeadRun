@@ -14,6 +14,7 @@ namespace Manager.Audio
         public void SetSoundSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("SoundSlider", slider.value);
+            GameSounds.Instance.SetGameSoundVolume();
             LevelPanelManager.Instance.UpdatePausePanelSliders();
         }
         

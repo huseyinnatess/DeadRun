@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 328661624794292141}
   - component: {fileID: 230585540496348812}
   - component: {fileID: 5284420333282104225}
+  - component: {fileID: 7569114773032767936}
   m_Layer: 0
   m_Name: Body_2
   m_TagString: Hammer
@@ -214,6 +215,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 966a2a84077149ffb245cb5b206d08e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7569114773032767936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350604297087497226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edd0dff35c24aaeae8ee1f083919263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6389429809651248064
