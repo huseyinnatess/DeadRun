@@ -1,12 +1,37 @@
 ﻿using Manager.Audio.Utilities;
-using UnityEngine;
+using MonoSingleton;
 using UnityEngine.UI;
 using Utilities.SaveLoad;
 
 namespace Manager.Audio
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : MonoSingleton<AudioManager>
     {
+        private static bool _instanceExists = false; // Bu sınıfın bir örneğinin zaten var olup olmadığını kontrol eder.
+
+        #region Awake
+
+        private void Awake()
+        {
+            CheckInstance();
+        }
+
+        #endregion
+       
+        //  Sahnede bu oyun nesnesinin birden fazla örneğinin oluşmasını engeller.
+        private void CheckInstance()
+        {
+            if (_instanceExists)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instanceExists = true;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
         /// <summary>
         /// Ses ayarını kayıt eder.
         /// </summary>

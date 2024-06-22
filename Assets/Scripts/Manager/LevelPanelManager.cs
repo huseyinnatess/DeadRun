@@ -11,7 +11,7 @@ namespace Manager
         [SerializeField] private GameObject _victoryPanel; // Zafer paneli
         [SerializeField] private GameObject _defeatPanel; // Yenilgi paneli
         [SerializeField] private GameObject _pausePanel; // Duraklatma paneli
-        
+
         [HideInInspector] public GameObject GamePanels; // Oyun içindeki VictoryFx, Defeat, Pause panellerinin parent'ı
         [HideInInspector] public GameObject MainMenuPanels; // AnaMenü panellerinin parent'ı
 
@@ -36,8 +36,9 @@ namespace Manager
             UpdatePausePanelSliders();
             GamePanels.SetActive(false);
         }
+
         #endregion
-        
+
         /// <summary>
         /// Duraklatma paneli'nin Slider'larını günceller.
         /// </summary>
@@ -46,7 +47,7 @@ namespace Manager
             _pausePanelSliders[0].value = AudioManager.GetSoundSliderValue();
             _pausePanelSliders[1].value = AudioManager.GetFxSliderValue();
         }
-        
+
         /// <summary>
         /// State parametresine göre VictoryFx panelin aktifliğini ayarlar.
         /// </summary>
