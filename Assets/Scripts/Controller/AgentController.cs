@@ -12,8 +12,8 @@ namespace Controller
         private NavMeshAgent[] _navMeshAgents; // Tüm agent'ların navmesh componentlerini tutan array
         private int _agentsCount; // Anlık agent sayısı
         
-        #region Awake Get, Set Functions
-        private void Awake()
+        #region Start Get, Set Functions
+        private void Start()
         {
             GetReferences();
             SetReferences();

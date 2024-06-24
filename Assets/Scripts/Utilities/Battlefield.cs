@@ -4,6 +4,7 @@ using Manager;
 using Manager.Audio.Utilities;
 using MonoSingleton;
 using ObjectPools;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities.UIElements;
 
@@ -11,6 +12,15 @@ namespace Utilities
 {
     public class Battlefield : MonoSingleton<Battlefield>
     {
+        private FxSounds _fxSounds; // Efektler scripti.
+
+        #region Start
+        private void Start()
+        {
+            _fxSounds = FxSounds.Instance;
+        }
+        #endregion
+
         /// <summary>
         /// Savaş sonucuna göre VictoryFx veya Defeat panelini aktif eder
         /// </summary>
@@ -18,6 +28,7 @@ namespace Utilities
         public void WarResult(int agentCount)
         {
             InterstitialAD.Instance.ShowAd();
+            _fxSounds.CharacterRunFx.Stop();
             if (agentCount != 0)
                 Victory();
             else
@@ -28,9 +39,9 @@ namespace Utilities
         /// coinlerin ayarlamasını yapar.</para>
         private void Victory()
         {
-            FxSounds.Instance.VictoryFx.Play();
+            _fxSounds.VictoryFx.Play();
             PlayerLevel.SetPlayerEndLevel(SceneManager.GetActiveScene().buildIndex);
-            ParticleEffectPool.Instance.ConfettiEffectPool(CharacterControl.Instance.transform);
+            ParticleEffectPool.Instance.ConfettiEffectPool(AgentController.GetActiveAgent());
             LevelPanelManager.Instance.VictoryPanel(true);
             RewardCoin.Instance.SetPlayerRewardCoin();
         }
@@ -39,9 +50,9 @@ namespace Utilities
         private void Defeat()
         {
             LevelPanelManager.Instance.DefeatPanel(true);
-            FxSounds.Instance.DefeatFx.Play();
-            FxSounds.Instance.CharacterRunFx.enabled = false;
-            FxSounds.Instance.FanFx.enabled = false;
+            _fxSounds.DefeatFx.Play();
+            _fxSounds.CharacterRunFx.enabled = false;
+            _fxSounds.FanFx.enabled = false;
         }
         
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Controller;
+using Manager.Audio.Utilities;
 using MonoSingleton;
 using TMPro;
 using UnityEngine;
@@ -21,16 +22,15 @@ namespace Manager
         public List<GameObject> HatSkins; // Şapkaların listesi
         public List<GameObject> SwordSkins; // Kılıçların listesi
         public List<GameObject> ArmorSkins; // Zırhların listesi
-        public List<List<GameObject>> HerosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
+        private List<List<GameObject>> _herosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
         public static bool GameIsStart;
-        #region Awake, Get, Set Functions
+
+        #region Awake, Start, Get, Set Functions
 
         private void Awake()
         {
             Time.timeScale = 1f;
-            HandelIsActive = false;
-            GameIsStart = false;
             GetReferences();
             SetReferences();
             ActivateHero();
@@ -41,12 +41,19 @@ namespace Manager
         private void GetReferences()
         {
             _handel = GameObject.FindWithTag("Handel");
+            HandelIsActive = false;
+            GameIsStart = false;
         }
 
         private void SetReferences()
         {
             _sliderLevelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
             ActivateHandle(false);
+        }
+
+        private void Start()
+        {
+            FxSounds.Instance.CharacterRunFx.Stop();
         }
 
         #endregion
@@ -73,14 +80,13 @@ namespace Manager
         // Skin listelerini Initilaze eder
         private void InitializeSkins()
         {
-            HerosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
+            _herosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
         }
 
         // Seçilen hero'yu aktif edip diğer heroları kapatır
         private void ActivateHero()
         {
             int activeHeroIndex = PlayerPrefsData.GetInt("ActiveHeroIndex");
-
             for (int i = 0; i < Heros.Count; i++)
             {
                 Heros[i].SetActive(i == activeHeroIndex);
@@ -97,7 +103,7 @@ namespace Manager
                 if (informationList is null) continue;
                 for (int j = 0; j < informationList.Count; j++)
                 {
-                    HerosSkins[i][j].SetActive(informationList[j].IsEquipped);
+                    _herosSkins[i][j].SetActive(informationList[j].IsEquipped);
                 }
             }
         }

@@ -143,20 +143,24 @@ namespace Controller
                 EnemyController.Attack(true);
             }
 
-            // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
-            if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
-                                                        other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
-            {
-                AgentPools.Instance.AgentCount--;
-                AgentDeathHandler.DeathHandel(transform);
-            }
-
             if (_navMeshAgent.enabled && other.CompareTag("EnemyAgent"))
             {
                 AgentPools.Instance.AgentCount--;
                 EnemyController.EnemyAgentCount--;
                 other.gameObject.SetActive(false);
                 AgentController.Instance.Target = EnemyController.Instance.GetActiveEnemy();
+                AgentDeathHandler.DeathHandel(transform);
+            }
+        }
+
+
+        private void OnTriggerStay(Collider other)
+        {
+            // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
+            if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
+                                                        other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
+            {
+                AgentPools.Instance.AgentCount--;
                 AgentDeathHandler.DeathHandel(transform);
             }
         }

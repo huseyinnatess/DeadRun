@@ -8,9 +8,9 @@ namespace Controller
         private Vector3 _targetOffset; // Kamera ve target arasındaki takip mesafesi
         private Vector3 _finishPosition; // Bitiş çizgisi geçildikten sonraki kamera pozisyonu
 
-        #region Awake, Get, Set Functions
+        #region Start, Get, Set Functions
 
-        private void Awake()
+        private void Start()
         {
             GetReferences();
             SetReferences();
@@ -18,7 +18,7 @@ namespace Controller
 
         private void GetReferences()
         {
-            _target = GameObject.FindWithTag("Character").transform;
+            _target = CharacterControl.Instance.transform;
         }
         private void SetReferences()
         {
@@ -30,7 +30,7 @@ namespace Controller
         #region LateUpdate, SetCameraPosition Functions
 
         private void LateUpdate()
-        {
+        { 
             SetCameraPosition();
         }
         

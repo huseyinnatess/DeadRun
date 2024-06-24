@@ -11,9 +11,14 @@ namespace Utilities.UIElements
         private Transform _finishPosition; // Bitiş çizgisi
         private Transform _characterPosition; // Run slider kullanabilmesi için anlık karakterin pozisyonu
 
-        #region Awake, Get, Set Functions
+        #region Awake, Start, Get, Set Functions
 
         private void Awake()
+        {
+            _runSlider = GetComponent<Slider>();
+        }
+
+        private void Start()
         {
             GetReferences();
             SetReferences();
@@ -21,11 +26,10 @@ namespace Utilities.UIElements
         
         private void GetReferences()
         {
-            _runSlider = GetComponent<Slider>();
             _finishPosition = GameObject.FindWithTag("Battlefield").transform;
             _characterPosition = GameObject.FindWithTag("Character").transform;
         }
-
+        
         private void SetReferences()
         {
             _runSlider.maxValue = Vector3.Distance(_finishPosition.position, _characterPosition.position);

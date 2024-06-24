@@ -138,13 +138,13 @@ namespace Controller.Utilities
             for (int i = 0; i < messages.Length; i++)
             {
                 StartCoroutine(ShowText(messages[i]));
-                yield return new WaitForSeconds(messages[i].ToCharArray().Length * .15f + .7f);
+                yield return new WaitForSeconds(messages[i].ToCharArray().Length * .08f + .9f);
             }
             SetWarningPanel(false);
             SaveFirstStatus();
             if (_isFirst == 2)
                 DestroyAgent();
-            CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
+            CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = true;
             CharacterCanMove = true;
         }
 
@@ -156,7 +156,7 @@ namespace Controller.Utilities
             for (int i = 0; i < character.Length; i++)
             {
                 _warningText.text += character[i];
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.08f);
             }
         }
         

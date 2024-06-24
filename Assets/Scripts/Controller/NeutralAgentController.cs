@@ -1,5 +1,4 @@
-﻿using Controller.Utilities;
-using ObjectPools;
+﻿using ObjectPools;
 using UnityEngine;
 
 namespace Controller
