@@ -115,6 +115,7 @@ namespace Controller.Utilities
             if (_currentTime >= _maxTime)
             {
                 DestroyAgent();
+                CheckWar.CheckWarResult();
             }
 
             _currentTime = 0f;
@@ -180,10 +181,7 @@ namespace Controller.Utilities
 
             for (int i = 0; i < limit && agentCount > 0; i++)
             {
-                if (agentCount > 1)
-                    AgentDeathHandler.DeathHandel(AgentController.GetActiveAgent());
-                else
-                    AgentDeathHandler.DeathHandel(transform);
+                AgentDeathHandler.DeathHandel(agentCount > 1 ? AgentController.GetActiveAgent() : transform);
                 agentCount--;
             }
             AgentPools.Instance.AgentCount = agentCount;

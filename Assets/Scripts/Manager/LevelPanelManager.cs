@@ -2,7 +2,6 @@
 using MonoSingleton;
 using UnityEngine;
 using UnityEngine.UI;
-using Utilities;
 
 namespace Manager
 {
@@ -34,7 +33,6 @@ namespace Manager
         private void Start()
         {
             UpdatePausePanelSliders();
-            GamePanels.SetActive(false);
         }
 
         #endregion
@@ -67,11 +65,14 @@ namespace Manager
         }
 
         /// <summary>
-        ///  State parametresine göre Pause panelin aktifliğini ayarlar.
+        ///  State parametresine göre Pause panelin'in ve parentlarının aktifliğini ayarlar.
         /// </summary>
         /// <param name="state"> Panel'in aktiflik durumu </param>
         public void PausePanel(bool state)
         {
+            Time.timeScale = System.Convert.ToInt32(!state);
+            GamePanels.SetActive(state);
+            _pausePanel.transform.parent.gameObject.SetActive(state);
             _pausePanel.SetActive(state);
         }
 

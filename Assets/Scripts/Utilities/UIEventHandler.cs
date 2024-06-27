@@ -1,8 +1,6 @@
-using System;
 using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Utilities.SaveLoad;
 using Utilities.UIElements;
 
 namespace Utilities
@@ -81,7 +79,6 @@ namespace Utilities
         /// <param name="active">Paneli açıp oyunu durdurmak için true aksi halde false</param>
         public void PauseAndContinueButton(bool active)
         {
-            Time.timeScale = Convert.ToInt32(!active);
             LevelPanelManager.Instance.PausePanel(active);
         }
     }

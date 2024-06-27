@@ -24,8 +24,9 @@ namespace Manager
         public List<GameObject> ArmorSkins; // Zırhların listesi
         private List<List<GameObject>> _herosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
 
-        public static bool GameIsStart;
+        public static bool GameIsStart; // Karakter koşmaya başlayarak oyun başladı mı? kontrolü.
 
+        
         #region Awake, Start, Get, Set Functions
 
         private void Awake()
@@ -106,6 +107,11 @@ namespace Manager
                     _herosSkins[i][j].SetActive(informationList[j].IsEquipped);
                 }
             }
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            LevelPanelManager.Instance.PausePanel(!hasFocus);
         }
     }
 }

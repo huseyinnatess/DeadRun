@@ -1,10 +1,8 @@
 ﻿using Controller;
-using GoogleAdmob;
 using Manager;
 using Manager.Audio.Utilities;
 using MonoSingleton;
 using ObjectPools;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities.UIElements;
 
@@ -27,7 +25,7 @@ namespace Utilities
         /// <param name="agentCount"></param>
         public void WarResult(int agentCount)
         {
-            InterstitialAD.Instance.ShowAd();
+          //  InterstitialAD.Instance.ShowAd();
             _fxSounds.CharacterRunFx.Stop();
             if (agentCount != 0)
                 Victory();
