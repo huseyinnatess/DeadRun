@@ -1,4 +1,5 @@
 using System.Collections;
+using MonoSingleton;
 using ObjectPools;
 using TMPro;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Controller.Utilities
 {
-    public class Warning : MonoBehaviour
+    public class Warning : MonoSingleton<Warning>
     {
         private float _maxTime; // Hesaplamanın maximum süresi
         private float _currentTime; // Çarpışmadan sonraki anlık süre

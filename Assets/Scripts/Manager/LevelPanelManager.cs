@@ -33,6 +33,7 @@ namespace Manager
         private void Start()
         {
             UpdatePausePanelSliders();
+            GamePanels.SetActive(false);
         }
 
         #endregion

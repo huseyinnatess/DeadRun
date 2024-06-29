@@ -50,7 +50,6 @@ namespace Obstacle
                     _fanCollider.enabled = false;
                     yield return new WaitForSeconds(Random.Range(1f, 2.8f));
                 }
-
                 yield return null;
             }
         }
@@ -60,9 +59,9 @@ namespace Obstacle
             if (!other.CompareTag("Agent") &&
                 (AgentPools.Instance.AgentCount != 1 || !other.CompareTag("Character"))) return;
             if (other.transform.position.x > transform.position.x)
-                other.GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0f, 0f), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(new Vector3(2.5f, 0f, 0f), ForceMode.Impulse);
             else
-                other.GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0f, 0f), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(new Vector3(-2.5f, 0f, 0f), ForceMode.Impulse);
         }
     }
 }

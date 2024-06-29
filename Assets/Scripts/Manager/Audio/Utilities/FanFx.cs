@@ -25,8 +25,9 @@ namespace Manager.Audio.Utilities
         {
             CalculateDistance();
             if (AudioManager.GetFxSliderValue() != 0f)
-                _fxSounds.SetVolumeToDistance(_fxSounds.FanFx, Distance, MinDistance, MaxDistance - MinDistance);
-            _fxSounds.FanFx.Play();
+                _fxSounds.SetVolumeToDistance(_fxSounds.FanFx, Distance - .8f, MinDistance, MaxDistance - MinDistance);
+            if (_fxSounds.FanFx.isPlaying)
+                _fxSounds.FanFx.Play();
         }
         
         
@@ -34,7 +35,6 @@ namespace Manager.Audio.Utilities
         protected override void CalculateDistance()
         {
             Distance = Vector3.Distance(_character.position, transform.position);
-
         }
     }
 }

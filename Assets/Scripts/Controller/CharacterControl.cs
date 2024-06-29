@@ -87,7 +87,8 @@ namespace Controller
         private void SetRunAnimation()
         {
             _animator.SetTrigger("IsCanRun");
-            FxSounds.Instance.CharacterRunFx.Play();
+            if (FxSounds.Instance.CharacterRunFx.isPlaying)
+                FxSounds.Instance.CharacterRunFx.Play();
             _isCanRun = true;
         }
 
@@ -161,6 +162,7 @@ namespace Controller
                                                         other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
             {
                 AgentPools.Instance.AgentCount--;
+                Warning.Instance.enabled = false;
                 AgentDeathHandler.DeathHandel(transform);
             }
         }

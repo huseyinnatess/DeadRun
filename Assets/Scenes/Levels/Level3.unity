@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 1
     smallestHole: 1
     backfaceThreshold: 100
-  m_SceneGUID: e3b9e2e157b6a5149bde69f98603e79b
-  m_OcclusionCullingData: {fileID: 36300000, guid: 5492955edb12ec944aa9dee754123657,
+  m_SceneGUID: e5417f304510b7744bdad8eef4a71d28
+  m_OcclusionCullingData: {fileID: 36300000, guid: dc6073ef65452324fb3b6045662fa09c,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -5679,7 +5679,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5750,7 +5750,7 @@ PrefabInstance:
     - target: {fileID: 2413620353058661752, guid: e12aae194bb34bf489a8e9fd9abdea4d,
         type: 3}
       propertyPath: m_Name
-      value: +3
+      value: +4
       objectReference: {fileID: 0}
     - target: {fileID: 5008370114995862327, guid: e12aae194bb34bf489a8e9fd9abdea4d,
         type: 3}

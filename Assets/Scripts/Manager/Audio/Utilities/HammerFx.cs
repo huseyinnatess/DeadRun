@@ -6,15 +6,21 @@ namespace Manager.Audio.Utilities
     public class HammerFx : ADistanceBasedAudioEffect
     {
         private Transform _character; // Anakarakter
-        
+
         private FxSounds _fxSounds;
-        
-        #region Awake
+
+        #region Awake, Start
+
         private void Awake()
         {
-            _character = GameObject.FindWithTag("Character").transform;
             _fxSounds = FxSounds.Instance;
         }
+
+        private void Start()
+        {
+            _character = GameObject.FindWithTag("Character").transform;
+        }
+
         #endregion
 
         /// <summary>
@@ -24,10 +30,11 @@ namespace Manager.Audio.Utilities
         {
             CalculateDistance();
             if (AudioManager.GetFxSliderValue() != 0f)
-                _fxSounds.SetVolumeToDistance(_fxSounds.HammerFx, Distance, MinDistance, MaxDistance - MinDistance);
+                _fxSounds.SetVolumeToDistance(_fxSounds.HammerFx, Distance - .8f, MinDistance,
+                    MaxDistance - MinDistance);
             _fxSounds.HammerFx.Play();
         }
-        
+
         // Hammer ve karakter arasındaki mesafeyi hesaplar.
         protected override void CalculateDistance()
         {

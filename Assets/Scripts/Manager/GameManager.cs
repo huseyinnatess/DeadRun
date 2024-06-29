@@ -111,7 +111,7 @@ namespace Manager
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            LevelPanelManager.Instance.PausePanel(!hasFocus);
+            // LevelPanelManager.Instance.PausePanel(!hasFocus);
         }
     }
 }

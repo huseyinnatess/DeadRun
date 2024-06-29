@@ -48,7 +48,7 @@ namespace Manager.Audio.Utilities
             MoveSoundFx.volume = fxSliderValue;
             CharacterRunFx.volume = fxSliderValue;
             HammerFx.volume = fxSliderValue - .2f;
-            FanFx.volume = fxSliderValue - .4f;
+            FanFx.volume = fxSliderValue;
         }
 
         /// <summary>

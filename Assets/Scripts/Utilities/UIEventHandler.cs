@@ -1,18 +1,33 @@
+using System;
 using Manager;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utilities.UIElements;
+using UnityEngine.SceneManagement;
 
 namespace Utilities
 {
     public class UIEventHandler : MonoBehaviour
     {
+        private LoadingSlider _loadingSlider;
+        private LevelPanelManager _levelPanelManager;
+
+        private void Start()
+        {
+            _loadingSlider = LoadingSlider.Instance;
+            _levelPanelManager = LevelPanelManager.Instance;
+        }
+
         /// <summary>
         /// Sonraki level sahnesini yükler.
         /// </summary>
         public void NextLevelButton()
         {
-            LoadingSlider.Instance.StartLoad(PlayerPrefs.GetInt("EndLevel"));
+            int endLevel = PlayerPrefs.GetInt("EndLevel");
+            
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex == endLevel
+                ? endLevel : SceneManager.GetActiveScene().buildIndex + 1;
+            
+            _loadingSlider.StartLoad(sceneIndex);
             Time.timeScale = 1f;
         }
         
@@ -21,8 +36,8 @@ namespace Utilities
         /// </summary>
         public void RestartButton()
         {
-            LoadingSlider.Instance.StartLoad(SceneManager.GetActiveScene().buildIndex);
-            LevelPanelManager.Instance.MainMenuPanel(false);
+            _loadingSlider.StartLoad(SceneManager.GetActiveScene().buildIndex);
+            _levelPanelManager.MainMenuPanel(false);
             Time.timeScale = 1f;
         }
         
@@ -31,7 +46,7 @@ namespace Utilities
         /// </summary>
         public void MainMenuButton()
         {
-            LoadingSlider.Instance.StartLoad(SceneManager.GetActiveScene().buildIndex);
+            _loadingSlider.StartLoad(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1f;
         }
         
@@ -52,9 +67,9 @@ namespace Utilities
            GameManager.Instance.ActivateHandle(true);
            GameManager.HandelIsActive = true;
            GameManager.GameIsStart = true;
-           LevelPanelManager.Instance.MainMenuPanels.GetComponent<Animator>().SetTrigger("IsStartGame");
-           LevelPanelManager.Instance.GamePanels.SetActive(true);
-           LevelPanelManager.Instance.GamePanels.GetComponent<Animator>().SetTrigger("IsStartGame");
+           _levelPanelManager.MainMenuPanels.GetComponent<Animator>().SetTrigger("IsStartGame");
+           _levelPanelManager.GamePanels.SetActive(true);
+           _levelPanelManager.GamePanels.GetComponent<Animator>().SetTrigger("IsStartGame");
         }
         
         /// <summary>
@@ -62,7 +77,7 @@ namespace Utilities
         /// </summary>
         public void StoreButton()
         {
-            LoadingSlider.Instance.StartLoad(1);
+            _loadingSlider.StartLoad(1);
         }
         
         /// <summary>
@@ -70,7 +85,7 @@ namespace Utilities
         /// </summary>
         public void LevelSelectButton()
         {
-            LoadingSlider.Instance.StartLoad(0);
+            _loadingSlider.StartLoad(0);
         }
         
         /// <summary>
@@ -79,7 +94,7 @@ namespace Utilities
         /// <param name="active">Paneli açıp oyunu durdurmak için true aksi halde false</param>
         public void PauseAndContinueButton(bool active)
         {
-            LevelPanelManager.Instance.PausePanel(active);
+            _levelPanelManager.PausePanel(active);
         }
     }
 }
