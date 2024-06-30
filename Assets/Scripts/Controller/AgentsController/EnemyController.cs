@@ -2,7 +2,7 @@
 using MonoSingleton;
 using UnityEngine;
 
-namespace Controller
+namespace Controller.AgentsController
 {
     public class EnemyController : MonoSingleton<EnemyController>
     {
@@ -38,7 +38,7 @@ namespace Controller
             _attackAnimationWork = false;
             _target = CharacterControl.Instance.transform;
             EnemyAgentCount = EnemyAgents.Length;
-            _enemySpeed = 1f;
+            _enemySpeed = 1.5f;
         }
 
         #endregion
@@ -47,10 +47,7 @@ namespace Controller
         /// Hiyerarşide aktif olan ilk enemy'nin transformunu return eder.
         /// </summary>
         /// <returns> Aktif olan enemy'nin transform componentini aksi halde null return eder</returns>
-        public Transform GetActiveEnemy()
-        {
-            return EnemyAgents.FirstOrDefault(agent => agent.activeInHierarchy)?.transform;
-        }
+        public Transform GetActiveEnemy() => EnemyAgents.FirstOrDefault(agent => agent.activeInHierarchy)?.transform;
 
         /// <summary>
         ///  Enemy'lerin saldırıya başlamasını sağlar.
@@ -87,21 +84,12 @@ namespace Controller
         }
         
         // Enemy'nin attack animasyonunu başlatır
-        private void SetAttackAnimations(int i)
-        {
-            _enemyAnimators[i].SetBool("Attack", true);
-        }
+        private void SetAttackAnimations(int i) => _enemyAnimators[i].SetBool("Attack", true);
 
         // Target ve enemy arasındaki farkı return eder.
-        private Vector3 GetDirectionToTarget(int i)
-        {
-            return (_target.position - EnemyAgents[i].transform.position).normalized;
-        }
+        private Vector3 GetDirectionToTarget(int i) => (_target.position - EnemyAgents[i].transform.position).normalized;
         
         // Enemy'lerin yönlerini target'a ayarlar.
-        private void LookTarget(int i)
-        {
-            EnemyAgents[i].transform.LookAt(_target, Vector3.up);
-        }
+        private void LookTarget(int i) => EnemyAgents[i].transform.LookAt(_target, Vector3.up);
     }
 }

@@ -70,6 +70,7 @@ namespace Utilities
            _levelPanelManager.MainMenuPanels.GetComponent<Animator>().SetTrigger("IsStartGame");
            _levelPanelManager.GamePanels.SetActive(true);
            _levelPanelManager.GamePanels.GetComponent<Animator>().SetTrigger("IsStartGame");
+           GameManager.ShowComingSoonMessage();
         }
         
         /// <summary>

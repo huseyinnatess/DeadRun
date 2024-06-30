@@ -7,30 +7,26 @@ namespace Manager.Audio
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
-        private static bool _instanceExists = false; // Bu sınıfın bir örneğinin zaten var olup olmadığını kontrol eder.
+        private GameSounds _gameSounds; // Oyunun ana sesini tutan script.
+        private FxSounds _fxSounds; // Oyunun efekt seslerini tutan script.
+        private LevelPanelManager _levelPanelManager; // LevelPanelManager scripti.
+        private ButtonSoundsManager _buttonSoundsManager; // ButtonSoundsManager scripti.
 
-        #region Awake
-
-        private void Awake()
+        #region Start
+        private void Start()
         {
-            CheckInstance();
+            GetReferences();
         }
 
+        private void GetReferences()
+        {
+            _gameSounds = GameSounds.Instance;
+            _fxSounds = FxSounds.Instance;
+            _levelPanelManager = LevelPanelManager.Instance;
+            _buttonSoundsManager = ButtonSoundsManager.Instance;
+        }
         #endregion
-       
-        //  Sahnede bu oyun nesnesinin birden fazla örneğinin oluşmasını engeller.
-        private void CheckInstance()
-        {
-            if (_instanceExists)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instanceExists = true;
-                DontDestroyOnLoad(gameObject);
-            }
-        }
+
 
         /// <summary>
         /// Ses ayarını kayıt eder.
@@ -39,10 +35,10 @@ namespace Manager.Audio
         public void SetSoundSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("SoundSlider", slider.value);
-            GameSounds.Instance.SetGameSoundVolume();
-            LevelPanelManager.Instance.UpdatePausePanelSliders();
+            _gameSounds.SetGameSoundVolume();
+            _levelPanelManager.UpdatePausePanelSliders();
         }
-        
+
         /// <summary>
         /// Müzik ayarını kayıt eder.
         /// </summary>
@@ -50,11 +46,11 @@ namespace Manager.Audio
         public void SetFxSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("FxSlider", slider.value);
-            ButtonSoundsManager.Instance.SetButtonFxVolume();
-            FxSounds.Instance.SetFxSoundsVolume();
-            LevelPanelManager.Instance.UpdatePausePanelSliders();
+            _buttonSoundsManager.SetButtonFxVolume();
+            _fxSounds.SetFxSoundsVolume();
+            _levelPanelManager.UpdatePausePanelSliders();
         }
-        
+
         /// <summary>
         /// Kayıt edilmiş ses ayarını return eder.
         /// </summary>

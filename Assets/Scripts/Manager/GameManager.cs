@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Controller;
+using Controller.Utilities;
 using Manager.Audio.Utilities;
 using MonoSingleton;
 using TMPro;
@@ -70,7 +71,16 @@ namespace Manager
         }
 
         #endregion
-
+        
+        // Mevcut leveller bittiyse oyuncuya bilgi mesaıjı gösterir.
+        public static void ShowComingSoonMessage()
+        {
+            if (PlayerPrefsData.GetInt("ComingSoonIsShow") != 1) return;
+            Warning.Instance.SetComingSoonMessages();
+            Warning.Instance.StartWriteInformation(true);
+            PlayerPrefsData.SetInt("ComingSoonIsShow", 2);
+        }
+        
         // Update
         /// <summary>
         /// Parametre olarak gelen state göre handle aktifliğini ayarlar
@@ -79,10 +89,8 @@ namespace Manager
         public void ActivateHandle(bool state) => _handel.SetActive(state);
 
         // Skin listelerini Initilaze eder
-        private void InitializeSkins()
-        {
-            _herosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
-        }
+        private void InitializeSkins() => _herosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
+        
 
         // Seçilen hero'yu aktif edip diğer heroları kapatır
         private void ActivateHero()

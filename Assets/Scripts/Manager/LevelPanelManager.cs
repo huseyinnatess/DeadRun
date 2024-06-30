@@ -72,8 +72,6 @@ namespace Manager
         public void PausePanel(bool state)
         {
             Time.timeScale = System.Convert.ToInt32(!state);
-            GamePanels.SetActive(state);
-            _pausePanel.transform.parent.gameObject.SetActive(state);
             _pausePanel.SetActive(state);
         }
 

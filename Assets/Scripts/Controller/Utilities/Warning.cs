@@ -1,4 +1,5 @@
 using System.Collections;
+using Controller.AgentsController;
 using MonoSingleton;
 using ObjectPools;
 using TMPro;
@@ -15,12 +16,12 @@ namespace Controller.Utilities
         private bool _isStaying; // Çarpışmanın devam edip etmediğinin kontrolü
 
         private Coroutine _calculateCoroutine; // Çarpışma süresini hesaplayan coroutine
-
-        [SerializeField]private TextMeshProUGUI _warningText; // Uyarı mesajının yazılacağı text
-        [SerializeField]private GameObject _warningPanel; // Uyarı mesajının paneli
+        
+        [SerializeField]private TextMeshProUGUI informationText; // Uyarı mesajının yazılacağı text
+        [SerializeField]private GameObject informationPanel; // Uyarı mesajının paneli
         private int _isFirst; // Uyarıların sıralamasını tutan değer
         
-        private string[] _warningMessages; // Uyarı mesajlarını tutan array
+        private string[] _informationMessages; // Uyarı mesajlarını tutan array
 
         public static bool CharacterCanMove; // Karakterin hareket edip etmeyeceğini belirleyen değişken
 
@@ -29,7 +30,7 @@ namespace Controller.Utilities
         private void Awake()
         {
             SetReferences();
-            SetFirstMessages();
+            SetFirstWarningMessages();
         }
         
         // Değişkenlerin default değerlerini ayarlar
@@ -42,29 +43,44 @@ namespace Controller.Utilities
             CharacterCanMove = true;
         }
         #endregion
-
-        #region Set Warning Messages
+        
+        // Uyarı mesajlarını başlatır.
+        public void StartWriteInformation(bool speacialCase = default)
+        {
+            StartCoroutine(WriteInformation(speacialCase));
+        }
+        
+        #region Set Information Messages
 
         // İlk uyarı mesajlarını belirliyor 
-        private void SetFirstMessages()
+        public void SetComingSoonMessages()
         {
-            _warningMessages = new string[4];
-            _warningMessages[0] = "No no no... Bence hareket etsen iyi olur :)";
-            _warningMessages[1] = "Yoruldu isen oyunu kapatarak dinlenebilirsin bence.";
-            _warningMessages[2] = "Şimdilik birşey yapmıyorum bir daha yaparsan sürprizim var sanaa :))";
-            _warningMessages[3] = "Kontrollerini geri veriyorum bir daha görmeyeyim";
+            _informationMessages = new string[4];
+            _informationMessages[0] = "Oyunu bu aşamaya kadar oynadığın için teşekkür ederim.";
+            _informationMessages[1] = "Bu aşamadan sonra yeni levellar maalesef henüz yok.";
+            _informationMessages[2] = "Yeni levellar için yakında güncelleme gelecek.";
+            _informationMessages[3] = "Beklemede kalınnnnn :))";
+        }
+        private void SetFirstWarningMessages()
+        {
+            _informationMessages = new string[4];
+            _informationMessages[0] = "No no no... Bence hareket etsen iyi olur :)";
+            _informationMessages[1] = "Yoruldu isen oyunu kapatarak dinlenebilirsin bence.";
+            _informationMessages[2] = "Şimdilik birşey yapmıyorum bir daha yaparsan sürprizim var sanaa :))";
+            _informationMessages[3] = "Kontrolü geri veriyorum bir daha görmeyeyim.";
         }
         
         // İkinci uyarı mesajlarını belirliyor
         private void SetSecondWarningMessages()
         {
-            _warningMessages = new string[5];
-            _warningMessages[0] = "Ama ben sana bir daha yapma demedim mi?";
-            _warningMessages[1] = "Beni hiç dinlemiyorsun ki.";
-            _warningMessages[2] = "Bundan sonra uyarmayacağım seni.";
-            _warningMessages[3] = "Canımın istediği kadar karakterini yok edeceğim";
-            _warningMessages[4] = "Nasıl mı? Tam da böyle. hahahahahaha";
+            _informationMessages = new string[5];
+            _informationMessages[0] = "Ama ben sana bir daha yapma demedim mi?";
+            _informationMessages[1] = "Beni hiç dinlemiyorsun ki.";
+            _informationMessages[2] = "Bundan sonra uyarmayacağım seni.";
+            _informationMessages[3] = "Canımın istediği kadar karakterini yok edeceğim";
+            _informationMessages[4] = "Nasıl mı? Tam da böyle. hahahahahaha";
         }
+
 
         #endregion
 
@@ -82,10 +98,10 @@ namespace Controller.Utilities
                 else if (_isFirst == 1)
                 {
                     SetSecondWarningMessages();
-                    StartCoroutine(WriteWarning(_warningMessages));
+                    StartCoroutine(WriteInformation());
                 }
                 else if (_isFirst == 0)
-                    StartCoroutine(WriteWarning(_warningMessages));
+                    StartCoroutine(WriteInformation());
             }
         }
 
@@ -124,28 +140,33 @@ namespace Controller.Utilities
         }
         
         // Uyarı mesajını ekrana yazdırıyor
-        private IEnumerator WriteWarning(string[] messages)
+        private IEnumerator WriteInformation(bool specialCase = default)
         {
             // Saniye başı kontrol edilmesi gerekiyor (Daha düşük de olabilir). Süre üzerinden kontrol
             // edildiği zaman thread'ler bir nevi çakışıyor hatalı kontrol yapılabiliyor.
-            for (int i = 0; i < 3; i++)
+            if (specialCase == default)
             {
-                if (!_isStaying) yield break;
-                yield return new WaitForSeconds(1f);
+                for (int i = 0; i < 3; i++)
+                {
+                    if (!_isStaying) yield break;
+                    yield return new WaitForSeconds(1f);
+                }
             }
             // Oyun ömrü boyunca sadece 2 kere çalışacak bir fonksiyon. GetComponent kullanımı bu yüzden pek sıkıntı olmaz.
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
             CharacterCanMove = false;
             SetWarningPanel(true);
-            for (int i = 0; i < messages.Length; i++)
+            for (int i = 0; i < _informationMessages.Length; i++)
             {
-                StartCoroutine(ShowText(messages[i]));
-                yield return new WaitForSeconds(messages[i].ToCharArray().Length * .08f + .9f);
+                StartCoroutine(ShowText(_informationMessages[i]));
+                yield return new WaitForSeconds(_informationMessages[i].ToCharArray().Length * .09f + 1.5f);
             }
             SetWarningPanel(false);
-            SaveFirstStatus();
-            if (_isFirst == 2)
+            if (_isFirst == 2 && specialCase == default)
+            {
                 DestroyAgent();
+                SaveFirstStatus();
+            }
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = true;
             CharacterCanMove = true;
         }
@@ -153,12 +174,12 @@ namespace Controller.Utilities
         // Uyarı mesajını karakter karakter ekrana yazdırır
         private IEnumerator ShowText(string text)
         {
-            _warningText.text = "";
+            informationText.text = "";
             char[] character = text.ToCharArray();
             for (int i = 0; i < character.Length; i++)
             {
-                _warningText.text += character[i];
-                yield return new WaitForSeconds(.08f);
+                informationText.text += character[i];
+                yield return new WaitForSeconds(.09f);
             }
         }
         
@@ -171,7 +192,7 @@ namespace Controller.Utilities
         // Uyarı panelinin aktiflik, pasifliğini ayarlar
         private void SetWarningPanel(bool state)
         {
-            _warningPanel.SetActive(state);
+            informationPanel.SetActive(state);
         }
         
         // Random belirlenen limit miktarı kadar agent'ı yok ediyor.

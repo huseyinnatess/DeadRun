@@ -3,33 +3,41 @@ using Manager;
 using Manager.Audio.Utilities;
 using ObjectPools;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Obstacle
+namespace Controller.ObstacleController
 {
-    public class Fan : MonoBehaviour
+    public class FanController : MonoBehaviour
     {
-        private Animator _animator;
-        private BoxCollider _fanCollider;
-
-        #region Awake, Start, Get Functions
-
+        private Animator _animator; // Fan'ın animatörü
+        private BoxCollider _fanCollider; // Fan'ın collider'ı
+        
+        private bool _isFanRight; // Fan'ın sağda olup olmadığını kontrol eder
+        private Vector3 _fanForce; // Fan'ın uygulayacağı kuvvet
+        
+        #region Awake, Start, Get, Set
+        
         private void Awake()
         {
             GetReferences();
+            SetReferences();
         }
-
-        private void Start()
-        {
-            StartCoroutine(FanAnimation());
-        }
-
         private void GetReferences()
         {
             _animator = GetComponentInChildren<Animator>();
             _fanCollider = GetComponent<BoxCollider>();
         }
 
+        private void SetReferences()
+        {
+            _isFanRight = gameObject.CompareTag("FanRight");
+            _fanForce = new Vector3(2.8f, 0f, 0f);
+        }
+
+        private void Start()
+        {
+            StartCoroutine(FanAnimation());
+        }
+        
         #endregion
 
         // Oyunun başlama durumuna göre random sürelerde fan'ın çalışmasını sağlar
@@ -58,10 +66,10 @@ namespace Obstacle
         {
             if (!other.CompareTag("Agent") &&
                 (AgentPools.Instance.AgentCount != 1 || !other.CompareTag("Character"))) return;
-            if (other.transform.position.x > transform.position.x)
-                other.GetComponent<Rigidbody>().AddForce(new Vector3(2.5f, 0f, 0f), ForceMode.Impulse);
+            if (_isFanRight)
+                other.GetComponent<Rigidbody>().AddForce(-_fanForce, ForceMode.Impulse);
             else
-                other.GetComponent<Rigidbody>().AddForce(new Vector3(-2.5f, 0f, 0f), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(_fanForce, ForceMode.Impulse);
         }
     }
 }

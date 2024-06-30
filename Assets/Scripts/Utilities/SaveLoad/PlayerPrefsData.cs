@@ -106,13 +106,14 @@ namespace Utilities.SaveLoad
             SetInt("First", 1);
             SetInt("EndLevel", 2);
             SetInt("Coin", 10000);
-            SetInt("Score", 0);
-            SetFloat("SoundSlider", .2f);
-            SetFloat("FxSlider", 1f);
             SetInt("Interstitial", 0);
             SetInt("ActiveHeroIndex", 0);
             SetInt("CurrentIndex", 0);
             SetInt("IsFirst", 0);
+            SetInt("Score", 0);
+            SetFloat("SoundSlider", .2f);
+            SetFloat("FxSlider", 1f);
+            SetInt("ComingSoonIsShow", 0);
             PlayerPrefs.Save();
         }
     } 

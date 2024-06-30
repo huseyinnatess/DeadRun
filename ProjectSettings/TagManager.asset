@@ -34,6 +34,8 @@ TagManager:
   - AgentPool
   - MainMenuPanels
   - GamePanels
+  - FanRight
+  - FanLeft
   layers:
   - Default
   - TransparentFX

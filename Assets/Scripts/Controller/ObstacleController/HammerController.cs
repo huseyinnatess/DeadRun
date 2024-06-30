@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using Manager;
 using UnityEngine;
 
-namespace Obstacle
+namespace Controller.ObstacleController
 {
-    public class Hammer : MonoBehaviour
+    public class HammerController : MonoBehaviour
     {
         private Animator _animator; // Hammer'ın animatörü.
         private Transform _character;
@@ -17,7 +16,7 @@ namespace Obstacle
 
         private void Awake()
         {
-            _minDistance = 4f;
+            _minDistance = 5f;
             _maxDistance = -2f;
             _animator = GetComponent<Animator>();
         }

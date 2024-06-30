@@ -4,31 +4,71 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ca85b6-f4cb-4b6e-9d1d-ced6034d4cb4" name="Changes" comment="Ekstra çıkan hatalar düzeltildi.">
+    <list default="true" id="e9ca85b6-f4cb-4b6e-9d1d-ced6034d4cb4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController/SawController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RunControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RunControl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Obstacles/Saw/rotation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Obstacles/Saw/rotation.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Ocean Meshes/Ocean.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Ocean Meshes/Ocean.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/NumberPanel/NumberPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/NumberPanel/NumberPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Heros/Heros.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Heros/Heros.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/NeutralAgent/NeutralAgent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/NeutralAgent/NeutralAgent.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/FanLeft.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/FanLeft.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/FanRight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/FanRight.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/SawLeft.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/SawLeft.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/SawRight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/SawRight.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/ThornBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/ThornBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Canvas/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Canvas/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Canvas/GameManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Canvas/GameManager.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/Defeat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/Defeat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/PauseIMG.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/PauseIMG.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/SettingsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/SettingsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/SettingsPanel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/SettingsPanel.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/Victory.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/Panels/Victory.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelSelect.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelSelect.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1/OcclusionCullingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1/OcclusionCullingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1/OcclusionCullingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1/OcclusionCullingData.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2/OcclusionCullingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2/OcclusionCullingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2/OcclusionCullingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2/OcclusionCullingData.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level8.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/AgentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/AgentController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/CharacterControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/EnemyController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/EnemyController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/NeutralAgentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/NeutralAgentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/NeutralAgentController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/AgentsController/NeutralAgentController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/AgentTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/AgentTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/CheckWar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/CheckWar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/Warning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/Warning.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/FanFx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/FanFx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/FxSounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/FxSounds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/HammerFx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/HammerFx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/Warning.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/AudioManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/AudioManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/ButtonSoundsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/ButtonSoundsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/ButtonSoundsManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/ButtonSoundsManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/GameSounds.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Utilities/GameSounds.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/LevelPanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/LevelPanelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Fan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Fan.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Hammer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Hammer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MonoSingleton/MonoSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MonoSingleton/MonoSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Fan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController/FanController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Fan.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController/FanController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Hammer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController/HammerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacle/Hammer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller/ObstacleController/HammerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/Battlefield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/Battlefield.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/PlayerLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/PlayerLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/SaveLoad/PlayerPrefsData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/SaveLoad/PlayerPrefsData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UIElements/SettingsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UIElements/SettingsPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UIEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UIEventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,19 +86,17 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/huseyinnatess/RunControl.git&quot;,
-    &quot;accountId&quot;: &quot;b081fb8a-a5f5-483c-81a0-8345c80ff473&quot;
+    &quot;url&quot;: &quot;git@github.com:huseyinnatess/RunControl.git&quot;,
+    &quot;accountId&quot;: &quot;42cf291a-4d9a-41d3-8578-eb26315a1284&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d89b5907fec4187a05f57136173fa871a000/b9/151c2bd4/ForceMode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/583df70190f94511bd46f12943531dbc15b000/10/f722bc89/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/583df70190f94511bd46f12943531dbc15b000/1f/2e95ea1a/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/583df70190f94511bd46f12943531dbc15b000/da/8e8dd705/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/CharacterControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/Utilities/Warning.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/Audio/Abstract/ADistanceBasedAudioEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/Battlefield.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -191,7 +229,13 @@
       <workItem from="1719508489728" duration="2534000" />
       <workItem from="1719567562702" duration="2455000" />
       <workItem from="1719585300672" duration="260000" />
-      <workItem from="1719585996797" duration="5383000" />
+      <workItem from="1719585996797" duration="7198000" />
+      <workItem from="1719659694352" duration="107000" />
+      <workItem from="1719659817447" duration="18000" />
+      <workItem from="1719659860435" duration="12000" />
+      <workItem from="1719659885201" duration="60000" />
+      <workItem from="1719659962569" duration="8677000" />
+      <workItem from="1719734561757" duration="9555000" />
     </task>
     <task id="LOCAL-00001" summary="Unity the type or namespace not found hatalarından ötürü 2023.2.7f1lts sürümünden 2021.3.38f1lts sürümüne geçildi.&#10;&#10;Sürüm geçişinden kaynaklanan 999+ Warning (Collider kaymaları, Script dosyalarının eksikliği, NavMesh silinmiş olması vb.) warningler düzeltildi (Bulunamayan warning veya hata olma olasılığı yüksek).">
       <option name="closed" value="true" />
@@ -465,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719225030341</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Level8'e kadar tüm leveller yapıldı.&#10;Hammer ses ayarı yapıldı.&#10;NextLevel butonunun son level'i yükleme hatası düzeltildi.">
+      <option name="closed" value="true" />
+      <created>1719657986797</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1719657986797</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +556,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="EnemyController.cs dosyası optimize edildi.&#10;Dikenli kutuların her tarafına diken yerleştirildiç" />
     <MESSAGE value="Tüm karakterlerin hatalı colliderları düzeltildi.&#10;Thornbox'ların kapalı kalan istrigger'ları geri açıldı." />
     <MESSAGE value="Enemy'lerin navmesh agent bağlantısı kaldırıldı." />
     <MESSAGE value="Oyuncunun takılıp kalacağı yerler için önlem olarak Warning.cs" />
@@ -529,7 +580,8 @@
     <MESSAGE value="Tüm ses ve efektler eklendi. Oyun başlamadan çalışan animasyonlar düzeltldi." />
     <MESSAGE value="Store içerisindeki itemların yanlış verilmesinden kaynaklı leveller'da yanlış item'ın açılma sorunu düzeltidli.&#10;Buton sesleri hariç oyun sesleri sahneler arasında taşınacak şekilde ayarlandı." />
     <MESSAGE value="Ekstra çıkan hatalar düzeltildi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ekstra çıkan hatalar düzeltildi." />
+    <MESSAGE value="Level8'e kadar tüm leveller yapıldı.&#10;Hammer ses ayarı yapıldı.&#10;NextLevel butonunun son level'i yükleme hatası düzeltildi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Level8'e kadar tüm leveller yapıldı.&#10;Hammer ses ayarı yapıldı.&#10;NextLevel butonunun son level'i yükleme hatası düzeltildi." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

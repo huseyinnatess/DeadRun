@@ -3,7 +3,7 @@ using ObjectPools;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Controller
+namespace Controller.AgentsController
 {
     public class AgentController : MonoSingleton<AgentController>
     {

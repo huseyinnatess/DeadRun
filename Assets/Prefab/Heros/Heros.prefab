@@ -2431,7 +2431,7 @@ GameObject:
   - component: {fileID: 4517471978428073264}
   - component: {fileID: 5060072657460062236}
   - component: {fileID: 5140462957690741806}
-  - component: {fileID: 902596693611730671}
+  - component: {fileID: 4869341107358693672}
   m_Layer: 0
   m_Name: King
   m_TagString: Character
@@ -2548,7 +2548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &902596693611730671
+--- !u!114 &4869341107358693672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2557,11 +2557,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2023809271753103980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &2100417471200224033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3779,7 +3779,7 @@ GameObject:
   - component: {fileID: 3027273561643517809}
   - component: {fileID: 7483183712375380285}
   - component: {fileID: 4424383411575137852}
-  - component: {fileID: 633527780259572174}
+  - component: {fileID: 8006644939264725914}
   m_Layer: 0
   m_Name: Artist
   m_TagString: Character
@@ -3894,7 +3894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &633527780259572174
+--- !u!114 &8006644939264725914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3903,11 +3903,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3194100833399162550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &3231795813437356065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6592,7 +6592,7 @@ GameObject:
   - component: {fileID: 3316742919914464506}
   - component: {fileID: 7959400312074849272}
   - component: {fileID: 6319197290514433242}
-  - component: {fileID: 1711340494065684869}
+  - component: {fileID: 3922882208781211928}
   m_Layer: 0
   m_Name: Fates
   m_TagString: Character
@@ -6707,7 +6707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1711340494065684869
+--- !u!114 &3922882208781211928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6716,11 +6716,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5666641704800184700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &5697992002940684046
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,7 +8047,7 @@ GameObject:
   - component: {fileID: 7408075237848299450}
   - component: {fileID: 7599769774637741114}
   - component: {fileID: 528463372157606898}
-  - component: {fileID: 7196756068120411880}
+  - component: {fileID: 2561273426518031924}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Character
@@ -8161,7 +8161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7196756068120411880
+--- !u!114 &2561273426518031924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8170,11 +8170,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6464346689717081904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &6510103393388838709
 GameObject:
   m_ObjectHideFlags: 0
@@ -9806,7 +9806,7 @@ GameObject:
   - component: {fileID: 1357494074994150777}
   - component: {fileID: 6422738713122858755}
   - component: {fileID: 8666256584938502670}
-  - component: {fileID: 8058103523981063370}
+  - component: {fileID: 1761789156147901894}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Character
@@ -9917,7 +9917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8058103523981063370
+--- !u!114 &1761789156147901894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9926,11 +9926,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7691878276487172321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &7714765668068398024
 GameObject:
   m_ObjectHideFlags: 0
@@ -10092,7 +10092,7 @@ GameObject:
   - component: {fileID: 1587926595747247961}
   - component: {fileID: 395184693578490942}
   - component: {fileID: 5875291393378759273}
-  - component: {fileID: 7429724553386479746}
+  - component: {fileID: 5297374324853088144}
   m_Layer: 0
   m_Name: Queen
   m_TagString: Character
@@ -10207,7 +10207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19b9ff9a8e3e564da683b77db9d14e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7429724553386479746
+--- !u!114 &5297374324853088144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10216,11 +10216,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7794734661465664275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c70bdff398710d428674a8971df3c24, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c3432ab5254f544da5d0af877bdbaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningText: {fileID: 0}
-  _warningPanel: {fileID: 0}
+  informationText: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &7815702570494747980
 GameObject:
   m_ObjectHideFlags: 0

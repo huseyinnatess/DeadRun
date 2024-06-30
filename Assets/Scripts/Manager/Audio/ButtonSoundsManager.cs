@@ -1,3 +1,4 @@
+using System;
 using Manager.Audio.Utilities;
 using MonoSingleton;
 using UnityEngine;
@@ -10,11 +11,16 @@ namespace Manager.Audio
         private Button[] _buttons; // Sahnedeki tüm butonların tutulduğu dizi.
         private AudioSource _audioSource; // Butonlara eklenecek ses kaynağı.
 
-        #region Start
+        #region Awake, Start
+
+        private void Awake()
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.playOnAwake = false;
+        }
 
         private void Start()
         {
-            _audioSource = gameObject.AddComponent<AudioSource>();
             _audioSource.clip = FxSounds.Instance.ButtonClickFx;
             SetButtonFxVolume();
             GetAllButtonsInScene();

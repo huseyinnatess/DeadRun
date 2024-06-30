@@ -312,7 +312,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7769314556647996608, guid: df70c2d3d0243c34cbf2f4dc13a4937a,
+          type: 3}
         m_TargetAssemblyTypeName: Utilities.UIEventHandler, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -989,7 +990,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7769314556647996608, guid: df70c2d3d0243c34cbf2f4dc13a4937a,
+          type: 3}
         m_TargetAssemblyTypeName: Utilities.UIEventHandler, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1

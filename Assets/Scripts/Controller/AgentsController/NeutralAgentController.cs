@@ -1,7 +1,7 @@
 ﻿using ObjectPools;
 using UnityEngine;
 
-namespace Controller
+namespace Controller.AgentsController
 {
     public class NeutralAgentController : MonoBehaviour
     {
