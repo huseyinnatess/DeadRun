@@ -14,7 +14,7 @@ namespace Utilities.UIElements
         /// <para> Kazanılan coin miktarını ayarlar. </para>
         public void SetPlayerRewardCoin()
         {
-            _rewardCoin = (AgentPools.Instance.AgentCount * 4) + Random.Range(0, 15);
+            _rewardCoin = (AgentPools.Instance.AgentCount * 12) + Random.Range(0, 15);
             _rewardCoinText.text = _rewardCoin.ToString();
             CoinManager.Instance.EarnCoin(_rewardCoin);
         }
