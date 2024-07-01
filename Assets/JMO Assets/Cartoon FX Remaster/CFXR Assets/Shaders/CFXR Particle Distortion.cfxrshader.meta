@@ -12,7 +12,7 @@ ScriptedImporter:
   strippedLinesCount: 70
   shaderSourceCode: "//--------------------------------------------------------------------------------------------------------------------------------\r\n//
     Cartoon FX\r\n// (c) 2012-2020 Jean Moreno\r\n//--------------------------------------------------------------------------------------------------------------------------------\r\n\r\nShader
-    \"Cartoon FX/Remaster/Particle Screen Distortion NEW\"\r\n{\r\n\tProperties\r\n\t{
+    \"Cartoon FX/Remaster/Particle Screen Distortion\"\r\n{\r\n\tProperties\r\n\t{
     \r\n\t\t[Toggle(_ALPHATEST_ON)] _UseAlphaClip (\"Alpha Clipping (Cutout)\", Float)
     = 0\r\n\t//# IF_KEYWORD _ALPHATEST_ON\r\n\t\t_Cutoff (\"Cutoff Threshold\", Range(0.001,1))
     = 0.1\r\n\t//# END_IF\r\n\t\r\n\t//# --------------------------------------------------------\r\n\t\r\n\t\t[Toggle(_FADING_ON)]
@@ -42,15 +42,7 @@ ScriptedImporter:
     _ _DEBUG_VISUALIZE_DISTORTION\r\n\r\n\t\t\t\t#include \"UnityStandardParticleInstancing.cginc\"\r\n\r\n\t\t\t\t#define
     CFXR_SCREEN_DISTORTION_SHADER\r\n\t\t\t\t#include \"CFXR_PASSES.cginc\"\r\n\r\n\t\t\t\tENDCG\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\tCustomEditor
     \"CartoonFX.MaterialInspector\"\r\n}\r\n\r\n"
-  shaderName: Cartoon FX/Remaster/Particle Screen Distortion NEW
+  shaderName: Cartoon FX/Remaster/Particle Screen Distortion
   shaderErrors: []
   variantCount: 64
   variantCountUsed: 2
-AssetOrigin:
-  serializedVersion: 1
-  productId: 109565
-  packageName: Cartoon FX Remaster Free
-  packageVersion: R 1.3.1
-  assetPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle
-    Distortion.cfxrshader
-  uploadId: 623844

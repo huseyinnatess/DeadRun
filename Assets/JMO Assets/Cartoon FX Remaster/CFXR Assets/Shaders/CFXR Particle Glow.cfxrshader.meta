@@ -12,7 +12,7 @@ ScriptedImporter:
   strippedLinesCount: 108
   shaderSourceCode: "//--------------------------------------------------------------------------------------------------------------------------------\r\n//
     Cartoon FX\r\n// (c) 2012-2020 Jean Moreno\r\n//--------------------------------------------------------------------------------------------------------------------------------\r\n\r\nShader
-    \"Cartoon FX/Remaster/Particle Procedural Glow NEW\"\r\n{\r\n\tProperties\r\n\t{\r\n\t//#
+    \"Cartoon FX/Remaster/Particle Procedural Glow\"\r\n{\r\n\tProperties\r\n\t{\r\n\t//#
     Blending\r\n\t//#\r\n\r\n\t\t[Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend
     (\"Blend Source\", Float) = 5\r\n\t\t[Enum(UnityEngine.Rendering.BlendMode)]
     _DstBlend (\"Blend Destination\", Float) = 10\r\n\t\r\n\t//# --------------------------------------------------------\r\n\r\n\t\t[Toggle(_CFXR_DISSOLVE)]
@@ -64,15 +64,7 @@ ScriptedImporter:
     target 3.0\t\t//needed for VPOS\r\n\t\t\t#endif\r\n\r\n\t\t\t\t#include \"UnityStandardParticleInstancing.cginc\"\r\n\r\n\t\t\t\t#define
     PASS_SHADOW_CASTER\r\n\t\t\t\t#define CFXR_GLOW_SHADER\r\n\t\t\t\t#include \"CFXR_PASSES.cginc\"\r\n\r\n\t\t\t\tENDCG\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\tCustomEditor
     \"CartoonFX.MaterialInspector\"\r\n}\r\n\r\n"
-  shaderName: Cartoon FX/Remaster/Particle Procedural Glow NEW
+  shaderName: Cartoon FX/Remaster/Particle Procedural Glow
   shaderErrors: []
   variantCount: 3040
   variantCountUsed: 4
-AssetOrigin:
-  serializedVersion: 1
-  productId: 109565
-  packageName: Cartoon FX Remaster Free
-  packageVersion: R 1.3.1
-  assetPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle
-    Glow.cfxrshader
-  uploadId: 623844

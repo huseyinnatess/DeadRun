@@ -97,5 +97,10 @@ namespace Utilities
         {
             _levelPanelManager.PausePanel(active);
         }
+        
+        public void CreditsPanel(bool active)
+        {
+            _levelPanelManager.CreditsPanel.SetActive(active);
+        }
     }
 }

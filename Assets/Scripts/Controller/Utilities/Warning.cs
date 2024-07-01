@@ -36,7 +36,7 @@ namespace Controller.Utilities
         // Değişkenlerin default değerlerini ayarlar
         private void SetReferences()
         {
-            _maxTime = 2f;
+            _maxTime = 1.5f;
             _currentTime = 0f;
             _isStaying = false;
             _isFirst = PlayerPrefsData.GetInt("IsFirst");
@@ -99,9 +99,13 @@ namespace Controller.Utilities
                 {
                     SetSecondWarningMessages();
                     StartCoroutine(WriteInformation());
+                    SaveFirstStatus();
                 }
                 else if (_isFirst == 0)
+                {
                     StartCoroutine(WriteInformation());
+                    SaveFirstStatus();
+                }
             }
         }
 
@@ -162,11 +166,8 @@ namespace Controller.Utilities
                 yield return new WaitForSeconds(_informationMessages[i].ToCharArray().Length * .09f + 1.5f);
             }
             SetWarningPanel(false);
-            if (_isFirst == 2 && specialCase == default)
-            {
+            if (specialCase == default && _isFirst == 2)
                 DestroyAgent();
-                SaveFirstStatus();
-            }
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = true;
             CharacterCanMove = true;
         }

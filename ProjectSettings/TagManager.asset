@@ -36,6 +36,11 @@ TagManager:
   - GamePanels
   - FanRight
   - FanLeft
+  - PausePanel
+  - SoundSlider
+  - MusicSlider
+  - VictoryPanel
+  - DefeatPanel
   layers:
   - Default
   - TransparentFX

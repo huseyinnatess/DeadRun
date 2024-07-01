@@ -7,10 +7,11 @@ namespace Manager
 {
     public class LevelPanelManager : MonoSingleton<LevelPanelManager>
     {
-        [SerializeField] private GameObject _victoryPanel; // Zafer paneli
-        [SerializeField] private GameObject _defeatPanel; // Yenilgi paneli
-        [SerializeField] private GameObject _pausePanel; // Duraklatma paneli
-
+        [SerializeField] private GameObject victoryPanel; // Zafer paneli
+        [SerializeField] private GameObject defeatPanel; // Yenilgi paneli
+        [SerializeField] private GameObject pausePanel; // Duraklatma paneli
+        
+        public GameObject CreditsPanel; // Krediler paneli
         [HideInInspector] public GameObject GamePanels; // Oyun içindeki VictoryFx, Defeat, Pause panellerinin parent'ı
         [HideInInspector] public GameObject MainMenuPanels; // AnaMenü panellerinin parent'ı
 
@@ -27,7 +28,7 @@ namespace Manager
         {
             GamePanels = GameObject.FindWithTag("GamePanels");
             MainMenuPanels = GameObject.FindWithTag("MainMenuPanels");
-            _pausePanelSliders = _pausePanel.GetComponentsInChildren<Slider>();
+            _pausePanelSliders = pausePanel.GetComponentsInChildren<Slider>();
         }
 
         private void Start()
@@ -53,7 +54,7 @@ namespace Manager
         /// <param name="state"> Panel'in aktiflik durumu</param>
         public void VictoryPanel(bool state)
         {
-            _victoryPanel.SetActive(state);
+            victoryPanel.SetActive(state);
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace Manager
         /// <param name="state"> Panel'in aktiflik durumu </param>
         public void DefeatPanel(bool state)
         {
-            _defeatPanel.SetActive(state);
+            defeatPanel.SetActive(state);
         }
 
         /// <summary>
@@ -72,7 +73,7 @@ namespace Manager
         public void PausePanel(bool state)
         {
             Time.timeScale = System.Convert.ToInt32(!state);
-            _pausePanel.SetActive(state);
+            pausePanel.SetActive(state);
         }
 
         /// <summary>
