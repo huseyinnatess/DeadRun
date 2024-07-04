@@ -16,11 +16,11 @@ namespace Controller.Utilities
         private bool _isStaying; // Çarpışmanın devam edip etmediğinin kontrolü
 
         private Coroutine _calculateCoroutine; // Çarpışma süresini hesaplayan coroutine
-        
-        [SerializeField]private TextMeshProUGUI informationText; // Uyarı mesajının yazılacağı text
-        [SerializeField]private GameObject informationPanel; // Uyarı mesajının paneli
+
+        [SerializeField] private TextMeshProUGUI informationText; // Uyarı mesajının yazılacağı text
+        [SerializeField] private GameObject informationPanel; // Uyarı mesajının paneli
         private int _isFirst; // Uyarıların sıralamasını tutan değer
-        
+
         private string[] _informationMessages; // Uyarı mesajlarını tutan array
 
         public static bool CharacterCanMove; // Karakterin hareket edip etmeyeceğini belirleyen değişken
@@ -32,7 +32,7 @@ namespace Controller.Utilities
             SetReferences();
             SetFirstWarningMessages();
         }
-        
+
         // Değişkenlerin default değerlerini ayarlar
         private void SetReferences()
         {
@@ -42,14 +42,15 @@ namespace Controller.Utilities
             _isFirst = PlayerPrefsData.GetInt("IsFirst");
             CharacterCanMove = true;
         }
+
         #endregion
-        
+
         // Uyarı mesajlarını başlatır.
         public void StartWriteInformation(bool speacialCase = default)
         {
             StartCoroutine(WriteInformation(speacialCase));
         }
-        
+
         #region Set Information Messages
 
         // İlk uyarı mesajlarını belirliyor 
@@ -61,6 +62,7 @@ namespace Controller.Utilities
             _informationMessages[2] = "Yeni levellar için yakında güncelleme gelecek.";
             _informationMessages[3] = "Beklemede kalınnnnn :))";
         }
+
         private void SetFirstWarningMessages()
         {
             _informationMessages = new string[4];
@@ -69,7 +71,7 @@ namespace Controller.Utilities
             _informationMessages[2] = "Şimdilik birşey yapmıyorum bir daha yaparsan sürprizim var sanaa :))";
             _informationMessages[3] = "Kontrolü geri veriyorum bir daha görmeyeyim.";
         }
-        
+
         // İkinci uyarı mesajlarını belirliyor
         private void SetSecondWarningMessages()
         {
@@ -80,7 +82,6 @@ namespace Controller.Utilities
             _informationMessages[3] = "Canımın istediği kadar karakterini yok edeceğim";
             _informationMessages[4] = "Nasıl mı? Tam da böyle. hahahahahaha";
         }
-
 
         #endregion
 
@@ -99,12 +100,10 @@ namespace Controller.Utilities
                 {
                     SetSecondWarningMessages();
                     StartCoroutine(WriteInformation());
-                    SaveFirstStatus();
                 }
                 else if (_isFirst == 0)
                 {
                     StartCoroutine(WriteInformation());
-                    SaveFirstStatus();
                 }
             }
         }
@@ -123,7 +122,7 @@ namespace Controller.Utilities
         }
 
         #endregion
-        
+
         // Çarpışma başladığında geçen süreyi hesaplar
         private IEnumerator CalculateCollisionTime()
         {
@@ -142,7 +141,7 @@ namespace Controller.Utilities
             _currentTime = 0f;
             _isStaying = false;
         }
-        
+
         // Uyarı mesajını ekrana yazdırıyor
         private IEnumerator WriteInformation(bool specialCase = default)
         {
@@ -156,6 +155,7 @@ namespace Controller.Utilities
                     yield return new WaitForSeconds(1f);
                 }
             }
+
             // Oyun ömrü boyunca sadece 2 kere çalışacak bir fonksiyon. GetComponent kullanımı bu yüzden pek sıkıntı olmaz.
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
             CharacterCanMove = false;
@@ -165,11 +165,13 @@ namespace Controller.Utilities
                 StartCoroutine(ShowText(_informationMessages[i]));
                 yield return new WaitForSeconds(_informationMessages[i].ToCharArray().Length * .09f + 1.5f);
             }
+
             SetWarningPanel(false);
             if (specialCase == default && _isFirst == 2)
                 DestroyAgent();
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = true;
             CharacterCanMove = true;
+            if (specialCase == default) SaveFirstStatus();
         }
 
         // Uyarı mesajını karakter karakter ekrana yazdırır
@@ -183,7 +185,7 @@ namespace Controller.Utilities
                 yield return new WaitForSeconds(.09f);
             }
         }
-        
+
         // IsFirst değişkenini kaydeder
         private void SaveFirstStatus()
         {
@@ -195,7 +197,7 @@ namespace Controller.Utilities
         {
             informationPanel.SetActive(state);
         }
-        
+
         // Random belirlenen limit miktarı kadar agent'ı yok ediyor.
         private void DestroyAgent()
         {
@@ -207,6 +209,7 @@ namespace Controller.Utilities
                 AgentDeathHandler.DeathHandel(agentCount > 1 ? AgentController.GetActiveAgent() : transform);
                 agentCount--;
             }
+
             AgentPools.Instance.AgentCount = agentCount;
         }
     }
