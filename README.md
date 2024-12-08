@@ -1,5 +1,7 @@
 # **Dead Run**
 
+![Project Demo](Gif/DeadRun.gif)
+
 Geliştirdiğim ilk hypercasual oyunum ve Google Play Store'a eklediğim ilk oyun. Süreç boyunca birçok zorlukla karşılaştım, ancak azimle ve kararlılıkla projeyi tamamladım.
 
 ## **Oyun İçeriği**
