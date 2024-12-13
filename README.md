@@ -1,5 +1,7 @@
 # **Dead Run**
 
+![Project Demo](Gif/DeadRun.gif)
+
 Geliştirdiğim ilk hypercasual oyunum ve Google Play Store'a eklediğim ilk oyun. Süreç boyunca birçok zorlukla karşılaştım, ancak azimle ve kararlılıkla projeyi tamamladım.
 
 ## **Oyun İçeriği**
@@ -48,3 +50,7 @@ Oyunun temel özellikleri:
 - Performans optimizasyonu teknikleri
 - Mobil oyun geliştirme süreçleri
 - Google Play Store'a oyun yükleme prosedürleri
+
+## **Google Play Linki**
+[Oyunun Google Play Store Linki](https://play.google.com/store/apps/details?id=com.AtesGames.DeadRun&pli=1)
+
