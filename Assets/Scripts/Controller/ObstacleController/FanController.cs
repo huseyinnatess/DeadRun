@@ -8,11 +8,11 @@ namespace Controller.ObstacleController
 {
     public class FanController : MonoBehaviour
     {
-        private Animator _animator; // Fan'ın animatörü
-        private BoxCollider _fanCollider; // Fan'ın collider'ı
+        private Animator _animator;
+        private BoxCollider _fanCollider;
         
-        private bool _isFanRight; // Fan'ın sağda olup olmadığını kontrol eder
-        private Vector3 _fanForce; // Fan'ın uygulayacağı kuvvet
+        private bool _isFanRight;
+        private Vector3 _fanForce;
         
         #region Awake, Start, Get, Set
         
@@ -39,8 +39,6 @@ namespace Controller.ObstacleController
         }
         
         #endregion
-
-        // Oyunun başlama durumuna göre random sürelerde fan'ın çalışmasını sağlar
         private IEnumerator FanAnimation()
         {
             bool gameIsStart;

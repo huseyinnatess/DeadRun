@@ -6,12 +6,12 @@ namespace Controller.ObstacleController
 {
     public class HammerController : MonoBehaviour
     {
-        private Animator _animator; // Hammer'ın animatörü.
+        private Animator _animator;
         private Transform _character;
 
         private float _minDistance;
         private float _maxDistance;
-        
+
         #region Start
 
         private void Awake()
@@ -26,9 +26,9 @@ namespace Controller.ObstacleController
             _character = GameObject.FindWithTag("Character").transform;
             StartCoroutine(HammerAnimation());
         }
+
         #endregion
-        
-        // Oyunun başlama durumuna göre hammer animasyonunu başlatır.
+
         private IEnumerator HammerAnimation()
         {
             while (GameManager.GameIsStart == false)
@@ -43,6 +43,7 @@ namespace Controller.ObstacleController
                     SetAnimation("IsGameStart");
                     break;
                 }
+
                 yield return null;
             }
 
@@ -53,14 +54,12 @@ namespace Controller.ObstacleController
                     SetAnimation("IsStop");
                     break;
                 }
+
                 yield return null;
             }
         }
-        
-        // Karakter ile nesne arasındaki mesafe kontrolünü yapar.
-        private bool CheckDistance(float distance) =>  transform.position.z - _character.position.z < distance;
-        
-        // Parametre olarak gelen animasyonu çalıştırır.
+
+        private bool CheckDistance(float distance) => transform.position.z - _character.position.z < distance;
         private void SetAnimation(string animationName) => _animator.SetTrigger(animationName);
     }
 }

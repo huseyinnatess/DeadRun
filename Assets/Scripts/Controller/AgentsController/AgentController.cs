@@ -7,10 +7,10 @@ namespace Controller.AgentsController
 {
     public class AgentController : MonoSingleton<AgentController>
     {
-       [HideInInspector] public Transform Target; // Navmesh için target
+       [HideInInspector] public Transform Target;
 
-        private NavMeshAgent[] _navMeshAgents; // Tüm agent'ların navmesh componentlerini tutan array
-        private int _agentsCount; // Anlık agent sayısı
+        private NavMeshAgent[] _navMeshAgents;
+        private int _agentsCount;
         
         #region Start Get, Set Functions
         private void Start()
@@ -23,8 +23,6 @@ namespace Controller.AgentsController
         {
             Target = GameObject.FindWithTag("DestiniationPos").transform;
         }
-        
-        // Alt obje olarak bulunan tüm agentların ilgili componentini arraye alıyor
         private void SetReferences()
         {
             _agentsCount = transform.childCount;
@@ -40,9 +38,6 @@ namespace Controller.AgentsController
         {
             SetAgentTarget();
         }
-        
-        // LateUpdate
-        // Agent'ların target'ını ayarlıyor.
         private void SetAgentTarget()
         {
             for (int i = 0; i < _agentsCount; i++)
@@ -54,9 +49,6 @@ namespace Controller.AgentsController
 
         #endregion
         
-        /// <summary>
-        /// Sahnede aktif olan agent'ın transform'unu return eder.
-        /// </summary> 
         public static Transform GetActiveAgent()
         {
             int i = 0;
@@ -69,9 +61,6 @@ namespace Controller.AgentsController
             return null;
         }
         
-        /// <summary>
-        /// Parent'a yeni obje eklenince componentleri günceller.
-        /// </summary>
         public void UpdateAgentsComponent()
         {
             SetReferences();

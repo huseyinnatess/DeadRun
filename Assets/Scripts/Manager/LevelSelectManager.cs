@@ -9,10 +9,9 @@ namespace Manager
 {
     public class LevelSelectManager : MonoBehaviour
     {
-        public List<Button> Buttons; // Level butonları
-
-        private List<Image> _lockImage; // Butonlardaki kilit resimleri
-        private int _currentLevel; // Mevcut level
+        public List<Button> Buttons;
+        private List<Image> _lockImage;
+        private int _currentLevel;
 
         #region Awake
 
@@ -22,8 +21,7 @@ namespace Manager
             GetLockImage();
             ButtonConfigure();
         }
-        
-        // Butonların kilit resimlerini alıyor.
+
         private void GetLockImage()
         {
             _lockImage = new List<Image>(Buttons.Count);
@@ -35,15 +33,12 @@ namespace Manager
 
         #endregion
 
-        /// <summary>
-        /// Level select sahnesinden çıkış butonu
-        /// </summary>
+
         public void ExitButton()
         {
             LoadingSlider.Instance.StartLoad(PlayerPrefsData.GetInt("EndLevel"));
         }
 
-        // Mevcut level'a göre butonların kilidini açıp her birine level indexi ataması yapıyor.
         private void ButtonConfigure()
         {
             for (int i = 0; i < Buttons.Count; i++)
@@ -62,7 +57,6 @@ namespace Manager
             }
         }
 
-        // Parametre olarak gelen sayıya göre sahne yükleme işlemi yapıyor.
         private void SceneLoad(int index)
         {
             LoadingSlider.Instance.StartLoad(index);

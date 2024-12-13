@@ -11,22 +11,20 @@ namespace Utilities
 {
     public class Battlefield : MonoSingleton<Battlefield>
     {
-        private FxSounds _fxSounds; // Efektler scripti.
+        private FxSounds _fxSounds;
 
         #region Start
+
         private void Start()
         {
             _fxSounds = FxSounds.Instance;
         }
+
         #endregion
 
-        /// <summary>
-        /// Savaş sonucuna göre VictoryFx veya Defeat panelini aktif eder
-        /// </summary>
-        /// <param name="agentCount"></param>
+
         public void WarResult(int agentCount)
         {
-          //  InterstitialAD.Instance.ShowAd();
             _fxSounds.CharacterRunFx.Stop();
             if (agentCount != 0)
                 Victory();
@@ -34,8 +32,7 @@ namespace Utilities
                 Defeat();
         }
 
-        /// <para> Oyuncuğu kazandığında son level, confetti effect'i, VictoryFx Panel ve kazanılan
-        /// coinlerin ayarlamasını yapar.</para>
+
         private void Victory()
         {
             _fxSounds.VictoryFx.Play();
@@ -45,7 +42,6 @@ namespace Utilities
             RewardCoin.Instance.SetPlayerRewardCoin();
         }
 
-        /// <para> Defeat Panel'ini açar ve ses ayarlarını günceller.</para>
         private void Defeat()
         {
             LevelPanelManager.Instance.DefeatPanel(true);
@@ -53,6 +49,5 @@ namespace Utilities
             _fxSounds.CharacterRunFx.enabled = false;
             _fxSounds.FanFx.enabled = false;
         }
-        
     }
 }

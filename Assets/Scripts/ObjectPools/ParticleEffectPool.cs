@@ -7,16 +7,11 @@ namespace ObjectPools
 {
     public class ParticleEffectPool : MonoSingleton<ParticleEffectPool>
     {
-        public List<ParticleSystem> SpawnEffects; // Spawn efekti.
-        public List<ParticleSystem> DeadEffects; // Ölüm efekti.
-        public List<ParticleSystem> ConfettiEffects; // Kutlama efekti.
+        public List<ParticleSystem> SpawnEffects;
+        public List<ParticleSystem> DeadEffects;
+        public List<ParticleSystem> ConfettiEffects;
 
-        
 
-        /// <summary>
-        /// Spawn efekti oluşturur
-        /// </summary>
-        /// <param name="create">Efektin oluşacağı yer</param>
         public void SpawnEffectPool(Transform create)
         {
             foreach (var item in SpawnEffects.Where(item => !item.gameObject.activeInHierarchy))
@@ -26,10 +21,8 @@ namespace ObjectPools
                 break;
             }
         }
-        /// <summary>
-        /// Ölüm efekti oluşturur
-        /// </summary>
-        /// <param name="create">Efektin oluşacağı yer</param>
+
+
         public void DeadEffectPool(Transform create)
         {
             foreach (var item in DeadEffects.Where(item => !item.gameObject.activeInHierarchy))
@@ -39,10 +32,8 @@ namespace ObjectPools
                 break;
             }
         }
-        /// <summary>
-        /// Kutlama efekti oluşturur
-        /// </summary>
-        /// <param name="create">Efektin oluşacağı yer</param>
+
+
         public void ConfettiEffectPool(Transform create)
         {
             foreach (var item in ConfettiEffects.Where(item => !item.gameObject.activeInHierarchy))
@@ -51,6 +42,5 @@ namespace ObjectPools
                 item.gameObject.SetActive(true);
             }
         }
-    
     }
 }

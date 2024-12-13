@@ -5,8 +5,7 @@ namespace Manager.Audio.Utilities
 {
     public class HammerFx : ADistanceBasedAudioEffect
     {
-        private Transform _character; // Anakarakter
-
+        private Transform _character;
         private FxSounds _fxSounds;
 
         #region Awake, Start
@@ -23,9 +22,7 @@ namespace Manager.Audio.Utilities
 
         #endregion
 
-        /// <summary>
-        /// Hammer vuruş efekt sesini oynatır.
-        /// </summary>
+
         public override void PlayFx()
         {
             CalculateDistance();
@@ -35,7 +32,6 @@ namespace Manager.Audio.Utilities
             _fxSounds.HammerFx.Play();
         }
 
-        // Hammer ve karakter arasındaki mesafeyi hesaplar.
         protected override void CalculateDistance()
         {
             Distance = Vector3.Distance(_character.position, transform.position);

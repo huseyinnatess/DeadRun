@@ -11,19 +11,15 @@ namespace Controller.Utilities
 {
     public class Warning : MonoSingleton<Warning>
     {
-        private float _maxTime; // Hesaplamanın maximum süresi
-        private float _currentTime; // Çarpışmadan sonraki anlık süre
-        private bool _isStaying; // Çarpışmanın devam edip etmediğinin kontrolü
-
-        private Coroutine _calculateCoroutine; // Çarpışma süresini hesaplayan coroutine
-
-        [SerializeField] private TextMeshProUGUI informationText; // Uyarı mesajının yazılacağı text
-        [SerializeField] private GameObject informationPanel; // Uyarı mesajının paneli
-        private int _isFirst; // Uyarıların sıralamasını tutan değer
-
-        private string[] _informationMessages; // Uyarı mesajlarını tutan array
-
-        public static bool CharacterCanMove; // Karakterin hareket edip etmeyeceğini belirleyen değişken
+        private float _maxTime;
+        private float _currentTime;
+        private bool _isStaying;
+        private Coroutine _calculateCoroutine;
+        [SerializeField] private TextMeshProUGUI informationText;
+        [SerializeField] private GameObject informationPanel;
+        private int _isFirst;
+        private string[] _informationMessages;
+        public static bool CharacterCanMove;
 
         #region Awake, Set Functions
 
@@ -33,7 +29,6 @@ namespace Controller.Utilities
             SetFirstWarningMessages();
         }
 
-        // Değişkenlerin default değerlerini ayarlar
         private void SetReferences()
         {
             _maxTime = 1.5f;
@@ -45,7 +40,6 @@ namespace Controller.Utilities
 
         #endregion
 
-        // Uyarı mesajlarını başlatır.
         public void StartWriteInformation(bool speacialCase = default)
         {
             StartCoroutine(WriteInformation(speacialCase));
@@ -53,7 +47,6 @@ namespace Controller.Utilities
 
         #region Set Information Messages
 
-        // İlk uyarı mesajlarını belirliyor 
         public void SetComingSoonMessages()
         {
             _informationMessages = new string[4];
@@ -72,7 +65,6 @@ namespace Controller.Utilities
             _informationMessages[3] = "Kontrolü geri veriyorum bir daha görmeyeyim.";
         }
 
-        // İkinci uyarı mesajlarını belirliyor
         private void SetSecondWarningMessages()
         {
             _informationMessages = new string[5];
@@ -123,7 +115,6 @@ namespace Controller.Utilities
 
         #endregion
 
-        // Çarpışma başladığında geçen süreyi hesaplar
         private IEnumerator CalculateCollisionTime()
         {
             while (_currentTime < _maxTime)
@@ -142,11 +133,8 @@ namespace Controller.Utilities
             _isStaying = false;
         }
 
-        // Uyarı mesajını ekrana yazdırıyor
         private IEnumerator WriteInformation(bool specialCase = default)
         {
-            // Saniye başı kontrol edilmesi gerekiyor (Daha düşük de olabilir). Süre üzerinden kontrol
-            // edildiği zaman thread'ler bir nevi çakışıyor hatalı kontrol yapılabiliyor.
             if (specialCase == default)
             {
                 for (int i = 0; i < 3; i++)
@@ -156,7 +144,6 @@ namespace Controller.Utilities
                 }
             }
 
-            // Oyun ömrü boyunca sadece 2 kere çalışacak bir fonksiyon. GetComponent kullanımı bu yüzden pek sıkıntı olmaz.
             CharacterControl.Instance.GetComponent<Animator>().applyRootMotion = false;
             CharacterCanMove = false;
             SetWarningPanel(true);
@@ -174,7 +161,6 @@ namespace Controller.Utilities
             if (specialCase == default) SaveFirstStatus();
         }
 
-        // Uyarı mesajını karakter karakter ekrana yazdırır
         private IEnumerator ShowText(string text)
         {
             informationText.text = "";
@@ -186,19 +172,16 @@ namespace Controller.Utilities
             }
         }
 
-        // IsFirst değişkenini kaydeder
         private void SaveFirstStatus()
         {
             PlayerPrefsData.SetInt("IsFirst", ++_isFirst);
         }
 
-        // Uyarı panelinin aktiflik, pasifliğini ayarlar
         private void SetWarningPanel(bool state)
         {
             informationPanel.SetActive(state);
         }
 
-        // Random belirlenen limit miktarı kadar agent'ı yok ediyor.
         private void DestroyAgent()
         {
             int agentCount = AgentPools.Instance.AgentCount;

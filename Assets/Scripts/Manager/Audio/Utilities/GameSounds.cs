@@ -5,8 +5,7 @@ namespace Manager.Audio.Utilities
 {
     public class GameSounds : MonoSingleton<GameSounds>
     {
-        [Header("GameMusic")] 
-        public AudioSource GameMusic; // Oyunun anamüziği
+        [Header("GameMusic")] public AudioSource GameMusic;
 
         #region Start
 
@@ -16,10 +15,8 @@ namespace Manager.Audio.Utilities
         }
 
         #endregion
-        
-        /// <summary>
-        /// Anamüziğin sesini sound slider'a göre ayarlar.
-        /// </summary>
+
+
         public void SetGameSoundVolume()
         {
             GameMusic.volume = AudioManager.GetSoundSliderValue();

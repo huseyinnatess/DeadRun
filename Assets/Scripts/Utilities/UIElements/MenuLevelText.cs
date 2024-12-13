@@ -6,11 +6,10 @@ namespace Utilities.UIElements
 {
     public class MenuLevelText : MonoBehaviour
     {
-       [SerializeField] private TextMeshProUGUI _levelText; // AnaMenü level text
-
+       [SerializeField] private TextMeshProUGUI levelText;
         private void Awake()
         {
-            _levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
+            levelText.text = "LEVEL " + (SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }

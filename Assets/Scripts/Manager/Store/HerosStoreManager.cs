@@ -12,13 +12,13 @@ namespace Manager.Store
 {
     public class HerosStoreManager : MonoSingleton<HerosStoreManager>
     {
-        public List<GameObject> HerosObjects; // Herolar'ın obje listesi.
-        public List<StoreInformations> HerosInfos = new(); // Herolar'ın bilgilerini tutan liste.
-        [HideInInspector] public int CurrentIndex; // Market sahnesinde aktif olan hero index'i.
+        public List<GameObject> HerosObjects;
+        public List<StoreInformations> HerosInfos = new();
+        [HideInInspector] public int CurrentIndex;
         [HideInInspector] public int ActiveIndex; // Aktif olarak kullanılan hero index'i.
 
-        private Text _priceText; // Hero'ların fiyat text'i.
-        private TextMeshProUGUI _characterNameText; // Hero'ların isim text'i.
+        private Text _priceText;
+        private TextMeshProUGUI _characterNameText;
 
         #region Awake, Set, Get Functions
 
@@ -50,28 +50,26 @@ namespace Manager.Store
                 UpdatePriceName();
             }
         }
+
         #endregion
 
         #region Load Hero Informations
-        
-        // Hero bilgilerini dosyadan geri yükler.
+
         private void LoadHerosInfos()
         {
             HerosInfos = BinaryData.Load("HerosInfos");
         }
-        
-        // Aktif olarak kullanılan hero dışındaki hero'ları pasif yapar
+
         private void SetHerosObjects()
         {
-            // Liste küçük olduğu için foreach kullanmak sorun olmaz.
             HerosObjects.ForEach(hero => hero.SetActive(false));
             HerosObjects.ElementAt(CurrentIndex).SetActive(true);
         }
+
         #endregion
 
         #region InitiliazeAndSave
-        // İlk defa market açıldığında çalışacak. Hero bilgilerini listeye kaydedip
-        // daha sonra dosyaya kayıt ediyor.
+
         private void InitializeAndSaveHerosInfos()
         {
             for (int i = 0; i < HerosObjects.Count; i++)
@@ -90,11 +88,10 @@ namespace Manager.Store
             StoreManager.Instance.UpdateButtonStatus(HerosInfos, CurrentIndex);
             BinaryData.Save(HerosInfos, "HerosInfos");
         }
+
         #endregion
-        
-        /// <summary>
-        /// Aktif olan hero'nun ismini ve fiyatını günceller.
-        /// </summary>
+
+
         public void UpdatePriceName()
         {
             _characterNameText.text = HerosInfos[CurrentIndex].Name;

@@ -6,15 +6,15 @@ namespace Controller.AgentsController
 {
     public class EnemyController : MonoSingleton<EnemyController>
     {
-        public static bool IsCanAttack; // Enemy'nin saldırıya başlayacağını belirleyen değişken
-        public static int EnemyAgentCount; // Level'daki enemy sayısı
-        public GameObject[] EnemyAgents; // Enemy'lerin tutulduğu array
+        public static bool IsCanAttack;
+        public static int EnemyAgentCount;
+        public GameObject[] EnemyAgents;
 
-        private Transform _target; // Enemy'ler için hedef
-        private Animator[] _enemyAnimators; // Enemey'lerin animator componentini tutan array
-        private bool _attackAnimationWork; // Enemy'lerin saldırı animasyonuna geçmesini belirleyen değişken
-        
-        private float _enemySpeed; // Enemy'lerin hızı
+        private Transform _target;
+        private Animator[] _enemyAnimators;
+        private bool _attackAnimationWork;
+
+        private float _enemySpeed;
 
         #region Awake Get, Set Functions
 
@@ -42,17 +42,11 @@ namespace Controller.AgentsController
         }
 
         #endregion
-        
-        /// <summary>
-        /// Hiyerarşide aktif olan ilk enemy'nin transformunu return eder.
-        /// </summary>
-        /// <returns> Aktif olan enemy'nin transform componentini aksi halde null return eder</returns>
+
+
         public Transform GetActiveEnemy() => EnemyAgents.FirstOrDefault(agent => agent.activeInHierarchy)?.transform;
 
-        /// <summary>
-        ///  Enemy'lerin saldırıya başlamasını sağlar.
-        /// </summary>
-        /// <param name="attack"> Saldırıya başlayıp başlanmamasını belirler</param>
+
         public static void Attack(bool attack) => IsCanAttack = attack;
 
         #region LateUpdate
@@ -66,10 +60,8 @@ namespace Controller.AgentsController
         }
 
         #endregion
-        
-        
-        // LateUpdate
-        // Enemylerin agentlar'a saldırı yapmasını başlatır.
+
+
         private void EnemyAttack()
         {
             for (int i = 0; i < EnemyAgents.Length; i++)
@@ -80,16 +72,15 @@ namespace Controller.AgentsController
                 LookTarget(i);
                 EnemyAgents[i].transform.position += GetDirectionToTarget(i) * (_enemySpeed * Time.deltaTime);
             }
+
             _attackAnimationWork = true;
         }
-        
-        // Enemy'nin attack animasyonunu başlatır
+
         private void SetAttackAnimations(int i) => _enemyAnimators[i].SetBool("Attack", true);
 
-        // Target ve enemy arasındaki farkı return eder.
-        private Vector3 GetDirectionToTarget(int i) => (_target.position - EnemyAgents[i].transform.position).normalized;
-        
-        // Enemy'lerin yönlerini target'a ayarlar.
+        private Vector3 GetDirectionToTarget(int i) =>
+            (_target.position - EnemyAgents[i].transform.position).normalized;
+
         private void LookTarget(int i) => EnemyAgents[i].transform.LookAt(_target, Vector3.up);
     }
 }

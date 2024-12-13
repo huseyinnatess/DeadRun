@@ -14,20 +14,16 @@ namespace Manager
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        private GameObject _handel; // Oyundaki sağa sola giden el nesnesi
-        public static bool HandelIsActive; // Elin aktif olup olmadığını kontrol eder
+        private GameObject _handel;
+        public static bool HandelIsActive;
+        [SerializeField] private TextMeshProUGUI _sliderLevelText;
+        public List<GameObject> Heros;
+        public List<GameObject> HatSkins;
+        public List<GameObject> SwordSkins;
+        public List<GameObject> ArmorSkins;
+        private List<List<GameObject>> _herosSkins;
+        public static bool GameIsStart;
 
-        [SerializeField] private TextMeshProUGUI _sliderLevelText; // Game panel'deki level
-
-        public List<GameObject> Heros; // Karakterlerin tutulduğu liste
-        public List<GameObject> HatSkins; // Şapkaların listesi
-        public List<GameObject> SwordSkins; // Kılıçların listesi
-        public List<GameObject> ArmorSkins; // Zırhların listesi
-        private List<List<GameObject>> _herosSkins; // Tüm skinlerin tutulduğu çift boyutlu liste
-
-        public static bool GameIsStart; // Karakter koşmaya başlayarak oyun başladı mı? kontrolü.
-
-        
         #region Awake, Start, Get, Set Functions
 
         private void Awake()
@@ -71,8 +67,7 @@ namespace Manager
         }
 
         #endregion
-        
-        // Mevcut leveller bittiyse oyuncuya bilgi mesaıjı gösterir.
+
         public static void ShowComingSoonMessage()
         {
             if (PlayerPrefsData.GetInt("ComingSoonIsShow") != 1) return;
@@ -80,19 +75,11 @@ namespace Manager
             Warning.Instance.StartWriteInformation(true);
             PlayerPrefsData.SetInt("ComingSoonIsShow", 2);
         }
-        
-        // Update
-        /// <summary>
-        /// Parametre olarak gelen state göre handle aktifliğini ayarlar
-        /// </summary>
-        /// <param name="state"> Handle aktifliği için</param>
+
+
         public void ActivateHandle(bool state) => _handel.SetActive(state);
-
-        // Skin listelerini Initilaze eder
         private void InitializeSkins() => _herosSkins = new List<List<GameObject>> { HatSkins, SwordSkins, ArmorSkins };
-        
 
-        // Seçilen hero'yu aktif edip diğer heroları kapatır
         private void ActivateHero()
         {
             int activeHeroIndex = PlayerPrefsData.GetInt("ActiveHeroIndex");
@@ -102,7 +89,6 @@ namespace Manager
             }
         }
 
-        // Kuşanılmış olan skinleri aktif edip diğerlerini kapatır
         private void ActivateHeroSkins()
         {
             List<StoreInformations> informationList;
@@ -119,7 +105,6 @@ namespace Manager
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            // LevelPanelManager.Instance.PausePanel(!hasFocus);
         }
     }
 }

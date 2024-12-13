@@ -5,9 +5,9 @@ namespace Controller
 {
     public class CameraController : MonoBehaviour
     {
-        private Transform _target; // Kameranın takip edeceği hedef
-        private Vector3 _targetOffset; // Kamera ve target arasındaki takip mesafesi
-        private Vector3 _finishPosition; // Bitiş çizgisi geçildikten sonraki kamera pozisyonu
+        private Transform _target;
+        private Vector3 _targetOffset;
+        private Vector3 _finishPosition;
 
         #region Start, Get, Set Functions
 
@@ -21,6 +21,7 @@ namespace Controller
         {
             _target = CharacterControl.Instance.transform;
         }
+
         private void SetReferences()
         {
             _targetOffset = transform.position - _target.position;
@@ -31,12 +32,11 @@ namespace Controller
         #region LateUpdate, SetCameraPosition Functions
 
         private void LateUpdate()
-        { 
+        {
             SetCameraPosition();
         }
-        
-        // LateUpdate
-        // Target veya finish position'a göre oyun içerisinde kamera konumunu güncelliyor
+
+
         private void SetCameraPosition()
         {
             if (!EnemyController.IsCanAttack)
@@ -50,6 +50,5 @@ namespace Controller
         }
 
         #endregion
-       
     }
 }

@@ -7,8 +7,7 @@ namespace Controller.ObstacleController
 {
     public class SawController : MonoBehaviour
     {
-        private Animator _animator; // Testere'nin animatörü
-
+        private Animator _animator;
         private void Awake()
         {
             GetReferences();

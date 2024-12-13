@@ -1,4 +1,3 @@
-using System;
 using Manager.Audio.Utilities;
 using MonoSingleton;
 using UnityEngine;
@@ -8,8 +7,8 @@ namespace Manager.Audio
 {
     public class ButtonSoundsManager : MonoSingleton<ButtonSoundsManager>
     {
-        private Button[] _buttons; // Sahnedeki tüm butonların tutulduğu dizi.
-        private AudioSource _audioSource; // Butonlara eklenecek ses kaynağı.
+        private Button[] _buttons;
+        private AudioSource _audioSource;
 
         #region Awake, Start
 
@@ -27,16 +26,13 @@ namespace Manager.Audio
         }
 
         #endregion
-        
-        /// <summary>
-        /// Buton efektinin sesini Fx Slider'a göre ayarlar.
-        /// </summary>
+
+
         public void SetButtonFxVolume()
         {
             _audioSource.volume = AudioManager.GetFxSliderValue();
         }
-        
-        // Sahnedeki aktif ve pasif tüm butonları bulur.
+
         private void GetAllButtonsInScene()
         {
             _buttons = Resources.FindObjectsOfTypeAll<Button>();
@@ -45,8 +41,7 @@ namespace Manager.Audio
                 _buttons[i].onClick.AddListener(() => PlayButtonClickSound());
             }
         }
-        
-        // Buton click sesinin çalışmasını sağlar.
+
         private void PlayButtonClickSound()
         {
             _audioSource.Play();

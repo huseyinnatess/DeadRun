@@ -12,22 +12,18 @@ namespace Controller
 {
     public class CharacterControl : MonoSingleton<CharacterControl>
     {
-        private float _inputAxis; // Mouse hareketine göre karakterin gideceği yön
-        private float _characterSpeed; // Karakterin hızı
-
-        private bool _isCanRun; // Karakter koşmaya başladı mı?
-        private bool _isTouchingColumn; // Karakter numaralı panellerin columnlarına çarptı mı?
-        private bool _isTouchingLeftBorder; // Karakter zeminin sol sınırına çarptı mı?
-        private bool _isTouchingRightBorder; // Karakter zeminin sağ sınırına çarptı mı?
-
+        private float _inputAxis;
+        private float _characterSpeed;
+        private bool _isCanRun;
+        private bool _isTouchingColumn;
+        private bool _isTouchingLeftBorder;
+        private bool _isTouchingRightBorder;
         private Animator _animator;
 
         private NavMeshAgent _navMeshAgent;
-        private Transform _enemyTarget; // NavmeshAgent için hedef
-
-        [Header("NumbersPanel")] 
-        private char _sign; // Sayısal panelin işareti
-        private int _count; // Sayısal panelde işaretten sonra gelen sayı
+        private Transform _enemyTarget;
+        [Header("NumbersPanel")] private char _sign;
+        private int _count;
 
         #region Awake, Get, Set Functions
 
@@ -55,7 +51,7 @@ namespace Controller
         }
 
         #endregion
-        
+
         #region Update, FixedUpdate, LateUpdate
 
         private void FixedUpdate()
@@ -81,10 +77,10 @@ namespace Controller
             if (_enemyTarget is not null)
                 LookAtEnemy();
         }
+
         #endregion
-        
-        // Update
-        // Mouse tıklandığı zaman karakterin Run animasyonunu başlatıyor.
+
+
         private void SetRunAnimation()
         {
             _animator.SetTrigger("IsCanRun");
@@ -93,15 +89,13 @@ namespace Controller
             _isCanRun = true;
         }
 
-        // Update
-        // Karakterin koşarken sola kaymasını minimuma indiriyor.
+
         private void StabilizeForwardMovement(float speed)
         {
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
         }
 
-        // Update
-        // Karakterin Mouse yönüne bağlı olarak sağa sola gitmesini sağlıyor.
+
         private void SetInputAxis()
         {
             if (Input.GetKey(KeyCode.Mouse0))
@@ -111,6 +105,7 @@ namespace Controller
                     FxSounds.Instance.MoveSoundFx.Play();
                     _inputAxis = .1f;
                 }
+
                 if (Input.GetAxis("Mouse X") > 0 && _isTouchingRightBorder == false)
                 {
                     FxSounds.Instance.MoveSoundFx.Play();
@@ -121,12 +116,12 @@ namespace Controller
                 _inputAxis = 0f;
         }
 
-        // FixedUpdate
-        // Karakterin koşarken " _inputAxis'e" göre yönünü ayarlıyor.
+
         private void SetCharacterDirection(Vector3 target)
         {
             transform.position = Vector3.Lerp(target, new Vector3(target.x - _inputAxis, target.y, target.z), .3f);
         }
+
         #region OnTriggerEnter
 
         private void OnTriggerEnter(Collider other)
@@ -158,7 +153,6 @@ namespace Controller
 
         private void OnTriggerStay(Collider other)
         {
-            // Eğer oyunda sadece anakarakter kaldı ise ölme işlemini tetikliyor.
             if (AgentPools.Instance.AgentCount == 1 && (other.CompareTag("ThornBox") || other.CompareTag("Saw") ||
                                                         other.CompareTag("ThornWall") || other.CompareTag("Hammer")))
             {
@@ -169,7 +163,7 @@ namespace Controller
         }
 
         #endregion
-        
+
 
         #region OnCollision Functions
 
@@ -212,11 +206,9 @@ namespace Controller
             }
         }
 
-
         #endregion
-        
-        // LateUpdate
-        // Karakter bitiş çizgisini geçtiği zaman NavMesh Agent componenti enabled edilip target'ı ayarlanıyor.
+
+
         private void SetCharacterNavMesh()
         {
             _enemyTarget = EnemyController.Instance.GetActiveEnemy();
@@ -224,8 +216,7 @@ namespace Controller
             _navMeshAgent.SetDestination(_enemyTarget.position);
         }
 
-        // LateUpdate
-        // Karakter bitiş çizgisini geçtiği zaman enemy'e bakmasını sağlıyor.
+
         private void LookAtEnemy()
         {
             transform.LookAt(_enemyTarget.position, Vector3.up);

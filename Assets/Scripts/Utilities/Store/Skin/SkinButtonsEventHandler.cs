@@ -7,12 +7,6 @@ namespace Utilities.Store.Skin
 {
     public class SkinButtonsEventHandler : MonoBehaviour
     {
-        /// <summary>
-        /// Buton isimlerindeki ilk sayı item'ın Group'u
-        /// ikinci sayı ise index'i. Buna göre aktif edilecek
-        /// item belirleniyor.
-        /// </summary>
-        /// <param name="button">Inspector'de item butonu</param>
         public void GetButtonName(Button button)
         {
             string[] parts = button.name.Split(' ');

@@ -7,12 +7,12 @@ namespace Manager.Audio
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
-        private GameSounds _gameSounds; // Oyunun ana sesini tutan script.
-        private FxSounds _fxSounds; // Oyunun efekt seslerini tutan script.
-        private LevelPanelManager _levelPanelManager; // LevelPanelManager scripti.
-        private ButtonSoundsManager _buttonSoundsManager; // ButtonSoundsManager scripti.
-
+        private GameSounds _gameSounds;
+        private FxSounds _fxSounds;
+        private LevelPanelManager _levelPanelManager;
+        private ButtonSoundsManager _buttonSoundsManager;
         #region Start
+
         private void Start()
         {
             GetReferences();
@@ -25,13 +25,10 @@ namespace Manager.Audio
             _levelPanelManager = LevelPanelManager.Instance;
             _buttonSoundsManager = ButtonSoundsManager.Instance;
         }
+
         #endregion
 
 
-        /// <summary>
-        /// Ses ayarını kayıt eder.
-        /// </summary>
-        /// <param name="slider">Kaydedilecek Slider</param>
         public void SetSoundSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("SoundSlider", slider.value);
@@ -39,10 +36,7 @@ namespace Manager.Audio
             _levelPanelManager.UpdatePausePanelSliders();
         }
 
-        /// <summary>
-        /// Müzik ayarını kayıt eder.
-        /// </summary>
-        /// <param name="slider">Kaydedilecek Slider</param>
+
         public void SetFxSliderValue(Slider slider)
         {
             PlayerPrefsData.SetFloat("FxSlider", slider.value);
@@ -51,19 +45,13 @@ namespace Manager.Audio
             _levelPanelManager.UpdatePausePanelSliders();
         }
 
-        /// <summary>
-        /// Kayıt edilmiş ses ayarını return eder.
-        /// </summary>
-        /// <returns>Sound Slider'ın anlık value değeri.</returns>
+
         public static float GetSoundSliderValue()
         {
             return PlayerPrefsData.GetFloat("SoundSlider");
         }
 
-        /// <summary>
-        /// Kayıt edilmiş müzik ayarını return eder.
-        /// </summary>
-        /// <returns>Fx Slider'ın anlık value değeri.</returns>
+
         public static float GetFxSliderValue()
         {
             return PlayerPrefsData.GetFloat("FxSlider");

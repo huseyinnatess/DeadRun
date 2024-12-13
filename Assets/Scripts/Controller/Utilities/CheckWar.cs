@@ -6,9 +6,6 @@ namespace Controller.Utilities
 {
     public static class CheckWar
     {
-        /// <summary>
-        /// Savaş sonucunu kontrol eder.
-        /// </summary>
         public static void CheckWarResult()
         {
             if ((EnemyController.IsCanAttack &&
