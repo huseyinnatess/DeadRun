@@ -14,7 +14,7 @@ Oyunun temel özellikleri:
 - Basit ve eğlenceli oynanış
 - Hızlı ve akıcı mekanikler
 - Minimalist tasarım
-- 
+  
 ## **Oyun Özellikleri**
 - Hypercasual türünde koşu oyunu
 - Dinamik karakter kontrol sistemi
